@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Xamarin.Forms;
+
+namespace FrontendAbstraction {
+    public class BaseWindow {
+        #region Private Fields
+
+
+
+        #endregion
+
+        #region Protected fields and properties
+
+
+
+        #endregion
+
+        #region Public Properties
+
+
+
+        #endregion
+
+        #region Constructors and initialization
+
+
+
+        #endregion
+
+        #region Frontend/Backend call mechanics
+
+        #region Frontend call mechanics
+
+
+
+        #region Views management
+
+
+
+        #endregion
+
+        #endregion
+
+        #region Backend call mechanics
+
+
+
+        #endregion
+
+        #endregion
+
+        #region Private and Protected methods
+
+
+        #endregion
+
+        #region Public methods
+
+
+
+        #endregion
+    }
+}

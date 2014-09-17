@@ -1,0 +1,120 @@
+@import url("baseStyle.css");
+
+/*#main_body
+{
+    background-image: url(../img/bgMain.png);
+}
+
+a.btPlates
+{
+    background-image: url(../img/btPlates.png);
+    background-position: 0px 0px;
+}
+a.btPlates:hover, a.btPlates-sel
+{
+    background-image: url(../img/btPlates.png);
+    background-position: -242px 0px;
+}
+
+a.btAirports
+{
+    background-image: url(../img/btAirports.png);
+    background-position: 0px 0px;
+}
+a.btAirports:hover, a.btAirports-sel
+{
+    background-image: url(../img/btAirports.png);
+    background-position: -242px 0px;
+}
+
+a.btNavaids
+{
+    background-image: url(../img/btNavaids.png);
+    background-position: 0px 0px;
+}
+a.btNavaids:hover, a.btNavaids-sel
+{
+    background-image: url(../img/btNavaids.png);
+    background-position: -242px 0px;
+}
+
+a.btHelp
+{
+    background-image: url(../img/btHelp.png);
+    background-position: 0px 0px;
+}
+a.btHelp:hover, a.btHelp-sel
+{
+    background-image: url(../img/btHelp.png);
+    background-position: -242px 0px;
+}
+
+a.btUpdate
+{
+    background-image: url(../img/btUpdate.png);
+    background-position: 0px 0px;
+}
+a.btUpdate:hover, a.btUpdate-sel
+{
+    background-image: url(../img/btUpdate.png);
+    background-position: -242px 0px;
+}
+
+a.btExit
+{
+    background-image: url(../img/btExit.png);
+    background-position: 0px 0px;
+}
+a.btExit:hover, a.btExit-sel
+{
+    background-image: url(../img/btExit.png);
+    background-position: -242px 0px;
+}
+
+.search_text
+{
+   outline: none;
+}*/
+
+/*buttonizedLight
+a.buttonizedLight
+{
+    background-color:#feffff;
+    background-repeat:no-repeat;
+    background-position:center center;
+    border:1px solid #cae2ee;
+    color:#738087;
+    padding:3px;
+    font-family: Segoe UI, Helvetica, Arial, Sans-Serif;
+    font-size:11px;
+    line-height:17px;
+    font-weight:bold;
+    white-space:nowrap;
+    text-decoration:none;
+    cursor:pointer;
+    border-radius:3px 3px 3px 3px;
+}
+
+a.buttonizedLight:link, a.buttonizedLight:visited, a.buttonizedLight:active
+{
+    color:#738087 !important;
+}
+
+a.buttonizedLight:hover
+{
+    background-color:#fffc99 !important;
+    border:1px solid #f4be2a !important;
+}
+/*end of buttonizedLight* /
+
+.quickButtonSet
+{
+    background-color: #e5e5e5;
+    color: #0066ff;
+    text-align: center; /*font-weight:bold;* /
+    font-size: 11px;
+    cursor: pointer;
+    padding: 3px;
+    border: solid 1px #b0b0b0;
+}
+*/

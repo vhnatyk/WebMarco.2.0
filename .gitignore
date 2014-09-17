@@ -7,10 +7,7 @@
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
 [Dd]ebugPublic/
-[Rr]elease/
-x64/
 build/
 bld/
 [Bb]in/
@@ -36,7 +33,7 @@ dlldata.c
 *.meta
 *.obj
 *.pch
-*.pdb
+#*.pdb
 *.pgc
 *.pgd
 *.rsp
@@ -53,6 +50,7 @@ dlldata.c
 *.pidb
 *.svclog
 *.scc
+*vshost*
 
 # Chutzpah Test files
 _Chutzpah*

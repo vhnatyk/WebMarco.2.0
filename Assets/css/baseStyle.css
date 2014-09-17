@@ -1,0 +1,25 @@
+﻿/* File Created: December 5, 2012 */
+
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, "Nimbus Sans L" , sans-serif;
+}
+
+img
+{
+    border: 0px;
+}
+
+ul
+{
+    list-style: none;
+}
+
+html
+{
+    width: 100%;
+    height: 100%;
+}
+

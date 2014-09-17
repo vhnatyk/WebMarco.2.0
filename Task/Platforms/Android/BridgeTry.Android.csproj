@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F74BA73-371E-4501-B242-8286A87CC245}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BridgeTry</RootNamespace>
+    <AssemblyName>BridgeTry</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ANDROID</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;ANDROID</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Export" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\MainView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\..\..\Assets\db\master.db">
+      <Link>Assets\db\master.db</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\handpic.psd">
+      <Link>Assets\img\handpic.psd</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\iphone.psd">
+      <Link>Assets\img\iphone.psd</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\iphones.psd">
+      <Link>Assets\img\iphones.psd</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\BEBAS___-webfont.eot">
+      <Link>Assets\fonts\BEBAS___-webfont.eot</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\BEBAS___-webfont.ttf">
+      <Link>Assets\fonts\BEBAS___-webfont.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\BEBAS___-webfont.woff">
+      <Link>Assets\fonts\BEBAS___-webfont.woff</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\desyrel-webfont.eot">
+      <Link>Assets\fonts\desyrel-webfont.eot</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\desyrel-webfont.ttf">
+      <Link>Assets\fonts\desyrel-webfont.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\desyrel-webfont.woff">
+      <Link>Assets\fonts\desyrel-webfont.woff</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Jura-DemiBold.ttf">
+      <Link>Assets\fonts\Jura-DemiBold.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Jura-Light.ttf">
+      <Link>Assets\fonts\Jura-Light.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Jura-Medium.ttf">
+      <Link>Assets\fonts\Jura-Medium.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Jura-Regular.ttf">
+      <Link>Assets\fonts\Jura-Regular.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Lato-Black.ttf">
+      <Link>Assets\fonts\Lato-Black.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Lato-BlackItalic.ttf">
+      <Link>Assets\fonts\Lato-BlackItalic.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Lato-Bold.ttf">
+      <Link>Assets\fonts\Lato-Bold.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Lato-BoldItalic.ttf">
+      <Link>Assets\fonts\Lato-BoldItalic.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Lato-Hairline.ttf">
+      <Link>Assets\fonts\Lato-Hairline.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Lato-HairlineItalic.ttf">
+      <Link>Assets\fonts\Lato-HairlineItalic.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Lato-Italic.ttf">
+      <Link>Assets\fonts\Lato-Italic.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Lato-Light.ttf">
+      <Link>Assets\fonts\Lato-Light.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Lato-LightItalic.ttf">
+      <Link>Assets\fonts\Lato-LightItalic.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\Lato-Regular.ttf">
+      <Link>Assets\fonts\Lato-Regular.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.eot">
+      <Link>Assets\fonts\OpenSans-Regular-webfont.eot</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.ttf">
+      <Link>Assets\fonts\OpenSans-Regular-webfont.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.woff">
+      <Link>Assets\fonts\OpenSans-Regular-webfont.woff</Link>
+    </AndroidAsset>
+    <None Include="Resources\AboutResources.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Layout\Main.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\..\..\Assets\js\hammer.min.js">
+      <Link>Assets\js\hammer.min.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\jquery.jscrollpane.min.js">
+      <Link>Assets\js\jquery.jscrollpane.min.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\jquery.magnific-popup.js">
+      <Link>Assets\js\jquery.magnific-popup.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\jquery.min.js">
+      <Link>Assets\js\jquery.min.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\jquery.mousewheel.js">
+      <Link>Assets\js\jquery.mousewheel.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\jquery.tinyscrollbar.min.js">
+      <Link>Assets\js\jquery.tinyscrollbar.min.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\jquery.treeview.js">
+      <Link>Assets\js\jquery.treeview.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\jquery-1.9.1.js">
+      <Link>Assets\js\jquery-1.9.1.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\jquery-ui.js">
+      <Link>Assets\js\jquery-ui.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\jquery-ui.min.js">
+      <Link>Assets\js\jquery-ui.min.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\main.js">
+      <Link>Assets\js\main.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\modernizr.custom.28468.js">
+      <Link>Assets\js\modernizr.custom.28468.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\perfect-scrollbar.js">
+      <Link>Assets\js\perfect-scrollbar.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\responsiveCarousel.js">
+      <Link>Assets\js\responsiveCarousel.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\script.js">
+      <Link>Assets\js\script.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\spin.js">
+      <Link>Assets\js\spin.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\templateForView.js">
+      <Link>Assets\js\templateForView.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\bg.jpg">
+      <Link>Assets\img\bg.jpg</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\bgg.jpg">
+      <Link>Assets\img\bgg.jpg</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\bgo.jpg">
+      <Link>Assets\img\bgo.jpg</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\biphone.png">
+      <Link>Assets\img\biphone.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\bsprit.png">
+      <Link>Assets\img\bsprit.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\calender.png">
+      <Link>Assets\img\calender.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\gsprits.png">
+      <Link>Assets\img\gsprits.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\handpic.png">
+      <Link>Assets\img\handpic.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\handpicg.png">
+      <Link>Assets\img\handpicg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\handpico.png">
+      <Link>Assets\img\handpico.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\HTML5 Logo Badge.svg">
+      <Link>Assets\img\HTML5 Logo Badge.svg</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\HTML5CSS3Logos.svg">
+      <Link>Assets\img\HTML5CSS3Logos.svg</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\iphone.png">
+      <Link>Assets\img\iphone.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\iphoneg.png">
+      <Link>Assets\img\iphoneg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\iphonegs.png">
+      <Link>Assets\img\iphonegs.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\iphoneo.png">
+      <Link>Assets\img\iphoneo.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\iphoneos.png">
+      <Link>Assets\img\iphoneos.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\iphones.png">
+      <Link>Assets\img\iphones.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\osprits.png">
+      <Link>Assets\img\osprits.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\img\pricing-bg.png">
+      <Link>Assets\img\pricing-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\css\baseStyle.css">
+      <Link>Assets\css\baseStyle.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\css\blue.css">
+      <Link>Assets\css\blue.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\css\green.css">
+      <Link>Assets\css\green.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\css\jquery.treeview.css">
+      <Link>Assets\css\jquery.treeview.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\css\jquery-ui.css">
+      <Link>Assets\css\jquery-ui.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\css\main.css">
+      <Link>Assets\css\main.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\css\orange.css">
+      <Link>Assets\css\orange.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\css\perfect-scrollbar.css">
+      <Link>Assets\css\perfect-scrollbar.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\css\style.css">
+      <Link>Assets\css\style.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\css\tinyscrollbar.css">
+      <Link>Assets\css\tinyscrollbar.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\OFL.txt">
+      <Link>Assets\fonts\OFL.txt</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.svg">
+      <Link>Assets\fonts\OpenSans-Regular-webfont.svg</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\html\Pages\MainPage.htm">
+      <Link>Assets\html\Pages\MainPage.htm</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\css\Pages\MainPage.css">
+      <Link>Assets\css\Pages\MainPage.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\Assets\js\Pages\MainPage.js">
+      <Link>Assets\js\Pages\MainPage.js</Link>
+    </AndroidAsset>
+    <Content Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.PCL.csproj">
+      <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>
+      <Name>Vici.CoolStorage.PCL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Backend.App\WebMarco.Backend.App.Android.csproj">
+      <Project>{804afee2-8e2f-4bb4-bf96-b07ddbabf638}</Project>
+      <Name>WebMarco.Backend.App.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.Android.csproj">
+      <Project>{974e3e92-ef72-4093-8c55-4840e20ae7b7}</Project>
+      <Name>WebMarco.Backend.Bridge.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Backend\Core\BridgeTry.Backend.Core.Android.csproj">
+      <Project>{e708f8cf-4ee3-48d8-a303-4dfbb5276038}</Project>
+      <Name>BridgeTry.Backend.Core.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Frontend\WebMarco.Frontend.Android.csproj">
+      <Project>{d1bc2c03-ffe8-4ae4-8392-4b7ce4ed40aa}</Project>
+      <Name>WebMarco.Frontend.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Utilities\WebMarco.Utilities.Android.csproj">
+      <Project>{cbc069ab-2d54-4206-a210-233d6d21e50d}</Project>
+      <Name>WebMarco.Utilities.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Frontend\BridgeTry.Frontend\BridgeTry.Frontend.Android.csproj">
+      <Project>{ddfa8b03-a3b8-418e-96cc-48247b3a4f7c}</Project>
+      <Name>BridgeTry.Frontend.Android</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

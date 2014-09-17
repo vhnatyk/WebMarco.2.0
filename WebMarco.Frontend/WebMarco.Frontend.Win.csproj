@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{361B0319-5EF6-40B6-8003-CEC86D08DC6F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebMarco.Frontend</RootNamespace>
+    <AssemblyName>WebMarco.Frontend.Win</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;WIN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;WIN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CefSharp">
+      <HintPath>..\..\CefSharpTest\Binary\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core">
+      <HintPath>..\..\CefSharpTest\Binary\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Example">
+      <HintPath>..\..\CefSharpTest\Binary\CefSharp.Example.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms">
+      <HintPath>..\..\CefSharpTest\Binary\CefSharp.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BaseViewImplementer.cs" />
+    <Compile Include="Common\BaseWebViewImplementer.cs" />
+    <Compile Include="Common\BaseWindowImplementer.cs" />
+    <Compile Include="Common\Helpers\HtmlUiHelper.cs" />
+    <Compile Include="Common\IBaseView.cs" />
+    <Compile Include="Common\BaseWebPage.cs" />
+    <Compile Include="Common\IBaseWebView.cs" />
+    <Compile Include="Common\IBaseWindow.cs" />
+    <Compile Include="Common\Point.cs" />
+    <Compile Include="Common\ViewsHolder.cs" />
+    <Compile Include="PlatformImplemented\Win\BaseView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlatformImplemented\Win\BaseViewImplementer.cs" />
+    <Compile Include="PlatformImplemented\Win\BaseWebView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PlatformImplemented\Win\BaseWebViewImplementer.cs" />
+    <Compile Include="PlatformImplemented\Win\BaseWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlatformImplemented\Win\BaseWindowImplementer.cs" />
+    <Compile Include="PlatformImplemented\Win\MainWebView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PlatformImplemented\Win\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebMarco.Backend.App\WebMarco.Backend.App.Win.csproj">
+      <Project>{b92eddc6-d699-4495-8f0d-7d5dfe6a3211}</Project>
+      <Name>WebMarco.Backend.App.Win</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.Win.csproj">
+      <Project>{753f0c33-6dca-4196-9fa2-d14cf22ed15c}</Project>
+      <Name>WebMarco.Backend.Bridge.Win</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebMarco.Utilities\WebMarco.Utilities.Win.csproj">
+      <Project>{78cdad65-f1c2-4ab3-b2c9-66bb422c3062}</Project>
+      <Name>WebMarco.Utilities.Win</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

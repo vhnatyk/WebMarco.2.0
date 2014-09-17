@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B92EDDC6-D699-4495-8F0D-7D5DFE6A3211}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebMarco.Backend.App</RootNamespace>
+    <AssemblyName>WebMarco.Backend.App.Win</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;WIN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;WIN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AppHelper.Data.cs" />
+    <Compile Include="Common\AppHelper.Paths.cs" />
+    <Compile Include="Common\BaseAppDelegate.cs" />
+    <Compile Include="PlatformImplemented\AppHelper.Data.Manager.Win.cs" />
+    <Compile Include="PlatformImplemented\BaseAppDelegate.Win.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Repos\GitHub\Vici\coolstorage\drivers\sqlite\Vici.CoolStorage.SQLite.csproj">
+      <Project>{796286c2-cbbb-40f8-94a7-cfad35de1508}</Project>
+      <Name>Vici.CoolStorage.SQLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.NET.csproj">
+      <Project>{cacf1024-ec84-4601-a4f7-4203320870dc}</Project>
+      <Name>Vici.CoolStorage.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.Win.csproj">
+      <Project>{753f0c33-6dca-4196-9fa2-d14cf22ed15c}</Project>
+      <Name>WebMarco.Backend.Bridge.Win</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebMarco.Utilities\WebMarco.Utilities.Win.csproj">
+      <Project>{78cdad65-f1c2-4ab3-b2c9-66bb422c3062}</Project>
+      <Name>WebMarco.Utilities.Win</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

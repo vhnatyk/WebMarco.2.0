@@ -1,0 +1,485 @@
+/* Messi CSS */
+
+.messi-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000;
+  opacity: 0;
+}
+
+.messi {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  text-shadow: none;
+}
+
+.messi-box {
+  position: relative;
+  width: 500px;
+  height: auto;
+  padding: 8px;
+  overflow: hidden;
+  background-color: rgba(204, 204, 204, 0.6);
+  border-radius: 6px;
+  opacity: 1;
+  box-shadow: 0 0 1em #444;
+}
+
+.messi-wrapper {
+  position: relative;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.messi-titlebox {
+  padding: 2px;
+  overflow: hidden;
+  font: 0.8em bold helvetica, arial;
+  color: #fff;
+  text-shadow: 0 -2px 1px rgba(0, 0, 0, 0.25);
+  background-color: #3b3b3b;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.25, #3b3b3b), color-stop(0.75, #575757));
+  background-image: linear-gradient(bottom, #3b3b3b 25%, #575757 75%);
+  background-image: -moz-linear-gradient(bottom, #3b3b3b 25%, #575757 75%);
+  background-image: -o-linear-gradient(bottom, #3b3b3b 25%, #575757 75%);
+  background-image: -webkit-linear-gradient(bottom, #3b3b3b 25%, #575757 75%);
+  background-image: -ms-linear-gradient(bottom, #3b3b3b 25%, #575757 75%);
+  -webkit-border-radius: 5px 5px 0 0px;
+          border-radius: 5px 5px 0 0px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 5px;
+}
+
+.messi-titlebox.info {
+  background-color: #4ea5cd;
+  background-image: none;
+}
+
+.messi-titlebox.error {
+  background-color: #de4343;
+  background-image: none;
+}
+
+.messi-titlebox.warning {
+  background-color: #eaaf51;
+  background-image: none;
+}
+
+.messi-titlebox.success {
+  background-color: #61b832;
+  background-image: none;
+}
+
+.messi-closebtn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  color: #333;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}
+
+.messi-closebtn::before {
+  position: relative;
+  top: -3px;
+  display: block;
+  width: 10px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  content: '\00D7';
+}
+
+.messi-content {
+  padding: 10px;
+  overflow: hidden;
+  font: .9em normal helvetica, arial;
+}
+
+.messi-content p {
+  margin: 0 0 1.3em;
+  line-height: 1.3em;
+}
+
+.messi-content .messi-closebtn {
+  top: 4px;
+  font: 0.8em bold helvetica, arial;
+  color: #fff;
+  background-color: #333;
+  opacity: 0;
+  -webkit-transition: opacity .25s linear, visibility .1s linear .5s;
+     -moz-transition: opacity .25s linear, visibility .1s linear .5s;
+       -o-transition: opacity .25s linear, visibility .1s linear .5s;
+          transition: opacity .25s linear, visibility .1s linear .5s;
+}
+
+.messi-content:hover .messi-closebtn {
+  opacity: 1;
+}
+
+.messi-footbox {
+  width: 100%;
+  height: 55px;
+  overflow: hidden;
+}
+
+.messi-actions {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  padding-top: 8px;
+  margin: 0 10px;
+  border-top: 1px solid #eee;
+  -webkit-box-orient: horizontal;
+     -moz-box-orient: horizontal;
+          box-orient: horizontal;
+}
+
+.messi-actions .btnbox {
+  text-align: center;
+  -webkit-box-flex: 1;
+     -moz-box-flex: 1;
+          box-flex: 1;
+}
+
+.messi-actions .btnbox .btn {
+  min-width: 75px;
+}
+
+.messi-titlebox.anim {
+  background-color: #666;
+  background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0.25, rgba(255, 255, 255, 0.05)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.05)), color-stop(0.75, rgba(255, 255, 255, 0.05)), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  -webkit-background-size: 40px 40px;
+     -moz-background-size: 40px 40px;
+          background-size: 40px 40px;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+     -moz-box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+          box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+  -webkit-animation: animate-bg 5s linear infinite;
+     -moz-animation: animate-bg 5s linear infinite;
+}
+
+.messi-titlebox.anim.info {
+  background-color: #4ea5cd;
+}
+
+.messi-titlebox.anim.error {
+  background-color: #de4343;
+}
+
+.messi-titlebox.anim.warning {
+  background-color: #eaaf51;
+}
+
+.messi-titlebox.anim.success {
+  background-color: #61b832;
+}
+
+@-webkit-keyframes animate-bg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -80px 0;
+  }
+}
+
+@-moz-keyframes animate-bg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -80px 0;
+  }
+}
+
+/* CSS Buttons from Twitter Bootstrap: http://twitter.github.com/bootstrap/ */
+
+.messi .btn {
+  display: inline-block;
+  border-left: 0 none #e6e6e6;
+    border-right: 0 none #e6e6e6;
+    border-top: 0 none #e6e6e6;
+    border-bottom: 0 none #b3b3b3;
+    display: inline;
+    padding: 4px 10px 4px;
+    margin-bottom: 0;
+  margin-left: .3em;
+    font-size: 13px;
+    line-height: 26px;
+    color: #333;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    cursor: pointer;  
+  background-color: #e6e6e6;
+    background-repeat: repeat-x;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+    zoom: 1;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+}
+
+.messi .btn:hover,
+.messi .btn:active,
+.messi .btn.active,
+.messi .btn.disabled,
+.messi .btn[disabled] { 
+  background-color: #d9d9d9;
+}
+
+.messi .btn:active,
+.messi .btn.active {
+  background-color: #cccccc \9;
+}
+
+.messi .btn:first-child {
+  *margin-left: 0;
+}
+
+.messi .btn:hover {
+  color: #333333;
+  text-decoration: none;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+     -moz-transition: background-position 0.1s linear;
+      -ms-transition: background-position 0.1s linear;
+       -o-transition: background-position 0.1s linear;
+          transition: background-position 0.1s linear;
+}
+
+.messi .btn:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+.messi .btn.active,
+.messi .btn:active {
+  background-color: #e6e6e6;
+  background-color: #d9d9d9 \9;
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.messi .btn-primary,
+.messi .btn-primary:hover,
+.messi .btn-warning,
+.messi .btn-warning:hover,
+.messi .btn-danger,
+.messi .btn-danger:hover,
+.messi .btn-success,
+.messi .btn-success:hover,
+.messi .btn-info,
+.messi .btn-info:hover,
+.messi .btn-inverse,
+.messi .btn-inverse:hover {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.messi .btn-primary.active,
+.messi .btn-warning.active,
+.messi .btn-danger.active,
+.messi .btn-success.active,
+.messi .btn-info.active,
+.messi .btn-inverse.active {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.messi .btn {
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+.messi .btn-primary {
+  background-color: #0074cc;
+  *background-color: #0055cc;
+  background-repeat: repeat-x;
+    background-image: linear-gradient(top, #0088cc, #0055cc);
+    border-left-color: #0055cc;
+    border-right-color: #0055cc;
+    border-top-color: #0055cc;
+    border-bottom-color: #003580;
+}
+
+.messi .btn-primary:hover,
+.messi .btn-primary:active,
+.messi .btn-primary.active,
+.messi .btn-primary.disabled,
+.messi .btn-primary[disabled] {
+  background-color: #0055cc;
+  *background-color: #004ab3;
+}
+
+.messi .btn-primary:active,
+.messi .btn-primary.active {
+  background-color: #004099 \9;
+}
+
+.messi .btn-warning {
+  background-color: #faa732;
+  *background-color: #f89406;
+  background-repeat: repeat-x;
+    background-image: linear-gradient(top, #fbb450, #f89406);
+    border-left-color: #f89406;
+    border-right-color: #f89406;
+    border-top-color: #f89406;
+    border-bottom-color: #ad6704;
+}
+
+.messi .btn-warning:hover,
+.messi .btn-warning:active,
+.messi .btn-warning.active,
+.messi .btn-warning.disabled,
+.messi .btn-warning[disabled] {
+  background-color: #f89406;
+  *background-color: #df8505;
+}
+
+.messi .btn-warning:active,
+.messi .btn-warning.active {
+  background-color: #c67605 \9;
+}
+
+.messi .btn-danger {
+  background-color: #da4f49;
+  *background-color: #bd362f;
+  background-repeat: repeat-x;
+    background-image: linear-gradient(top, #ee5f5b, #bd362f);
+    border-left-color: #bd362f;
+    border-right-color: #bd362f;
+    border-top-color: #bd362f;
+    border-bottom-color: #802420;
+}
+
+.messi .btn-danger:hover,
+.messi .btn-danger:active,
+.messi .btn-danger.active,
+.messi .btn-danger.disabled,
+.messi .btn-danger[disabled] {
+  background-color: #bd362f;
+  *background-color: #a9302a;
+}
+
+.messi .btn-danger:active,
+.messi .btn-danger.active {
+  background-color: #942a25 \9;
+}
+
+.messi .btn-success {
+  background-color: #5bb75b;
+  *background-color: #51a351;
+  background-repeat: repeat-x;
+    background-image: linear-gradient(top, #62c462, #51a351);
+    border-left-color: #51a351;
+    border-right-color: #51a351;
+    border-top-color: #51a351;
+    border-bottom-color: #387038;
+}
+
+.messi .btn-success:hover,
+.messi .btn-success:active,
+.messi .btn-success.active,
+.messi .btn-success.disabled,
+.messi .btn-success[disabled] {
+  background-color: #51a351;
+  *background-color: #499249;
+}
+
+.messi .btn-success:active,
+.messi .btn-success.active {
+  background-color: #408140 \9;
+}
+
+.messi .btn-info {
+  background-color: #49afcd;
+  *background-color: #2f96b4;
+  background-repeat: repeat-x;
+    background-image: linear-gradient(top, #5bc0de, #2f96b4);
+    border-left-color: #2f96b4;
+    border-right-color: #2f96b4;
+    border-top-color: #2f96b4;
+    border-bottom-color: #1f6377;
+}
+
+.messi .btn-info:hover,
+.messi .btn-info:active,
+.messi .btn-info.active,
+.messi .btn-info.disabled,
+.messi .btn-info[disabled] {
+  background-color: #2f96b4;
+  *background-color: #2a85a0;
+}
+
+.messi .btn-info:active,
+.messi .btn-info.active {
+  background-color: #24748c \9;
+}
+
+.messi .btn-inverse {
+  background-color: #414141;
+  *background-color: #222222;
+  background-repeat: repeat-x;
+    background-image: linear-gradient(top, #555555, #222222);
+    border-left-color: #222222;
+    border-right-color: #222222;
+    border-top-color: #222222;
+    border-bottom-color: #000000;
+}
+
+.messi .btn-inverse:hover,
+.messi .btn-inverse:active,
+.messi .btn-inverse.active,
+.messi .btn-inverse.disabled,
+.messi .btn-inverse[disabled] {
+  background-color: #222222;
+  *background-color: #151515;
+}
+
+.messi .btn-inverse:active,
+.messi .btn-inverse.active {
+  background-color: #080808 \9;
+}
+
+button.messi .btn,
+input[type="submit"].messi .btn {
+  *padding-top: 2px;
+  *padding-bottom: 2px;
+}
+
+.messi button {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+button.messi .btn::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
