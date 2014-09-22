@@ -1,35 +1,32 @@
 ﻿
+using MonoTouch.UIKit;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Windows.Forms;
 using WebMarco.Frontend.Common;
 
-namespace WebMarco.Frontend.PlatformImplemented.Win {
-    public class BaseView : UserControl, IBaseView {
+namespace WebMarco.Frontend.PlatformImplemented.iOS {
+    public class BaseView : UIView, IBaseView {
 
         private IBaseWindow parentWindow = null;
         public BaseView(IBaseWindow window)
             : base() {
             parentWindow = window;
             implementer = TinyIoC.TinyIoCContainer.Current.Resolve<BaseViewImplementer>();//TODO: ???
-            base.Load += (sender, args) => {
-                this.Load();
-            };
         }
 
         readonly BaseViewImplementer implementer;
 
         public Point TopLeft {
             get {
-                return new Point((double)this.Left, (double)this.Top);
+                return new Point((double)(this.Frame.Left), (double)(this.Frame.Top));
             }
             set {
                 throw new NotImplementedException();
             }
         }
 
-        public Point Center {
+        public new Point Center {
             get {
                 throw new NotImplementedException();
             }
@@ -38,18 +35,18 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
             }
         }
 
-        public new double Width {
+        public double Width {
             get {
-                return (double)this.Width;
+                return (double)(this.Frame.Width);
             }
             set {
                 throw new NotImplementedException();
             }
         }
 
-        public new double Height {
+        public double Height {
             get {
-                return (double)this.Height;
+                return (double)(this.Frame.Height);
             }
             set {
                 throw new NotImplementedException();
@@ -65,6 +62,14 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
             }
         }
 
+        public BaseRectangle CurrentFrame {
+            get {
+                return Rectangle.GetBaseWithRectangleF(Frame);
+            }
+            set {
+                Frame = Rectangle.GetRectangleF(value);
+            }
+        }
 
         public IBaseWindow ParentWindow {
             get { throw new NotImplementedException(); }
@@ -80,42 +85,32 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
             get { throw new NotImplementedException(); }
         }
 
-        //public bool Visible {
-        //    get {
-        //        throw new NotImplementedException();
-        //    }
-        //    set {
-        //        throw new NotImplementedException();
-        //    }
-        //}
-
-        public new void Load() {
-            //TODO: oh well...
-            ///good place for some basic load routines like 
-            ///adding this to parent window loaded views list etc, I guess
-        }
-
-
-        //public void Show() {
-        //    throw new NotImplementedException();
-        //}
-
-        //public void Hide() {
-        //    throw new NotImplementedException();
-        //}
-
-        public void AddSubview(IBaseView view) {
-            throw new NotImplementedException();
-        }
-
-
-        public BaseRectangle CurrentFrame {
+        public bool Visible {
             get {
                 throw new NotImplementedException();
             }
             set {
                 throw new NotImplementedException();
             }
+        }
+
+        public void Load() {
+            //TODO: oh well...
+            ///good place for some basic load routines like 
+            ///adding this to parent window loaded views list etc, I guess
+        }
+
+
+        public void Show() {
+            throw new NotImplementedException();
+        }
+
+        public void Hide() {
+            throw new NotImplementedException();
+        }
+
+        public void AddSubview(IBaseView view) {
+            throw new NotImplementedException();
         }
     }
 }

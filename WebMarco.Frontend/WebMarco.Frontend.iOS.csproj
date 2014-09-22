@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{080E3D4F-0C91-46DE-8BD9-5CBC2222424B}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WebMarco.Frontend</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>WebMarco.Frontend.iOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;iOS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DefineConstants>iOS</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Common\BaseRectangle.cs" />
+    <Compile Include="Common\BaseViewImplementer.cs" />
+    <Compile Include="Common\BaseWebPage.cs" />
+    <Compile Include="Common\BaseWebViewImplementer.cs" />
+    <Compile Include="Common\BaseWindowImplementer.cs" />
+    <Compile Include="Common\Helpers\HtmlUiHelper.cs" />
+    <Compile Include="Common\IBaseView.cs" />
+    <Compile Include="Common\IBaseWebView.cs" />
+    <Compile Include="Common\IBaseWindow.cs" />
+    <Compile Include="Common\Point.cs" />
+    <Compile Include="Common\ViewsHolder.cs" />
+    <Compile Include="PlatformImplemented\iOS\BaseView.cs" />
+    <Compile Include="PlatformImplemented\iOS\BaseViewImplementer.cs" />
+    <Compile Include="PlatformImplemented\iOS\BaseWebView.cs" />
+    <Compile Include="PlatformImplemented\iOS\BaseWebViewImplementer.cs" />
+    <Compile Include="PlatformImplemented\iOS\BaseWindow.cs" />
+    <Compile Include="PlatformImplemented\iOS\BaseWindowImplementer.cs" />
+    <Compile Include="PlatformImplemented\iOS\MainWebView.cs" />
+    <Compile Include="PlatformImplemented\iOS\MainWindow.cs" />
+    <Compile Include="PlatformImplemented\iOS\Rectangle.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Task\Backend\Core\BridgeTry.Backend.Core.iOS.csproj">
+      <Project>{7e9740c4-6833-4ad0-9d44-bcc10c5254ef}</Project>
+      <Name>BridgeTry.Backend.Core.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebMarco.Backend.App\WebMarco.Backend.App.iOS.csproj">
+      <Project>{4f886a8b-7c4a-4bc8-8d4f-de4bb23cd156}</Project>
+      <Name>WebMarco.Backend.App.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.iOS.csproj">
+      <Project>{75b9764d-399c-4a5c-8253-b19fb09bcf47}</Project>
+      <Name>WebMarco.Backend.Bridge.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebMarco.Utilities\WebMarco.Utilities.iOS.csproj">
+      <Project>{2909bb02-2087-4ff6-8c18-73092a0c1021}</Project>
+      <Name>WebMarco.Utilities.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+</Project>

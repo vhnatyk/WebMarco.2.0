@@ -1,14 +1,17 @@
-﻿using Android.App;
+﻿
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WebMarco.Backend.App.PlatformImplemented.iOS;
 using WebMarco.Backend.Bridge.Common;
 using WebMarco.Frontend;
 using WebMarco.Frontend.Common;
 
-namespace WebMarco.Frontend.PlatformImplemented.Android {
-    public class BaseWindow : Activity, IBaseWindow {
+namespace WebMarco.Frontend.PlatformImplemented.iOS {
+    public abstract class BaseWindow : UIWindow, IBaseWindow {
 
         #region Private Fields
 
@@ -32,7 +35,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
         #endregion
 
         #region Public Properties
-        
+
         public IBaseView TopView {
             get {
                 return MainView.LoadedViews.TopView;
@@ -51,18 +54,35 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
             }
         }
 
+
+        public Rectangle CurrentFrame {
+            get { throw new NotImplementedException(); }
+        }
+
         #endregion
 
         #region Constructors and initialization
 
+        public BaseWindow()
+            : base() {
 
+        }
+
+        public BaseWindow(Rectangle frame) :
+            base(new System.Drawing.RectangleF(
+                (float)(frame.TopLeft.X),
+                (float)(frame.TopLeft.Y),
+                (float)(frame.Width),
+                (float)(frame.Height))) {
+
+        }
 
         #endregion
 
         #region Frontend/Backend call mechanics
 
         #region Frontend call mechanics
-        
+
         public object CallFrontend(string script) {
             return implementer.CallFrontend(script);
         }
@@ -92,15 +112,16 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
         #endregion
 
         #region Public methods
-        
+
         public void ExecuteOnMainThread(Action action) {
-            implementer.ExecuteOnMainThread(action);
+            InvokeOnMainThread(new NSAction(() => { action.Invoke(); }));
+            //or can be 
+            //BaseAppDelegate.Instance.ExecuteOnMainThread(action);
         }
 
         #endregion
-
-         public BaseRectangle CurrentFrame { //TODO: implement, is readonly or privat setter needed
-            get { throw new NotImplementedException(); }
+        BaseRectangle IBaseWindow.CurrentFrame {
+            get { return new iOS.Rectangle(this.Frame);}
         }
     }
 }

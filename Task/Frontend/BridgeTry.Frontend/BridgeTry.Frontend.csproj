@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{012A9D5A-E2BD-4133-910F-56975DBE48DE}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BridgeTry.Frontend</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>BridgeTry.Frontend</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;iOS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DefineConstants>iOS</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Common\Pages\MainPage.cs" />
+    <Compile Include="Common\Views\MainView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.PCL.csproj">
+      <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>
+      <Name>Vici.CoolStorage.PCL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.iOS.csproj">
+      <Project>{75b9764d-399c-4a5c-8253-b19fb09bcf47}</Project>
+      <Name>WebMarco.Backend.Bridge.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Frontend\WebMarco.Frontend.iOS.csproj">
+      <Project>{080e3d4f-0c91-46de-8bd9-5cbc2222424b}</Project>
+      <Name>WebMarco.Frontend.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Utilities\WebMarco.Utilities.iOS.csproj">
+      <Project>{2909bb02-2087-4ff6-8c18-73092a0c1021}</Project>
+      <Name>WebMarco.Utilities.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Backend\Core\BridgeTry.Backend.Core.iOS.csproj">
+      <Project>{7e9740c4-6833-4ad0-9d44-bcc10c5254ef}</Project>
+      <Name>BridgeTry.Backend.Core.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+</Project>

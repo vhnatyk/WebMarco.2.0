@@ -211,6 +211,18 @@ namespace WebMarco.Utilities {
                     Path.Combine(pathComponent1, pathComponent2)
                     : Path.Combine(pathComponent1, pathComponent2, pathComponent3));
             }
+
+            public static class UrlUtils {
+#if iOS
+                public static MonoTouch.Foundation.NSUrl GetNSUrlFromUri(Uri uri) {
+                    try {
+                        return new MonoTouch.Foundation.NSUrl(uri.GetComponents(UriComponents.HttpRequestUrl, UriFormat.UriEscaped));
+                    } catch {
+                        return new MonoTouch.Foundation.NSUrl(uri.GetComponents(UriComponents.Path, UriFormat.UriEscaped));
+                    }
+                }
+#endif
+            }
         }
     }
 

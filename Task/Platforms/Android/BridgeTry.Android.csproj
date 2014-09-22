@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BridgeTry</RootNamespace>
-    <AssemblyName>BridgeTry</AssemblyName>
+    <AssemblyName>BridgeTry.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
@@ -306,7 +306,9 @@
     </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Pages\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.PCL.csproj">
       <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>

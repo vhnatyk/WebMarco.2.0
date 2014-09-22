@@ -10,13 +10,14 @@ using WebMarco.Frontend;
 using WebMarco.Utilities.Logging;
 using WebMarco.Backend.Bridge.Common;
 using WebMarco.Backend.App.Common;
-using System.Windows.Forms;
-using CefSharp.WinForms;
+using MonoTouch.UIKit;
+using MonoTouch.Foundation;
+using WebMarco.Utilities.Paths;
 
-namespace WebMarco.Frontend.PlatformImplemented.Win {
+namespace WebMarco.Frontend.PlatformImplemented.iOS {
 
 
-    public abstract class BaseWebView : ChromiumWebBrowser, IBaseWebView {
+    public abstract class BaseWebView : UIWebView, IBaseWebView {
 
         #region Private methods
 
@@ -26,30 +27,19 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
 
         private BaseWebViewImplementer implementer;
 
-        //public BaseWebView(IBaseWindow window)
-        //    : base("about:blank") {
-        //    parentWindow = window;
-        //    implementer = new BaseWebViewImplementer(this);
-        //}
 
-        public BaseWebView(IBaseWindow window, BaseWebPage defaultPage)
-            : base(defaultPage.Url.ToString()) {
+        public BaseWebView(IBaseWindow window, BaseWebPage defaultPage, bool bouncingEnabled = false)
+            : base()//window.Frame) 
+        {
             Page = defaultPage;
             parentWindow = window;
             implementer = new BaseWebViewImplementer(this);
+            ScrollView.Bounces = bouncingEnabled;
         }
 
         #region Hide base properties
 
-        protected new System.Drawing.Point Location {
-            get {
-                return base.Location;
-            }
 
-            set {
-                base.Location = value;
-            }
-        }
 
         #endregion
 
@@ -73,7 +63,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
 
         public virtual Uri ViewUrl {
             get {
-                return (Page == null)? new Uri(this.Address) : Page.Url;
+                return (Page == null)? new Uri(this.Request.Url.ToString()) : Page.Url;
             }
         }
 
@@ -88,11 +78,16 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
         #endregion
 
         public void LoadMarkup(string markup) {
-            base.LoadHtml(markup, string.Empty);//TODO: why url is empty
+            base.LoadHtmlString(markup, new NSUrl(string.Empty));//TODO: why url is empty
         }
 
         public void LoadMarkup(Uri url) {
-            base.Load(url.ToString()); //TODO: sort of not working on load !??
+            NSUrl nsUrl = NSUrl.FromString(url.ToString());
+            if (nsUrl == null) {
+               nsUrl = NSUrl.FromFilename(url.LocalPath);    
+            }
+           
+            base.LoadRequest(new NSUrlRequest(nsUrl));
         }
 
         public void LoadMarkup() {
@@ -106,7 +101,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
 
         public object CallFrontend(string script) {
             object result = null;
-            BaseAppDelegate.Instance.ExecuteOnMainThread(() => result = this.EvaluateScript(script));
+            BaseAppDelegate.Instance.ExecuteOnMainThread(() => result = this.EvaluateJavascript(script));
             return (result != null) ? result.ToString() : result;
         }
 
@@ -120,14 +115,14 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
 
         public Point TopLeft {
             get {
-                return new Point(Location.X, Location.Y);
+                return new Point(Frame.X, Frame.Y);
             }
             set {
-                Location = new System.Drawing.Point((int)(value.X), (int)(value.Y));
+                Frame = new System.Drawing.RectangleF((float)(value.X), (float)(value.Y), Frame.Width, Frame.Height);
             }
         }
 
-        public Point Center {
+        public new Point Center {
             get {
                 return implementer.Center;
             }
@@ -136,7 +131,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
             }
         }
 
-        public new double Width {
+        public double Width {
             get {
                 return implementer.Width;
             }
@@ -145,7 +140,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
             }
         }
 
-        public new double Height {
+        public double Height {
             get {
                 return implementer.Height;
             }
@@ -165,28 +160,32 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
 
         public bool IsModal { get; protected set; }
 
-        /// <summary>
-        /// These props and methods duplicate inherited stuff, so 
-        /// don't have to be implemented in order to comply with IBaseView 
-        /// </summary>
-        /*
-                public new bool Visible {
-                    get {
-                        return base.Visible;
-                    }
-                    set {
-                        base.Visible = value;
-                    }
-                }
 
-                public new void Show() {
-                    base.Show();
-                }
+        public bool Visible {
+            get {
+                throw new NotImplementedException();
+            }
+            set {
+                throw new NotImplementedException();
+            }
+        }
 
-                public new void Hide() {
-                    base.Hide();
-                }
-         */
+        public BaseRectangle CurrentFrame {
+            get {
+                return new Rectangle(Frame, this);
+            }
+            set {
+                Frame = Rectangle.GetRectangleF(value);
+            }
+        }
+
+        public void Show() {
+            throw new NotImplementedException();
+        }
+
+        public void Hide() {
+            throw new NotImplementedException();
+        }
 
         public ViewsHolder LoadedViews {
             get { return implementer.LoadedViews; }
@@ -207,15 +206,5 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
         }
 
         #endregion
-
-
-        public BaseRectangle CurrentFrame {
-            get {
-                throw new NotImplementedException();
-            }
-            set {
-                throw new NotImplementedException();
-            }
-        }
     }
 }

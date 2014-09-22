@@ -8,5 +8,14 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
         public override void Load() {
             throw new NotImplementedException();
         }
+
+        protected override Common.IBaseView View {
+            get {
+                throw new NotImplementedException();
+            }
+            set {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

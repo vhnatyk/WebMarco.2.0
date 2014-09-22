@@ -18,8 +18,10 @@ using System.Globalization;
 using WebMarco.Frontend.PlatformImplemented.Android;
 #elif WIN
 using WebMarco.Frontend.PlatformImplemented.Win;
+#elif iOS
+using WebMarco.Frontend.PlatformImplemented.iOS;
 #else 
-/// ...
+  ///
 #endif
 using WebMarco.Frontend.Common;
 using BridgeTry.Backend.Core.Model.Entities;

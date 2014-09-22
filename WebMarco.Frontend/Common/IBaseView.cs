@@ -18,6 +18,8 @@ namespace WebMarco.Frontend.Common {
         bool IsModal { get; }
         bool Visible { get; set; }
 
+        BaseRectangle CurrentFrame { get; set; }
+
         void Load();
         void Show();
         void Hide();

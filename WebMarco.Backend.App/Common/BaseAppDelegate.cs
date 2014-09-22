@@ -8,13 +8,21 @@ using WebMarco.Utilities.Logging;
 
 
 namespace WebMarco.Backend.App.Common {
-    public abstract class BaseAppDelegate {
-
+#if iOS
+    public abstract partial class BaseAppDelegate : MonoTouch.UIKit.UIApplicationDelegate
+#else
+    public abstract class BaseAppDelegate 
+#endif    
+    {
         public object MainWindow { get; private set; }
 
         public static BaseAppDelegate Instance {
             get {
+#if iOS
+                return (BaseAppDelegate)(MonoTouch.UIKit.UIApplication.SharedApplication.Delegate);
+#else
                 return TinyIoC.TinyIoCContainer.Current.Resolve<BaseAppDelegate>();
+#endif
             }
         }
 

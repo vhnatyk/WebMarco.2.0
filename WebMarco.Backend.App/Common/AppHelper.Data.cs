@@ -11,6 +11,8 @@ using System.IO;
 using Vici.CoolStorage.Xamarin.Android.Sqlite;
 #elif WIN
 
+#elif iOS
+using Vici.CoolStorage.Xamarin.iOS.Sqlite;
 #endif
 
 

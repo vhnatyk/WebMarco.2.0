@@ -102,5 +102,15 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
         public void AddSubview(IBaseView view) {
             throw new NotImplementedException();
         }
+
+
+        public BaseRectangle CurrentFrame {
+            get {
+                throw new NotImplementedException();
+            }
+            set {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

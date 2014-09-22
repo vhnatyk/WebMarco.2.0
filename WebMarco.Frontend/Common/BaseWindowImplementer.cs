@@ -41,5 +41,10 @@ namespace WebMarco.Frontend.Common {
         public virtual void ExecuteOnMainThread(Action action) {
             BaseAppDelegate.Instance.ExecuteOnMainThread(action);
         }
+
+
+        public BaseRectangle CurrentFrame {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

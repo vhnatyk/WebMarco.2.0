@@ -127,7 +127,6 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
 
         }
 
-
         #region IBaseWebView
 
         #region Public Properties
@@ -138,7 +137,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
 
         public virtual Uri ViewUrl {
             get {
-                return (Page == null)? new Uri(this.Url) : Page.Url;
+                return (Page == null) ? new Uri(this.Url) : Page.Url;
             }
         }
 
@@ -180,6 +179,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
         }
 
         #endregion
+
         #region IBaseView
         public Point TopLeft {
             get {
@@ -263,6 +263,15 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
         public virtual void Load() {
             implementer.Load();
             LoadMarkup();
+        }
+
+        public BaseRectangle CurrentFrame {
+            get {
+                throw new NotImplementedException();
+            }
+            set {
+                throw new NotImplementedException();
+            }
         }
 
         #endregion

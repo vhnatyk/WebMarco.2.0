@@ -99,5 +99,10 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
         }
 
         #endregion
+
+
+        public BaseRectangle CurrentFrame {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

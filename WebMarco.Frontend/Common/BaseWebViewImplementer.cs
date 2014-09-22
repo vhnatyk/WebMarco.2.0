@@ -23,7 +23,7 @@ namespace WebMarco.Frontend.Common {
 
         public BaseWebViewImplementer(IBaseWebView webView) {
             this.webView = webView;
-
+            View = webView;
             loadedViews = new ViewsHolder();
         }
 
@@ -144,5 +144,14 @@ namespace WebMarco.Frontend.Common {
             LoadedViews.TryAddView(webView);
         }
         #endregion
+
+        protected override IBaseView View {
+            get {
+                return (IBaseView)webView;
+            }
+            set {
+                webView = (IBaseWebView)value;
+            }
+        }
     }
 }

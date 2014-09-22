@@ -25,7 +25,8 @@ namespace WebMarco.Backend.App.PlatformImplemented.Android {
         }
 
         public override void Quit() {
-           //Does nothing on Android
+           ///We can terminate app but it's not desired behaviour
+           ///So does nothing on Android
 
            
         }

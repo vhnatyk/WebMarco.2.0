@@ -50,6 +50,7 @@
     <Compile Include="Common\IBaseView.cs" />
     <Compile Include="Common\BaseViewImplementer.cs" />
     <Compile Include="Common\BaseWindowImplementer.cs" />
+    <Compile Include="Common\BaseRectangle.cs" />
     <Compile Include="PlatformImplemented\Android\BaseView.cs" />
     <Compile Include="PlatformImplemented\Android\BaseViewImplementer.cs" />
     <Compile Include="PlatformImplemented\Android\BaseWebView.cs" />

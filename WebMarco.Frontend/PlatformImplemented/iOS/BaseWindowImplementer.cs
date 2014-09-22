@@ -1,12 +1,20 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WebMarco.Backend.Bridge.Common;
+using WebMarco.Frontend;
+using WebMarco.Frontend.Common;
 
-namespace WebMarco.Frontend.Common {
-    public interface IBaseWindow {
-        IBaseView MainView { get; }
+namespace WebMarco.Frontend.PlatformImplemented.iOS {
+    /// <summary>
+    /// A place for #if WIN .. #endif code
+    /// </summary>
+    public class BaseWindowImplementer : WebMarco.Frontend.Common.BaseWindowImplementer {
+        #region Private Fields
+
+
+        #endregion
 
         #region Protected fields and properties
 
@@ -15,10 +23,13 @@ namespace WebMarco.Frontend.Common {
         #endregion
 
         #region Public Properties
-        IBaseView TopView { get; }
-        IBaseView TopFullFrameView { get; }
-        IBaseWebView TopWebView { get; }
-        BaseRectangle CurrentFrame { get; }
+
+        IBaseView mainView;
+        public override IBaseView MainView {
+            get { return mainView; }
+            set { mainView = value; }
+        }
+
         #endregion
 
         #region Constructors and initialization
@@ -31,7 +42,7 @@ namespace WebMarco.Frontend.Common {
 
         #region Frontend call mechanics
 
-        object CallFrontend(string script);
+
 
         #region Views management
 
@@ -43,7 +54,7 @@ namespace WebMarco.Frontend.Common {
 
         #region Backend call mechanics
 
-        CallResult ProcessCallFromFrontend(CallConfig config);
+
 
         #endregion
 
@@ -51,7 +62,6 @@ namespace WebMarco.Frontend.Common {
 
         #region Private and Protected methods
 
-        void ExecuteOnMainThread(Action action);
 
         #endregion
 
@@ -60,5 +70,6 @@ namespace WebMarco.Frontend.Common {
 
 
         #endregion
+
     }
 }

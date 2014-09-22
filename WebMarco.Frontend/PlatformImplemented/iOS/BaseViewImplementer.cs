@@ -1,16 +1,34 @@
+﻿
+using MonoTouch.UIKit;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+using WebMarco.Frontend.Common;
 
-namespace WebMarco.Frontend.Common {
-    public abstract class BaseViewImplementer : IBaseView {
+namespace WebMarco.Frontend.PlatformImplemented.iOS {
+    public class BaseViewImplementer : WebMarco.Frontend.Common.BaseViewImplementer {
 
-        protected abstract IBaseView View { get; set; }
-        
+        protected override IBaseView View { get; set; }
+
+        private readonly BaseView baseView = null;
+
+        public BaseViewImplementer(IBaseView view = null) {
+            this.View = view;
+            baseView = (BaseView)view;
+        }
+
         #region IBaseView
 
-        public Point TopLeft {
+        public new Point TopLeft {
+            get {
+                return baseView.CurrentFrame.TopLeft;
+            }
+            set {
+                throw new NotImplementedException();
+            }
+        }
+
+        Point Center {
             get {
                 throw new NotImplementedException();
             }
@@ -19,7 +37,7 @@ namespace WebMarco.Frontend.Common {
             }
         }
 
-        public Point Center {
+        double Width {
             get {
                 throw new NotImplementedException();
             }
@@ -28,7 +46,7 @@ namespace WebMarco.Frontend.Common {
             }
         }
 
-        public double Width {
+        double Height {
             get {
                 throw new NotImplementedException();
             }
@@ -37,7 +55,8 @@ namespace WebMarco.Frontend.Common {
             }
         }
 
-        public double Height {
+
+        bool IsFullFrame {
             get {
                 throw new NotImplementedException();
             }
@@ -46,27 +65,11 @@ namespace WebMarco.Frontend.Common {
             }
         }
 
-        public IBaseWindow ParentWindow {
-            get { return LoadedViews.TopView.ParentWindow; }
-        }
-
-        private ViewsHolder loadedViews;
-        public ViewsHolder LoadedViews {
-            get {
-                if (loadedViews == null) {
-                    loadedViews = new ViewsHolder();
-                }
-                return loadedViews;
-            }
-        }
-
-        public virtual bool IsFullFrame { get; set; }
- 
-        public bool IsModal {
+        bool IsModal {
             get { throw new NotImplementedException(); }
         }
 
-        public bool Visible {
+        bool Visible {
             get {
                 throw new NotImplementedException();
             }
@@ -75,7 +78,7 @@ namespace WebMarco.Frontend.Common {
             }
         }
 
-        public BaseRectangle CurrentFrame {
+        BaseRectangle CurrentFrame {
             get {
                 throw new NotImplementedException();
             }
@@ -83,18 +86,20 @@ namespace WebMarco.Frontend.Common {
                 throw new NotImplementedException();
             }
         }
-        
-        public abstract void Load();
 
-        public void Show() {
+        public override void Load() {
             throw new NotImplementedException();
         }
 
-        public void Hide() {
+        void Show() {
             throw new NotImplementedException();
         }
 
-        public void AddSubview(IBaseView view) {
+        void Hide() {
+            throw new NotImplementedException();
+        }
+
+        void AddSubview(IBaseView view) {
             throw new NotImplementedException();
         }
 
