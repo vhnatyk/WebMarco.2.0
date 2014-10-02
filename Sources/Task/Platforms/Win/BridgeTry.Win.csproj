@@ -14,6 +14,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -35,7 +35,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug\x86</OutputPath>
     <DefineConstants>TRACE;DEBUG;WIN</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -45,7 +45,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\Release\x86</OutputPath>
     <DefineConstants>TRACE;WIN</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -57,28 +57,16 @@
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>WIN; DEBUG</DefineConstants>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>WIN</DefineConstants>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>WIN; DEBUG</DefineConstants>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\x64</OutputPath>
+    <DefineConstants>TRACE;WIN; DEBUG</DefineConstants>
+    <PlatformTarget>x64</PlatformTarget>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
+    <OutputPath>bin\Release\x64\</OutputPath>
     <DefineConstants>WIN</DefineConstants>
     <PlatformTarget>x64</PlatformTarget>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
@@ -100,21 +88,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="CefSharp, Version=31.0.0.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Binary\x86\Debug\CefSharp.dll</HintPath>
+    <Reference Include="CefSharp">
+      <HintPath>..\..\..\WebMarco.Frontend\Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.dll</HintPath>
     </Reference>
-    <Reference Include="CefSharp.Core, Version=31.0.0.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Binary\x86\Debug\CefSharp.Core.dll</HintPath>
+    <Reference Include="CefSharp.Core">
+      <HintPath>..\..\..\WebMarco.Frontend\Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CefSharp.Example, Version=31.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Binary\x86\Debug\CefSharp.Example.dll</HintPath>
+    <Reference Include="CefSharp.Example">
+      <HintPath>..\..\..\WebMarco.Frontend\Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.Example.dll</HintPath>
     </Reference>
-    <Reference Include="CefSharp.WinForms, Version=31.0.0.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Binary\x86\Debug\CefSharp.WinForms.dll</HintPath>
+    <Reference Include="CefSharp.WinForms">
+      <HintPath>..\..\..\WebMarco.Frontend\Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -147,347 +131,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\Assets\css\baseStyle.css">
-      <Link>Assets\css\baseStyle.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\css\blue.css">
-      <Link>Assets\css\blue.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\css\green.css">
-      <Link>Assets\css\green.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\css\jquery-ui.css">
-      <Link>Assets\css\jquery-ui.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\css\jquery.treeview.css">
-      <Link>Assets\css\jquery.treeview.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\css\main.css">
-      <Link>Assets\css\main.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\css\orange.css">
-      <Link>Assets\css\orange.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\css\Pages\MainPage.css">
-      <Link>Assets\css\Pages\MainPage.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\css\perfect-scrollbar.css">
-      <Link>Assets\css\perfect-scrollbar.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\css\style.css">
-      <Link>Assets\css\style.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\css\tinyscrollbar.css">
-      <Link>Assets\css\tinyscrollbar.css</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\OFL.txt">
-      <Link>Assets\fonts\OFL.txt</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.svg">
-      <Link>Assets\fonts\OpenSans-Regular-webfont.svg</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\html\Pages\MainPage.htm">
-      <Link>Assets\html\Pages\MainPage.htm</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\bg.jpg">
-      <Link>Assets\img\bg.jpg</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\bgg.jpg">
-      <Link>Assets\img\bgg.jpg</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\bgMain.png">
-      <Link>Assets\img\bgMain.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\bgo.jpg">
-      <Link>Assets\img\bgo.jpg</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\biphone.png">
-      <Link>Assets\img\biphone.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\bsprit.png">
-      <Link>Assets\img\bsprit.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\calender.png">
-      <Link>Assets\img\calender.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\gsprits.png">
-      <Link>Assets\img\gsprits.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\handpic.png">
-      <Link>Assets\img\handpic.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\handpicg.png">
-      <Link>Assets\img\handpicg.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\handpico.png">
-      <Link>Assets\img\handpico.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\HTML5 Logo Badge.svg">
-      <Link>Assets\img\HTML5 Logo Badge.svg</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\HTML5CSS3Logos.svg">
-      <Link>Assets\img\HTML5CSS3Logos.svg</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\iphone.png">
-      <Link>Assets\img\iphone.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\iphoneg.png">
-      <Link>Assets\img\iphoneg.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\iphonegs.png">
-      <Link>Assets\img\iphonegs.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\iphoneo.png">
-      <Link>Assets\img\iphoneo.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\iphoneos.png">
-      <Link>Assets\img\iphoneos.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\iphones.png">
-      <Link>Assets\img\iphones.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\osprits.png">
-      <Link>Assets\img\osprits.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\img\pricing-bg.png">
-      <Link>Assets\img\pricing-bg.png</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\hammer.min.js">
-      <Link>Assets\js\hammer.min.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery-1.9.1.js">
-      <Link>Assets\js\jquery-1.9.1.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery-ui.js">
-      <Link>Assets\js\jquery-ui.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery-ui.min.js">
-      <Link>Assets\js\jquery-ui.min.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.ajax-cross-origin.min.js">
-      <Link>Assets\js\jquery.ajax-cross-origin.min.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.jscrollpane.min.js">
-      <Link>Assets\js\jquery.jscrollpane.min.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.magnific-popup.js">
-      <Link>Assets\js\jquery.magnific-popup.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.min.js">
-      <Link>Assets\js\jquery.min.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.mousewheel.js">
-      <Link>Assets\js\jquery.mousewheel.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.tinyscrollbar.min.js">
-      <Link>Assets\js\jquery.tinyscrollbar.min.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.treeview.js">
-      <Link>Assets\js\jquery.treeview.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\main.js">
-      <Link>Assets\js\main.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\modernizr.custom.28468.js">
-      <Link>Assets\js\modernizr.custom.28468.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\Pages\MainPage.js">
-      <Link>Assets\js\Pages\MainPage.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\perfect-scrollbar.js">
-      <Link>Assets\js\perfect-scrollbar.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\responsiveCarousel.js">
-      <Link>Assets\js\responsiveCarousel.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\script.js">
-      <Link>Assets\js\script.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\spin.js">
-      <Link>Assets\js\spin.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\js\templateForView.js">
-      <Link>Assets\js\templateForView.js</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\x86\Debug\CefSharp.BrowserSubprocess.exe" />
-    <Content Include="Binary\x86\Debug\CefSharp.BrowserSubprocess.pdb" />
-    <Content Include="Binary\x86\Debug\CefSharp.Core.dll" />
-    <Content Include="Binary\x86\Debug\CefSharp.Core.pdb" />
-    <Content Include="Binary\x86\Debug\CefSharp.Core.xml" />
-    <Content Include="Binary\x86\Debug\CefSharp.dll" />
-    <Content Include="Binary\x86\Debug\CefSharp.Example.dll" />
-    <Content Include="Binary\x86\Debug\CefSharp.Example.pdb" />
-    <Content Include="Binary\x86\Debug\CefSharp.pdb" />
-    <Content Include="Binary\x86\Debug\CefSharp.WinForms.dll" />
-    <Content Include="Binary\x86\Debug\CefSharp.WinForms.Example.exe" />
-    <Content Include="Binary\x86\Debug\CefSharp.WinForms.Example.pdb" />
-    <Content Include="Binary\x86\Debug\CefSharp.WinForms.pdb" />
-    <Content Include="Binary\x86\Debug\icudt.dll" />
-    <Content Include="Binary\x86\Debug\libcef.dll" />
-    <Content Include="Binary\x86\Debug\nunit.framework.dll" />
-    <Content Include="Binary\x86\Debug\nunit.framework.xml" />
-    <None Include="Binary\x86\Debug\cef.pak" />
-    <None Include="Binary\x86\Debug\CefSharp.BrowserSubprocess.exe.config" />
-    <None Include="Binary\x86\Debug\CefSharp.WinForms.Example.exe.config" />
-    <None Include="Binary\x86\Debug\devtools_resources.pak" />
-    <None Include="Binary\x86\Debug\locales\en-US.pak" />
     <None Include="Resources\Icon2.ico" />
     <None Include="Resources\Icon1.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\Assets\db\master.db">
-      <Link>Assets\db\master.db</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\BEBAS___-webfont.eot">
-      <Link>Assets\fonts\BEBAS___-webfont.eot</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\BEBAS___-webfont.ttf">
-      <Link>Assets\fonts\BEBAS___-webfont.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\BEBAS___-webfont.woff">
-      <Link>Assets\fonts\BEBAS___-webfont.woff</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\desyrel-webfont.eot">
-      <Link>Assets\fonts\desyrel-webfont.eot</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\desyrel-webfont.ttf">
-      <Link>Assets\fonts\desyrel-webfont.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\desyrel-webfont.woff">
-      <Link>Assets\fonts\desyrel-webfont.woff</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Jura-DemiBold.ttf">
-      <Link>Assets\fonts\Jura-DemiBold.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Jura-Light.ttf">
-      <Link>Assets\fonts\Jura-Light.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Jura-Medium.ttf">
-      <Link>Assets\fonts\Jura-Medium.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Jura-Regular.ttf">
-      <Link>Assets\fonts\Jura-Regular.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Lato-Black.ttf">
-      <Link>Assets\fonts\Lato-Black.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Lato-BlackItalic.ttf">
-      <Link>Assets\fonts\Lato-BlackItalic.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Lato-Bold.ttf">
-      <Link>Assets\fonts\Lato-Bold.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Lato-BoldItalic.ttf">
-      <Link>Assets\fonts\Lato-BoldItalic.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Lato-Hairline.ttf">
-      <Link>Assets\fonts\Lato-Hairline.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Lato-HairlineItalic.ttf">
-      <Link>Assets\fonts\Lato-HairlineItalic.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Lato-Italic.ttf">
-      <Link>Assets\fonts\Lato-Italic.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Lato-Light.ttf">
-      <Link>Assets\fonts\Lato-Light.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Lato-LightItalic.ttf">
-      <Link>Assets\fonts\Lato-LightItalic.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\Lato-Regular.ttf">
-      <Link>Assets\fonts\Lato-Regular.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.eot">
-      <Link>Assets\fonts\OpenSans-Regular-webfont.eot</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.ttf">
-      <Link>Assets\fonts\OpenSans-Regular-webfont.ttf</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.woff">
-      <Link>Assets\fonts\OpenSans-Regular-webfont.woff</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.NET.csproj">
+    <ProjectReference Include="..\..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.NET.csproj">
       <Project>{cacf1024-ec84-4601-a4f7-4203320870dc}</Project>
       <Name>Vici.CoolStorage.NET</Name>
     </ProjectReference>
@@ -507,7 +158,7 @@
       <Project>{a707caa0-2670-49c8-94b3-254198825d2b}</Project>
       <Name>BridgeTry.Backend.Core.Win</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Frontend\BridgeTry.Frontend\BridgeTry.Frontend.Win.csproj">
+    <ProjectReference Include="..\..\Frontend\BridgeTry.Frontend.Win.csproj">
       <Project>{62766904-c4d5-4a61-8408-116464caa085}</Project>
       <Name>BridgeTry.Frontend.Win</Name>
     </ProjectReference>
@@ -519,9 +170,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Binary\System.Data.SQLite.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y/E  "$(ProjectDir)Binary\$(PlatformName)\$(ConfigurationName)\*.*" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
+    <PostBuildEvent>xcopy /Y/E  "$(ProjectDir)$(OutDir)\Binary\$(PlatformName)\$(ConfigurationName)\*.*" "$(ProjectDir)$(OutDir)"
+rmdir /S/Q $(ProjectDir)$(OutDir)\Binary\$(PlatformName)\"
+xcopy /Y/E  "$(ProjectDir)Binary\*.*" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

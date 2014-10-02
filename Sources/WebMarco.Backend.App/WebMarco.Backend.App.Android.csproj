@@ -52,11 +52,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Repos\GitHub\Vici\coolstorage\drivers\xamarin-android-sqlite\Library\Vici.CoolStorage.Xamarin.Android.Sqlite.csproj">
+    <ProjectReference Include="..\Modules\Vici\CoolStorage\drivers\xamarin-android-sqlite\Library\Vici.CoolStorage.Xamarin.Android.Sqlite.csproj">
       <Project>{ae2d138b-9a0f-409f-88a1-a4acb83cf7c2}</Project>
       <Name>Vici.CoolStorage.Xamarin.Android.Sqlite</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.PCL.csproj">
+    <ProjectReference Include="..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
       <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>
       <Name>Vici.CoolStorage.PCL</Name>
     </ProjectReference>
@@ -69,6 +69,7 @@
       <Name>WebMarco.Utilities.Android</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

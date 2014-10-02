@@ -26,8 +26,6 @@ namespace BridgeTry
 		
 		public static void UpdateIdValues()
 		{
-			global::BridgeTry.Frontend.Resource.String.ApplicationName = global::BridgeTry.Resource.String.ApplicationName;
-			global::BridgeTry.Frontend.Resource.String.Hello = global::BridgeTry.Resource.String.Hello;
 			global::WebMarco.Backend.Bridge.Resource.String.ApplicationName = global::BridgeTry.Resource.String.ApplicationName;
 			global::WebMarco.Backend.Bridge.Resource.String.Hello = global::BridgeTry.Resource.String.Hello;
 			global::WebMarco.Utilities.Resource.String.ApplicationName = global::BridgeTry.Resource.String.ApplicationName;

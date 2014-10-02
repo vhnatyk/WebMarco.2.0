@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7CBDE590-EE71-4E8C-A280-9E595C35567A}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BridgeTry.Backend.Core.Test</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>BridgeTry.Backend.Core.Test.iOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;__MOBILE__;__IOS__;iOS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <DefineConstants>__MOBILE__;__IOS__;iOS</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Common\CoreTest.cs" />
+    <Compile Include="Common\CoreTest.Logic.cs" />
+    <Compile Include="Common\CoreTest.Model.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\Resource.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Modules\Vici\CoolStorage\drivers\xamarin-ios-sqlite\Library\Vici.CoolStorage.Xamarin.iOS.Sqlite.csproj">
+      <Project>{76831a16-3a8e-4e37-9dee-18c00c13d85a}</Project>
+      <Name>Vici.CoolStorage.Xamarin.iOS.Sqlite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
+      <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>
+      <Name>Vici.CoolStorage.PCL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Backend.App\WebMarco.Backend.App.iOS.csproj">
+      <Project>{4f886a8b-7c4a-4bc8-8d4f-de4bb23cd156}</Project>
+      <Name>WebMarco.Backend.App.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Utilities\WebMarco.Utilities.iOS.csproj">
+      <Project>{2909bb02-2087-4ff6-8c18-73092a0c1021}</Project>
+      <Name>WebMarco.Utilities.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\BridgeTry.Backend.Core.iOS.csproj">
+      <Project>{7e9740c4-6833-4ad0-9d44-bcc10c5254ef}</Project>
+      <Name>BridgeTry.Backend.Core.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoTouch.NUnitLite" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Core\Assets\db\master.db">
+      <Link>Assets\db\master.db</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\AboutResources.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\values\Strings.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+</Project>

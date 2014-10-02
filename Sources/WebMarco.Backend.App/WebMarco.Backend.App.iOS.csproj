@@ -43,11 +43,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Repos\GitHub\Vici\coolstorage\drivers\xamarin-ios-sqlite\Library\Vici.CoolStorage.Xamarin.iOS.Sqlite.csproj">
+    <ProjectReference Include="..\Modules\Vici\CoolStorage\drivers\xamarin-ios-sqlite\Library\Vici.CoolStorage.Xamarin.iOS.Sqlite.csproj">
       <Project>{76831a16-3a8e-4e37-9dee-18c00c13d85a}</Project>
       <Name>Vici.CoolStorage.Xamarin.iOS.Sqlite</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.PCL.csproj">
+    <ProjectReference Include="..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
       <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>
       <Name>Vici.CoolStorage.PCL</Name>
     </ProjectReference>
@@ -65,6 +65,14 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\ApplicationSettings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\db\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
 </Project>

@@ -55,8 +55,21 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <MtouchDebug>true</MtouchDebug>
+    <MtouchDebug>True</MtouchDebug>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchSdkVersion>8.0</MtouchSdkVersion>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchProfiling>False</MtouchProfiling>
+    <MtouchExtraArgs />
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchEnableGenericValueTypeSharing>True</MtouchEnableGenericValueTypeSharing>
+    <MtouchArch>Default, ARMv7</MtouchArch>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchUseSGen>False</MtouchUseSGen>
+    <MtouchUseRefCounting>False</MtouchUseRefCounting>
+    <MtouchOptimizePNGs>True</MtouchOptimizePNGs>
+    <MtouchI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -115,84 +128,6 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="Views\MainView.cs" />
-    <Content Include="..\..\..\Assets\db\master.db">
-      <Link>Assets\db\master.db</Link>
-    </Content>
-    <None Include="..\..\..\Assets\fonts\BEBAS___-webfont.eot">
-      <Link>Assets\fonts\BEBAS___-webfont.eot</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\BEBAS___-webfont.ttf">
-      <Link>Assets\fonts\BEBAS___-webfont.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\BEBAS___-webfont.woff">
-      <Link>Assets\fonts\BEBAS___-webfont.woff</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\desyrel-webfont.eot">
-      <Link>Assets\fonts\desyrel-webfont.eot</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\desyrel-webfont.ttf">
-      <Link>Assets\fonts\desyrel-webfont.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\desyrel-webfont.woff">
-      <Link>Assets\fonts\desyrel-webfont.woff</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Jura-DemiBold.ttf">
-      <Link>Assets\fonts\Jura-DemiBold.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Jura-Light.ttf">
-      <Link>Assets\fonts\Jura-Light.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Jura-Medium.ttf">
-      <Link>Assets\fonts\Jura-Medium.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Jura-Regular.ttf">
-      <Link>Assets\fonts\Jura-Regular.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Lato-Black.ttf">
-      <Link>Assets\fonts\Lato-Black.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Lato-BlackItalic.ttf">
-      <Link>Assets\fonts\Lato-BlackItalic.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Lato-Bold.ttf">
-      <Link>Assets\fonts\Lato-Bold.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Lato-BoldItalic.ttf">
-      <Link>Assets\fonts\Lato-BoldItalic.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Lato-Hairline.ttf">
-      <Link>Assets\fonts\Lato-Hairline.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Lato-HairlineItalic.ttf">
-      <Link>Assets\fonts\Lato-HairlineItalic.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Lato-Italic.ttf">
-      <Link>Assets\fonts\Lato-Italic.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Lato-Light.ttf">
-      <Link>Assets\fonts\Lato-Light.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Lato-LightItalic.ttf">
-      <Link>Assets\fonts\Lato-LightItalic.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\Lato-Regular.ttf">
-      <Link>Assets\fonts\Lato-Regular.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.eot">
-      <Link>Assets\fonts\OpenSans-Regular-webfont.eot</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.ttf">
-      <Link>Assets\fonts\OpenSans-Regular-webfont.ttf</Link>
-    </None>
-    <None Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.woff">
-      <Link>Assets\fonts\OpenSans-Regular-webfont.woff</Link>
-    </None>
-    <None Include="..\..\..\Assets\img\handpic.psd">
-      <Link>Assets\img\handpic.psd</Link>
-    </None>
-    <None Include="..\..\..\Assets\js\jsapi">
-      <Link>Assets\js\jsapi</Link>
-    </None>
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -200,7 +135,7 @@
     <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.PCL.csproj">
+    <ProjectReference Include="..\..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
       <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>
       <Name>Vici.CoolStorage.PCL</Name>
     </ProjectReference>
@@ -224,7 +159,7 @@
       <Project>{7e9740c4-6833-4ad0-9d44-bcc10c5254ef}</Project>
       <Name>BridgeTry.Backend.Core.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Frontend\BridgeTry.Frontend\BridgeTry.Frontend.csproj">
+    <ProjectReference Include="..\..\Frontend\BridgeTry.Frontend.csproj">
       <Project>{012a9d5a-e2bd-4133-910f-56975dbe48de}</Project>
       <Name>BridgeTry.Frontend</Name>
     </ProjectReference>
@@ -234,182 +169,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\..\..\Assets\css\baseStyle.css">
-      <Link>Assets\css\baseStyle.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\blue.css">
-      <Link>Assets\css\blue.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\green.css">
-      <Link>Assets\css\green.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\jquery-ui.css">
-      <Link>Assets\css\jquery-ui.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\jquery.treeview.css">
-      <Link>Assets\css\jquery.treeview.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\main.css">
-      <Link>Assets\css\main.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\messi.css">
-      <Link>Assets\css\messi.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\orange.css">
-      <Link>Assets\css\orange.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\Pages\MainPage.css">
-      <Link>Assets\css\Pages\MainPage.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\perfect-scrollbar.css">
-      <Link>Assets\css\perfect-scrollbar.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\popup.css">
-      <Link>Assets\css\popup.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\style.css">
-      <Link>Assets\css\style.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\css\tinyscrollbar.css">
-      <Link>Assets\css\tinyscrollbar.css</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\OFL.txt">
-      <Link>Assets\fonts\OFL.txt</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\fonts\OpenSans-Regular-webfont.svg">
-      <Link>Assets\fonts\OpenSans-Regular-webfont.svg</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\html\Pages\MainPage.htm">
-      <Link>Assets\html\Pages\MainPage.htm</Link>
-    </Content>
-    <BundleResource Include="..\..\..\Assets\img\bg.jpg">
-      <Link>Assets\img\bg.jpg</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\bgg.jpg">
-      <Link>Assets\img\bgg.jpg</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\bgMain.png">
-      <Link>Assets\img\bgMain.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\bgo.jpg">
-      <Link>Assets\img\bgo.jpg</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\biphone.png">
-      <Link>Assets\img\biphone.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\bsprit.png">
-      <Link>Assets\img\bsprit.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\calender.png">
-      <Link>Assets\img\calender.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\gsprits.png">
-      <Link>Assets\img\gsprits.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\handpic.png">
-      <Link>Assets\img\handpic.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\handpicg.png">
-      <Link>Assets\img\handpicg.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\handpico.png">
-      <Link>Assets\img\handpico.png</Link>
-    </BundleResource>
-    <Content Include="..\..\..\Assets\img\HTML5 Logo Badge.svg">
-      <Link>Assets\img\HTML5 Logo Badge.svg</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\img\HTML5CSS3Logos.svg">
-      <Link>Assets\img\HTML5CSS3Logos.svg</Link>
-    </Content>
-    <BundleResource Include="..\..\..\Assets\img\iphone.png">
-      <Link>Assets\img\iphone.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\iphoneg.png">
-      <Link>Assets\img\iphoneg.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\iphonegs.png">
-      <Link>Assets\img\iphonegs.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\iphoneo.png">
-      <Link>Assets\img\iphoneo.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\iphoneos.png">
-      <Link>Assets\img\iphoneos.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\iphones.png">
-      <Link>Assets\img\iphones.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\osprits.png">
-      <Link>Assets\img\osprits.png</Link>
-    </BundleResource>
-    <BundleResource Include="..\..\..\Assets\img\pricing-bg.png">
-      <Link>Assets\img\pricing-bg.png</Link>
-    </BundleResource>
-    <Content Include="..\..\..\Assets\js\hammer.min.js">
-      <Link>Assets\js\hammer.min.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery-1.9.1.js">
-      <Link>Assets\js\jquery-1.9.1.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery-ui.js">
-      <Link>Assets\js\jquery-ui.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery-ui.min.js">
-      <Link>Assets\js\jquery-ui.min.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.ajax-cross-origin.min.js">
-      <Link>Assets\js\jquery.ajax-cross-origin.min.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.jscrollpane.min.js">
-      <Link>Assets\js\jquery.jscrollpane.min.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.magnific-popup.js">
-      <Link>Assets\js\jquery.magnific-popup.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.min.js">
-      <Link>Assets\js\jquery.min.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.mousewheel.js">
-      <Link>Assets\js\jquery.mousewheel.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.tinyscrollbar.min.js">
-      <Link>Assets\js\jquery.tinyscrollbar.min.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\jquery.treeview.js">
-      <Link>Assets\js\jquery.treeview.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\main.js">
-      <Link>Assets\js\main.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\messi.js">
-      <Link>Assets\js\messi.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\modernizr.custom.28468.js">
-      <Link>Assets\js\modernizr.custom.28468.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\Pages\MainPage.js">
-      <Link>Assets\js\Pages\MainPage.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\perfect-scrollbar.js">
-      <Link>Assets\js\perfect-scrollbar.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\popup.js">
-      <Link>Assets\js\popup.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\responsiveCarousel.js">
-      <Link>Assets\js\responsiveCarousel.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\script.js">
-      <Link>Assets\js\script.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\spin.js">
-      <Link>Assets\js\spin.js</Link>
-    </Content>
-    <Content Include="..\..\..\Assets\js\templateForView.js">
-      <Link>Assets\js\templateForView.js</Link>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
 </Project>
