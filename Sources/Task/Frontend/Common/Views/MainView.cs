@@ -20,6 +20,8 @@ using WebMarco.Frontend.PlatformImplemented.Android;
 using WebMarco.Frontend.PlatformImplemented.Win;
 #elif iOS
 using WebMarco.Frontend.PlatformImplemented.iOS;
+#elif MACOSX
+using WebMarco.Frontend.PlatformImplemented.Mac;
 #else 
   ///
 #endif

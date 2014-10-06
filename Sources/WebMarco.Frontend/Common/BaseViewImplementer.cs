@@ -11,39 +11,39 @@ namespace WebMarco.Frontend.Common {
         #region IBaseView
 
         public Point TopLeft {
-            get {
-                throw new NotImplementedException();
-            }
-            set {
-                throw new NotImplementedException();
-            }
+			get {
+				return View.CurrentFrame.TopLeft;//!!!View.TopLeft will cause loop!
+			}
+			set {
+				View.CurrentFrame.TopLeft = value;
+			}
         }
 
         public Point Center {
-            get {
-                throw new NotImplementedException();
-            }
-            set {
-                throw new NotImplementedException();
-            }
+			get {
+				return View.CurrentFrame.Center;//!!!View.Center will cause loop!
+			}
+			set {
+				View.CurrentFrame.Center = value;
+			}
         }
 
         public double Width {
             get {
-                throw new NotImplementedException();
+				return View.CurrentFrame.Width;//!!!View.Width will cause loop!
             }
             set {
-                throw new NotImplementedException();
+				View.CurrentFrame.Width = value;
             }
         }
 
         public double Height {
-            get {
-                throw new NotImplementedException();
-            }
-            set {
-                throw new NotImplementedException();
-            }
+			get {
+				return View.CurrentFrame.Height;//!!!View.Height will cause loop!
+			}
+			set {
+				View.CurrentFrame.Height = value;
+			}
         }
 
         public IBaseWindow ParentWindow {

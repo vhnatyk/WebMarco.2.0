@@ -7,9 +7,12 @@ using WebMarco.Backend.Bridge.Common;
 using WebMarco.Utilities.Logging;
 
 
+
 namespace WebMarco.Backend.App.Common {
 #if iOS
     public abstract partial class BaseAppDelegate : MonoTouch.UIKit.UIApplicationDelegate
+#elif MACOSX
+	public abstract partial class BaseAppDelegate : MonoMac.AppKit.NSApplicationDelegate
 #else
     public abstract class BaseAppDelegate 
 #endif    
@@ -20,6 +23,8 @@ namespace WebMarco.Backend.App.Common {
             get {
 #if iOS
                 return (BaseAppDelegate)(MonoTouch.UIKit.UIApplication.SharedApplication.Delegate);
+#elif MACOSX
+				return (BaseAppDelegate)(MonoMac.AppKit.NSApplication.SharedApplication.Delegate);
 #else
                 return TinyIoC.TinyIoCContainer.Current.Resolve<BaseAppDelegate>();
 #endif

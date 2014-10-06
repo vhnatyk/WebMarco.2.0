@@ -10,14 +10,14 @@ using WebMarco.Frontend;
 using WebMarco.Utilities.Logging;
 using WebMarco.Backend.Bridge.Common;
 using WebMarco.Backend.App.Common;
-using MonoTouch.UIKit;
-using MonoTouch.Foundation;
 using WebMarco.Utilities.Paths;
+using MonoMac.WebKit;
+using MonoMac.Foundation;
 
-namespace WebMarco.Frontend.PlatformImplemented.iOS {
+namespace WebMarco.Frontend.PlatformImplemented.Mac {
 
 
-    public abstract class BaseWebView : UIWebView, IBaseWebView {
+	public abstract class BaseWebView : WebView, IBaseWebView {
 
         #region Private methods
 
@@ -34,7 +34,7 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
             Page = defaultPage;
             parentWindow = window;
             implementer = new BaseWebViewImplementer(this);
-            ScrollView.Bounces = bouncingEnabled;
+            //ScrollView.Bounces = bouncingEnabled;
         }
 
         #region Hide base properties
@@ -63,7 +63,7 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
 
         public virtual Uri ViewUrl {
             get {
-                return (Page == null)? new Uri(this.Request.Url.ToString()) : Page.Url;
+				return (Page == null)? new Uri(this.MainFrameUrl) : Page.Url;
             }
         }
 
@@ -78,7 +78,7 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
         #endregion
 
         public void LoadMarkup(string markup) {
-            base.LoadHtmlString(markup, new NSUrl(string.Empty));//TODO: why url is empty
+            base.MainFrame.LoadHtmlString(markup, new NSUrl(string.Empty));//TODO: why url is empty
         }
 
         public void LoadMarkup(Uri url) {
@@ -87,7 +87,7 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
                nsUrl = NSUrl.FromFilename(url.LocalPath);    
             }
            
-            base.LoadRequest(new NSUrlRequest(nsUrl));
+            base.MainFrame.LoadRequest(new NSUrlRequest(nsUrl));
         }
 
         public void LoadMarkup() {
@@ -101,7 +101,7 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
 
         public object CallFrontend(string script) {
             object result = null;
-            BaseAppDelegate.Instance.ExecuteOnMainThread(() => result = this.EvaluateJavascript(script));
+			BaseAppDelegate.Instance.ExecuteOnMainThread(() => result = this.StringByEvaluatingJavaScriptFromString(script));
             return (result != null) ? result.ToString() : result;
         }
 
@@ -122,7 +122,7 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
             }
         }
 
-        public new Point Center {
+        public Point Center {
             get {
                 return implementer.Center;
             }
@@ -172,7 +172,8 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
 
         public BaseRectangle CurrentFrame {
             get {
-                return new Rectangle(this);
+				throw new NotImplementedException();
+                //return new Rectangle(this);//TODO: causes loop somehow:(
             }
             set {
                 Frame = Rectangle.GetRectangleF(value);

@@ -123,11 +123,15 @@ namespace WebMarco.Frontend.Common {
 
             CallResult result = new CallResult(string.Empty);
             try {
-                result = (CallResult)theMethod.Invoke(instance, new object[] { config.Params });
+				//BaseAppDelegate.Instance.InvokeOnMainThread(()=>{
+                	result = (CallResult)theMethod.Invoke(instance, new object[] { config.Params });
+				//});
             } catch (Exception ex) {
                 DLogger.WriteLog(ex);
                 try {//try parameter less
-                    result = (CallResult)theMethod.Invoke(instance, null);
+					//BaseAppDelegate.Instance.InvokeOnMainThread(()=>{
+						result = (CallResult)theMethod.Invoke(instance, null);
+					//});
                 } catch (Exception ex2) {
                     DLogger.WriteLog(ex2);
                 }

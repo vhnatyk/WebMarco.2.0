@@ -4,15 +4,38 @@ using System.IO;
 using WebMarco.Utilities.Logging;
 using WebMarco.Utilities.Paths;
 
+#if MACOSX
+using MonoMac;
+using MonoMac.Foundation;
+using MonoMac.ObjCRuntime;
+using System.Runtime.InteropServices;
+#endif
 
 namespace WebMarco.Backend.App.Common {
     /// <summary>
     /// Due to its inclusion of #if <PLATFORM> .. #endif blocks - this class has to be abstract
-    /// and has to have it's implementation in PlatformImplemented subnamespace, but due to oneliner nature of the 
+    /// and has to have it's implementation in PlatformImplemented subnamespace, but due to oneliner or simple nature of the 
     /// platform-speciffic code blocks - let's avoid implementing of a class-per-line mess:) Sort of a hack...
     /// </summary>
-    public static partial class AppHelper {
+
+	public static partial class AppHelper {
         #region Paths
+
+		#if MACOSX
+		[DllImport(Constants.FoundationLibrary)]
+		public static extern IntPtr NSHomeDirectory();
+
+		/// <summary>
+		/// Gets the container directory - sandboxed root.
+		/// </summary>
+		/// <value>The container directory.</value>
+		public static string ContainerDirectory {
+			get {
+				return ((NSString)Runtime.GetNSObject (NSHomeDirectory ())).ToString ();
+			}
+		}
+		#endif
+
         public static class Paths {
             public static string UrlFromPath(String pathToFile) {
                 return new Uri(pathToFile, UriKind.Absolute).AbsoluteUri;
@@ -27,13 +50,13 @@ namespace WebMarco.Backend.App.Common {
                 get {
                     if (assetRootFolder == null) {
 #if MACOSX
-					assetRootFolder = PathUtils.PathCombineCrossPlatform(AppDomain.CurrentDomain.BaseDirectory, "../Assets");
+						assetRootFolder = PathUtils.PathCombineCrossPlatform(AppDomain.CurrentDomain.BaseDirectory, "Assets");//TODO: seems unnecessary
 #elif ANDROID
                         assetRootFolder = PathUtils.PathCombineCrossPlatform("/android_asset/", string.Empty);
 #elif iOS
-                    assetRootFolder = PathUtils.PathCombineCrossPlatform(Environment.CurrentDirectory, "Assets");
+                    	assetRootFolder = PathUtils.PathCombineCrossPlatform(Environment.CurrentDirectory, "Assets");
 #else
-                    assetRootFolder = PathUtils.PathCombineCrossPlatform(AppDomain.CurrentDomain.BaseDirectory, "Assets");
+                    	assetRootFolder = PathUtils.PathCombineCrossPlatform(AppDomain.CurrentDomain.BaseDirectory, "Assets");
 #endif
                     }
                     return assetRootFolder;
@@ -90,7 +113,8 @@ namespace WebMarco.Backend.App.Common {
                 get {
                     if (workingRootFolder == null) {
 #if MACOSX
-					    workingRootFolder = PathUtils.PathCombineCrossPlatform(FoundationFramework.NSHomeDirectory(), "YourCompanyName", "YourAppName");
+					    //workingRootFolder = PathUtils.PathCombineCrossPlatform(FoundationFramework.NSHomeDirectory(), "YourCompanyName", "YourAppName");//Monobjc way
+						workingRootFolder = ContainerDirectory;
 #elif ANDROID
                         workingRootFolder = //Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;//TODO: find out alternatives for this, work it out
                         Environment.GetFolderPath(Environment.SpecialFolder.Personal);
