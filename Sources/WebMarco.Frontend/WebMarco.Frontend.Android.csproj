@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebMarco.Frontend</RootNamespace>
-    <AssemblyName>WebMarco.Frontend</AssemblyName>
+    <AssemblyName>WebMarco.Frontend.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -64,7 +64,7 @@
     <Compile Include="Common\ViewsHolder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.PCL.csproj">
+    <ProjectReference Include="..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
       <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>
       <Name>Vici.CoolStorage.PCL</Name>
     </ProjectReference>
@@ -76,15 +76,12 @@
       <Project>{974e3e92-ef72-4093-8c55-4840e20ae7b7}</Project>
       <Name>WebMarco.Backend.Bridge.Android</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Task\Backend\Core\BridgeTry.Backend.Core.Android.csproj">
-      <Project>{e708f8cf-4ee3-48d8-a303-4dfbb5276038}</Project>
-      <Name>BridgeTry.Backend.Core.Android</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebMarco.Utilities\WebMarco.Utilities.Android.csproj">
       <Project>{cbc069ab-2d54-4206-a210-233d6d21e50d}</Project>
       <Name>WebMarco.Utilities.Android</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

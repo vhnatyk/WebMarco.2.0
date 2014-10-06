@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebMarco.Backend.App.Common;
 
-[assembly: InternalsVisibleToAttribute("BridgeTry.Frontend")]
+//[assembly: InternalsVisibleToAttribute("BridgeTry.Frontend")] //TODO: make it work via solution wide project import
 namespace WebMarco.Frontend.Common {
     public abstract class BaseWebPage {
 
@@ -17,8 +17,22 @@ namespace WebMarco.Frontend.Common {
         }
 
         #endregion
-        
-        public IBaseWebView ParentWebView { get; internal set; }
+
+        private IBaseWebView parentWebView;
+        public IBaseWebView ParentWebView {
+            get {
+                return parentWebView;
+            }
+            set {
+                if (parentWebView == null) { //set only once
+                    parentWebView = value;
+                } else { 
+#if DEBUG
+                    throw new MemberAccessException("ParentWebView already set."); 
+#endif
+                }       
+            }
+        } // internal set; } //TODO: make it work via solution wide settings project import
 
         public string NameString {
             get { return this.GetType().Name; }

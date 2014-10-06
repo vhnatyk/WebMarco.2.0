@@ -1,0 +1,6 @@
+[submodule "Sources/Modules/Vici/Core"]
+	path = Sources/Modules/Vici/Core
+	url = https://github.com/vhnatyk/core
+[submodule "Sources/Modules/Vici/CoolStorage"]
+	path = Sources/Modules/Vici/CoolStorage
+	url = https://github.com/vhnatyk/coolstorage

@@ -1,0 +1,14 @@
+For some inexplicable reason (most probably because of the bug of Visual Studio:) 
+- both $(Platform) and $(PlatformName) variables are set to empty and 
+then default to "AnyCPU" for content files in 
+
+<Content Include="Binary\$(PlatformName)\$(ConfigurationName)...
+
+and setting defaults explicitly for empty values with
+
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+
+doesn't help for platform, but only for configuration. Works fine upon build though so please don't fix it, in order to keep it working. 
+
+Thank you! :)
