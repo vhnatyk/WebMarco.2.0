@@ -97,7 +97,7 @@ namespace WebMarco.Backend.App.Common {
 #elif iOS
                         workingRootFolder = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
 #else
-                        workingRootFolder = PathUtils.PathCombineCrossPlatform(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "YourCompanyName", "YourCompanyName");
+                        workingRootFolder = PathUtils.PathCombineCrossPlatform(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "YourCompanyName", "YourCompanyName");//TODO: must come from settings
 #endif
                         if (!Directory.Exists(workingRootFolder)) {
                             Directory.CreateDirectory(workingRootFolder);

@@ -9,7 +9,7 @@ using BridgeTry.Frontend.Common.Views;
 
 namespace BridgeTry.Views {
     /// <summary>
-    /// Windows speciffic stuff for MainView class
+    /// Windows specific stuff for MainView class
     /// </summary>
     class MainView : BridgeTry.Frontend.Common.Views.MainView {
         public MainView(IBaseWindow window)

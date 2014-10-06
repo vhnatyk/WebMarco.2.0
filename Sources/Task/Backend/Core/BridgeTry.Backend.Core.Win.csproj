@@ -69,6 +69,10 @@
       <Project>{cacf1024-ec84-4601-a4f7-4203320870dc}</Project>
       <Name>Vici.CoolStorage.NET</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Utilities\WebMarco.Utilities.Win.csproj">
+      <Project>{78cdad65-f1c2-4ab3-b2c9-66bb422c3062}</Project>
+      <Name>WebMarco.Utilities.Win</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\db\master.db">
