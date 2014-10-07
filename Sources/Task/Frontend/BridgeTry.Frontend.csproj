@@ -2,9 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{012A9D5A-E2BD-4133-910F-56975DBE48DE}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
@@ -41,23 +39,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
-      <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>
+      <Project>{2DD3D8D0-7CEC-4915-B279-5DED87FA5169}</Project>
       <Name>Vici.CoolStorage.PCL</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.iOS.csproj">
-      <Project>{75b9764d-399c-4a5c-8253-b19fb09bcf47}</Project>
+      <Project>{75B9764D-399C-4A5C-8253-B19FB09BCF47}</Project>
       <Name>WebMarco.Backend.Bridge.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\WebMarco.Frontend\WebMarco.Frontend.iOS.csproj">
-      <Project>{080e3d4f-0c91-46de-8bd9-5cbc2222424b}</Project>
+      <Project>{080E3D4F-0C91-46DE-8BD9-5CBC2222424B}</Project>
       <Name>WebMarco.Frontend.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\WebMarco.Utilities\WebMarco.Utilities.iOS.csproj">
-      <Project>{2909bb02-2087-4ff6-8c18-73092a0c1021}</Project>
+      <Project>{2909BB02-2087-4FF6-8C18-73092A0C1021}</Project>
       <Name>WebMarco.Utilities.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\Backend\Core\BridgeTry.Backend.Core.iOS.csproj">
-      <Project>{7e9740c4-6833-4ad0-9d44-bcc10c5254ef}</Project>
+      <Project>{7E9740C4-6833-4AD0-9D44-BCC10C5254EF}</Project>
       <Name>BridgeTry.Backend.Core.iOS</Name>
     </ProjectReference>
   </ItemGroup>

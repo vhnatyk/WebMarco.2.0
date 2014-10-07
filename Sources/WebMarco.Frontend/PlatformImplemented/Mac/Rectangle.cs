@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using WebMarco.Frontend.Common;
 
-namespace WebMarco.Frontend.PlatformImplemented.iOS {
+namespace WebMarco.Frontend.PlatformImplemented.Mac {
     public class Rectangle : BaseRectangle {
         public Rectangle(System.Drawing.RectangleF iOsRectangle) :
             base(
@@ -14,15 +14,16 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
                 (double)(iOsRectangle.Height)) {
 
         }
-        public Rectangle(Point topLeft, double width, double height)
-            : base(topLeft, width, height) {
 
-        }
-
-		public Rectangle(IBaseView owningView)
-			: base(owningView) {
+		public Rectangle(Point topLeft, double width, double height) :
+			base(topLeft,width,height) {
 
 		}
+
+		public Rectangle(IBaseView owningView) : base(owningView){
+
+		}
+
 
         public static Rectangle GetWithRectangleF(System.Drawing.RectangleF frame) {
             return new Rectangle(frame);

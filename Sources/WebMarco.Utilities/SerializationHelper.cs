@@ -9,8 +9,8 @@ using Newtonsoft.Json.Linq;
 namespace WebMarco.Utilities.Library {
 
     /// <summary>
-    /// Lets keep all JSON stuff here, so we will deal with 
-    /// portability issues of Newtonsoft.Json only here
+    /// Let's keep all JSON stuff here, so we will deal with 
+	/// portability issues of Newtonsoft.Json only here, but wait... it's finally portable :)
     /// </summary>
     public class SerializationHelper {
         #region Singleton realization

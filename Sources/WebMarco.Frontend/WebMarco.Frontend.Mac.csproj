@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{42C0BBD9-55CE-4FC1-8D90-A7348ABAFB23};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{16221803-A863-42FF-9016-CAE7E36A0776}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WebMarco.Frontend</RootNamespace>
+    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+    <AssemblyName>WebMarco.Frontend</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;MACOSX</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <UseSGen>false</UseSGen>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <UseSGen>false</UseSGen>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+    <DefineConstants>MACOSX</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="XamMac" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\WebMarco.Utilities\WebMarco.Utilities.Mac.csproj">
+      <Project>{54CE4B27-E637-4F46-B2D5-319C7920599E}</Project>
+      <Name>WebMarco.Utilities.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebMarco.Backend.App\WebMarco.Backend.App.Mac.csproj">
+      <Project>{981DFA30-DC22-4789-A31B-21BC5E54EC02}</Project>
+      <Name>WebMarco.Backend.App.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.Mac.csproj">
+      <Project>{97BB789D-E03A-463D-8701-313FDE9BCB93}</Project>
+      <Name>WebMarco.Backend.Bridge.Mac</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="PlatformImplemented\" />
+    <Folder Include="Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BaseRectangle.cs" />
+    <Compile Include="Common\BaseViewImplementer.cs" />
+    <Compile Include="Common\BaseWebPage.cs" />
+    <Compile Include="Common\BaseWebViewImplementer.cs" />
+    <Compile Include="Common\BaseWindowImplementer.cs" />
+    <Compile Include="Common\IBaseView.cs" />
+    <Compile Include="Common\IBaseWebView.cs" />
+    <Compile Include="Common\IBaseWindow.cs" />
+    <Compile Include="Common\Point.cs" />
+    <Compile Include="Common\ViewsHolder.cs" />
+    <Compile Include="Common\Helpers\HtmlUiHelper.cs" />
+    <Compile Include="PlatformImplemented\Mac\BaseView.cs" />
+    <Compile Include="PlatformImplemented\Mac\BaseViewImplementer.cs" />
+    <Compile Include="PlatformImplemented\Mac\BaseWebView.cs" />
+    <Compile Include="PlatformImplemented\Mac\BaseWebViewImplementer.cs" />
+    <Compile Include="PlatformImplemented\Mac\BaseWindow.cs" />
+    <Compile Include="PlatformImplemented\Mac\BaseWindowImplementer.cs" />
+    <Compile Include="PlatformImplemented\Mac\MainWebView.cs" />
+    <Compile Include="PlatformImplemented\Mac\MainWindow.cs" />
+    <Compile Include="PlatformImplemented\Mac\Rectangle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\baseStyle.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\css\jquery-ui.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\css\main.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\jquery-1.9.1.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\jquery-ui.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\jquery-ui.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\jquery.ajax-cross-origin.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\jquery.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\jsapi">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\main.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\modernizr.custom.28468.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\script.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\spin.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\templateForView.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

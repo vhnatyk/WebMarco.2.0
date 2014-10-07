@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{42C0BBD9-55CE-4FC1-8D90-A7348ABAFB23};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{656D7062-A98E-43AC-8323-9CD15229944A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BridgeTry.Backend.Core.Test</RootNamespace>
+    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
+    <AssemblyName>BridgeTry.Backend.Core.Test</AssemblyName>
+    <StartupObject>BridgeTry.Backend.Core.Test.CoreTest</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;MACOSX</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <UseSGen>false</UseSGen>
+    <IncludeMonoRuntime>false</IncludeMonoRuntime>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <CodeSigningKey>Mac Developer</CodeSigningKey>
+    <EnableCodeSigning>false</EnableCodeSigning>
+    <CreatePackage>false</CreatePackage>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <LinkMode>SdkOnly</LinkMode>
+    <UseSGen>false</UseSGen>
+    <IncludeMonoRuntime>true</IncludeMonoRuntime>
+    <EnablePackageSigning>false</EnablePackageSigning>
+    <CodeSigningKey>Developer ID Application</CodeSigningKey>
+    <EnableCodeSigning>true</EnableCodeSigning>
+    <CreatePackage>true</CreatePackage>
+    <DefineConstants>MACOSX</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <LinkMode>SdkOnly</LinkMode>
+    <UseSGen>false</UseSGen>
+    <IncludeMonoRuntime>true</IncludeMonoRuntime>
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+    <CreatePackage>true</CreatePackage>
+    <CodeSigningKey>3rd Party Mac Developer Application</CodeSigningKey>
+    <EnableCodeSigning>true</EnableCodeSigning>
+    <EnablePackageSigning>true</EnablePackageSigning>
+    <DefineConstants>MACOSX</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="XamMac" />
+    <Reference Include="nunit.framework">
+      <HintPath>Binary\Mono\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Common\CoreTest.Logic.cs" />
+    <Compile Include="Common\CoreTest.Model.cs" />
+    <Compile Include="Common\CoreTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\WebMarco.Backend.App\WebMarco.Backend.App.Mac.csproj">
+      <Project>{981DFA30-DC22-4789-A31B-21BC5E54EC02}</Project>
+      <Name>WebMarco.Backend.App.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Utilities\WebMarco.Utilities.Mac.csproj">
+      <Project>{54CE4B27-E637-4F46-B2D5-319C7920599E}</Project>
+      <Name>WebMarco.Utilities.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\BridgeTry.Backend.Core.Mac.csproj">
+      <Project>{B5FDC856-27DE-403F-854B-8672FCE879CF}</Project>
+      <Name>BridgeTry.Backend.Core.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
+      <Project>{2DD3D8D0-7CEC-4915-B279-5DED87FA5169}</Project>
+      <Name>Vici.CoolStorage.PCL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Modules\Vici\CoolStorage\drivers\xamarin-mac-sqlite\Vici.CoolStorage.Xamarin.Mac.Sqlite.csproj">
+      <Project>{2D4E1E35-7EB9-4C2E-A9F2-99881A0B9063}</Project>
+      <Name>Vici.CoolStorage.Xamarin.Mac.Sqlite</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

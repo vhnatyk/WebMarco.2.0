@@ -113,7 +113,8 @@ namespace WebMarco.Backend.Bridge.Common {
 
             listener = new HttpListener();
             //listener.Prefixes.Add(string.Format("http://*:{1}/", ServerInstanceUid, ServerInstancePort));
-            listener.Prefixes.Add(string.Format("http://{2}:{1}/{0}/", ServerInstanceUid, ServerInstancePort, ServerIP));
+            //listener.Prefixes.Add(string.Format("http://{2}:{1}/{0}/", ServerInstanceUid, ServerInstancePort, ServerIP));
+			listener.Prefixes.Add(string.Format("http://*:{1}/{0}/", ServerInstanceUid, ServerInstancePort, ServerIP));
             listener.Start();
 
             listener.BeginGetContext(new AsyncCallback(HandleRequest), listener);
