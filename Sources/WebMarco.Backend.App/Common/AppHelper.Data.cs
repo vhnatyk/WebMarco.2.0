@@ -34,6 +34,11 @@ namespace WebMarco.Backend.App.Common {
                 }
             }
 
+            public static bool ExistsMainDb
+            {
+                get { return File.Exists(MainDatabaseFileInWorkingPath); }
+            }
+
             public static void ConnectDatabase() {
                 ConnectDb(MainDatabaseFileInWorkingPath);
             }
