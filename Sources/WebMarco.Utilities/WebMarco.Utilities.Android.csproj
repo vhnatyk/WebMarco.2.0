@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EncryptorDecryptor.cs" />
     <Compile Include="SerializationHelper.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
