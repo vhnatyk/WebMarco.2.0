@@ -3,6 +3,7 @@ using NUnit.Framework;
 using WebMarco.Backend.App.Common;
 
 
+
 namespace BridgeTry.Backend.Core.Test {
     [TestFixture]
     public partial class CoreTest {

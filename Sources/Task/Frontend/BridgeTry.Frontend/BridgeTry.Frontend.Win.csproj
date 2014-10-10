@@ -33,6 +33,24 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;WIN</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;WIN</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CefSharp">
       <HintPath>..\..\Platforms\Win\Binary\x86\Debug\CefSharp.dll</HintPath>
@@ -63,7 +81,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.NET.csproj">
+    <ProjectReference Include="..\..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.NET.csproj">
       <Project>{cacf1024-ec84-4601-a4f7-4203320870dc}</Project>
       <Name>Vici.CoolStorage.NET</Name>
     </ProjectReference>
@@ -78,6 +96,10 @@
     <ProjectReference Include="..\..\..\WebMarco.Utilities\WebMarco.Utilities.Win.csproj">
       <Project>{78cdad65-f1c2-4ab3-b2c9-66bb422c3062}</Project>
       <Name>WebMarco.Utilities.Win</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Backend\Core.Test\BridgeTry.Backend.Core.Test\BridgeTry.Backend.Core.Test.Win.csproj">
+      <Project>{57b7965f-a5a1-438e-8580-fea935267a19}</Project>
+      <Name>BridgeTry.Backend.Core.Test.Win</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Backend\Core\BridgeTry.Backend.Core.Win.csproj">
       <Project>{a707caa0-2670-49c8-94b3-254198825d2b}</Project>

@@ -6,6 +6,8 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.NUnit.UI;
 
+using WebMarco.Utilities.Test;  
+
 namespace BridgeTry.Backend.Core.Test.iOS {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
@@ -30,6 +32,7 @@ namespace BridgeTry.Backend.Core.Test.iOS {
 
             // register every tests included in the main application/assembly
             runner.Add(System.Reflection.Assembly.GetExecutingAssembly());
+            runner.Add(System.Reflection.Assembly.GetAssembly(typeof(EncryptorDecryptorTest)));  
 
             window.RootViewController = new UINavigationController(runner.GetViewController());
 

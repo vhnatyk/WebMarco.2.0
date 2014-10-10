@@ -21,7 +21,7 @@
     <DefineConstants>TRACE;DEBUG;WIN</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -75,13 +75,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.NET.csproj">
+    <ProjectReference Include="..\..\..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.NET.csproj">
       <Project>{cacf1024-ec84-4601-a4f7-4203320870dc}</Project>
       <Name>Vici.CoolStorage.NET</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\WebMarco.Backend.App\WebMarco.Backend.App.Win.csproj">
       <Project>{b92eddc6-d699-4495-8f0d-7d5dfe6a3211}</Project>
       <Name>WebMarco.Backend.App.Win</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\WebMarco.Utilities.Test\WebMarco.Utilities.Test.Win.csproj">
+      <Project>{d4b48e17-bd2e-484e-bda4-648f253c6ef4}</Project>
+      <Name>WebMarco.Utilities.Test.Win</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\WebMarco.Utilities\WebMarco.Utilities.Win.csproj">
       <Project>{78cdad65-f1c2-4ab3-b2c9-66bb422c3062}</Project>

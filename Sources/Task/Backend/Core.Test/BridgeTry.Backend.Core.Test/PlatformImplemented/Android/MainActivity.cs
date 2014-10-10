@@ -14,6 +14,7 @@ using System.Reflection;
 using TinyIoC;
 using WebMarco.Backend.App.Common;
 using WebMarco.Backend.App.PlatformImplemented.Android;
+using WebMarco.Utilities.Test;
 
 namespace BridgeTry.Backend.Core.Test.PlatformImplemented.Android {
     [Activity(Label = "BridgeTry.Backend.Core.Test", MainLauncher = true, Icon = "@drawable/icon")]
@@ -21,6 +22,7 @@ namespace BridgeTry.Backend.Core.Test.PlatformImplemented.Android {
         protected override void OnCreate(Bundle bundle) {
             // tests can be inside the main assembly
             AddTest(Assembly.GetExecutingAssembly());
+            AddTest(Assembly.GetAssembly(typeof(EncryptorDecryptorTest))); 
             // or in any reference assemblies
             // AddTest (typeof (Your.Library.TestClass).Assembly);
 

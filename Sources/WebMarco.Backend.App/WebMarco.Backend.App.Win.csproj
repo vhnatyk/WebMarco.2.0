@@ -32,6 +32,24 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;WIN</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;WIN</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,11 +69,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Repos\GitHub\Vici\coolstorage\drivers\sqlite\Vici.CoolStorage.SQLite.csproj">
+    <ProjectReference Include="..\Modules\Vici\CoolStorage\drivers\sqlite\Vici.CoolStorage.SQLite.csproj">
       <Project>{796286c2-cbbb-40f8-94a7-cfad35de1508}</Project>
       <Name>Vici.CoolStorage.SQLite</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\Repos\GitHub\Vici\coolstorage\library\Vici.CoolStorage.NET.csproj">
+    <ProjectReference Include="..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.NET.csproj">
       <Project>{cacf1024-ec84-4601-a4f7-4203320870dc}</Project>
       <Name>Vici.CoolStorage.NET</Name>
     </ProjectReference>
