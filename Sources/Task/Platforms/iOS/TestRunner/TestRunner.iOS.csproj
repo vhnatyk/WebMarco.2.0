@@ -115,11 +115,6 @@
       <Name>Vici.CoolStorage.Xamarin.iOS.Sqlite</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
-    <ProjectReference Include="..\..\..\..\Modules\Vici\coolstorage\drivers\xamarin-ios-sqlite\Library\Vici.CoolStorage.Xamarin.iOS.Sqlite.csproj">
-      <Project>{76831a16-3a8e-4e37-9dee-18c00c13d85a}</Project>
-      <Name>Vici.CoolStorage.Xamarin.iOS.Sqlite</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Modules\Vici\coolstorage\library\Vici.CoolStorage.PCL.csproj">
       <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>
       <Name>Vici.CoolStorage.PCL</Name>
     </ProjectReference>

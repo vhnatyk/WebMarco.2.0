@@ -21,8 +21,6 @@
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -72,13 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.NET.csproj">
-    <Content Include="..\..\..\..\Assets\db\master.db">
-      <Link>Assets\db\master.db</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.NET.csproj">
       <Project>{cacf1024-ec84-4601-a4f7-4203320870dc}</Project>
       <Name>Vici.CoolStorage.NET</Name>
     </ProjectReference>
@@ -87,11 +78,6 @@
       <Name>WebMarco.Backend.App.Win</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\WebMarco.Utilities\WebMarco.Utilities.Win.csproj">
-    <ProjectReference Include="..\..\..\..\WebMarco.Utilities.Test\WebMarco.Utilities.Test.Win.csproj">
-      <Project>{d4b48e17-bd2e-484e-bda4-648f253c6ef4}</Project>
-      <Name>WebMarco.Utilities.Test.Win</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\WebMarco.Utilities\WebMarco.Utilities.Win.csproj">
       <Project>{78cdad65-f1c2-4ab3-b2c9-66bb422c3062}</Project>
       <Name>WebMarco.Utilities.Win</Name>
     </ProjectReference>

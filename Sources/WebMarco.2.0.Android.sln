@@ -20,16 +20,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vici.Core.PCL", "Modules\Vici\Core\Library\Vici.Core.PCL.csproj", "{F3DF58D7-69AD-49F6-838F-6BDF02D3886A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vici.CoolStorage.PCL", "Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj", "{2DD3D8D0-7CEC-4915-B279-5DED87FA5169}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vici.Core.PCL", "Modules\Vici\core\Library\Vici.Core.PCL.csproj", "{F3DF58D7-69AD-49F6-838F-6BDF02D3886A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vici.CoolStorage.PCL", "Modules\Vici\coolstorage\library\Vici.CoolStorage.PCL.csproj", "{2DD3D8D0-7CEC-4915-B279-5DED87FA5169}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlatformImplemented", "PlatformImplemented", "{1F6DEB3D-8B28-4912-97D2-1035ABF84626}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlatformImplemented", "PlatformImplemented", "{7BE39C64-30E9-4224-AC3B-593D15A40E5F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vici.CoolStorage.Xamarin.Android.Sqlite", "Modules\Vici\CoolStorage\drivers\xamarin-android-sqlite\Library\Vici.CoolStorage.Xamarin.Android.Sqlite.csproj", "{AE2D138B-9A0F-409F-88A1-A4ACB83CF7C2}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vici.CoolStorage.Xamarin.Android.Sqlite", "Modules\Vici\coolstorage\drivers\xamarin-android-sqlite\Library\Vici.CoolStorage.Xamarin.Android.Sqlite.csproj", "{AE2D138B-9A0F-409F-88A1-A4ACB83CF7C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMarco.Backend.App.Android", "WebMarco.Backend.App\WebMarco.Backend.App.Android.csproj", "{804AFEE2-8E2F-4BB4-BF96-B07DDBABF638}"
 EndProject
@@ -54,6 +50,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestRunner", "TestRunner", "{4C19E79A-B95D-42B8-A876-34FCAB8DDEEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunner.Android", "Task\Platforms\Android\TestRunner\TestRunner.Android.csproj", "{6177DD34-6DB4-4C25-8DC5-88F900F4C55E}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMarco.Utilities.Test.Android", "WebMarco.Utilities.Test\WebMarco.Utilities.Test.Android.csproj", "{3C13B97D-7131-426F-8309-8CBA9781BF1C}"
 EndProject
 Global
@@ -174,8 +171,5 @@ Global
 		{EEA4B9BB-269A-4EE6-BDDA-D7A62E0277E1} = {F98F489B-244D-481F-982A-DB25E32CE443}
 		{DDFA8B03-A3B8-418E-96CC-48247B3A4F7C} = {EEA4B9BB-269A-4EE6-BDDA-D7A62E0277E1}
 		{6177DD34-6DB4-4C25-8DC5-88F900F4C55E} = {4C19E79A-B95D-42B8-A876-34FCAB8DDEEE}
-		{1F2A3F0B-305A-43C6-9058-A06FC97815F5} = {0D61A2E6-D77E-4DAA-B0A7-A21CE2AA19BB}
-		{EEA4B9BB-269A-4EE6-BDDA-D7A62E0277E1} = {F98F489B-244D-481F-982A-DB25E32CE443}
-		{DDFA8B03-A3B8-418E-96CC-48247B3A4F7C} = {EEA4B9BB-269A-4EE6-BDDA-D7A62E0277E1}
 	EndGlobalSection
 EndGlobal
