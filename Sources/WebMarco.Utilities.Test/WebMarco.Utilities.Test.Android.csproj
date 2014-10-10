@@ -5,12 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D1BC2C03-FFE8-4AE4-8392-4B7CE4ED40AA}</ProjectGuid>
+    <ProjectGuid>{3C13B97D-7131-426F-8309-8CBA9781BF1C}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebMarco.Frontend</RootNamespace>
-    <AssemblyName>WebMarco.Frontend.Android</AssemblyName>
+    <RootNamespace>WebMarco.Utilities.Test</RootNamespace>
+    <AssemblyName>WebMarco.Utilities.Test.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;ANDROID</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -40,49 +40,25 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xamarin.Android.NUnitLite" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\BaseWebPage.cs" />
-    <Compile Include="Common\Helpers\HtmlUiHelper.cs" />
-    <Compile Include="Common\IBaseWebView.cs" />
-    <Compile Include="Common\BaseWebViewImplementer.cs" />
-    <Compile Include="Common\IBaseWindow.cs" />
-    <Compile Include="Common\IBaseView.cs" />
-    <Compile Include="Common\BaseViewImplementer.cs" />
-    <Compile Include="Common\BaseWindowImplementer.cs" />
-    <Compile Include="Common\BaseRectangle.cs" />
-    <Compile Include="PlatformImplemented\Android\BaseView.cs" />
-    <Compile Include="PlatformImplemented\Android\BaseViewImplementer.cs" />
-    <Compile Include="PlatformImplemented\Android\BaseWebView.cs" />
-    <Compile Include="PlatformImplemented\Android\BaseWebViewImplementer.cs" />
-    <Compile Include="PlatformImplemented\Android\BaseWindow.cs" />
-    <Compile Include="PlatformImplemented\Android\BaseWindowImplementer.cs" />
-    <Compile Include="Common\Point.cs" />
-    <Compile Include="PlatformImplemented\Android\MainWebView.cs" />
-    <Compile Include="PlatformImplemented\Android\MainWindow.cs" />
+    <Compile Include="EncryptorDecryptorTest.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Common\ViewsHolder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
-    <ProjectReference Include="..\Modules\Vici\coolstorage\library\Vici.CoolStorage.PCL.csproj">
-      <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>
-      <Name>Vici.CoolStorage.PCL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebMarco.Backend.App\WebMarco.Backend.App.Android.csproj">
-      <Project>{804afee2-8e2f-4bb4-bf96-b07ddbabf638}</Project>
-      <Name>WebMarco.Backend.App.Android</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.Android.csproj">
-      <Project>{974e3e92-ef72-4093-8c55-4840e20ae7b7}</Project>
-      <Name>WebMarco.Backend.Bridge.Android</Name>
-    </ProjectReference>
+    <None Include="Resources\AboutResources.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\WebMarco.Utilities\WebMarco.Utilities.Android.csproj">
       <Project>{cbc069ab-2d54-4206-a210-233d6d21e50d}</Project>
       <Name>WebMarco.Utilities.Android</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

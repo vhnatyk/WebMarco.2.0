@@ -115,12 +115,21 @@
       <Name>Vici.CoolStorage.Xamarin.iOS.Sqlite</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
+    <ProjectReference Include="..\..\..\..\Modules\Vici\coolstorage\drivers\xamarin-ios-sqlite\Library\Vici.CoolStorage.Xamarin.iOS.Sqlite.csproj">
+      <Project>{76831a16-3a8e-4e37-9dee-18c00c13d85a}</Project>
+      <Name>Vici.CoolStorage.Xamarin.iOS.Sqlite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Modules\Vici\coolstorage\library\Vici.CoolStorage.PCL.csproj">
       <Project>{2dd3d8d0-7cec-4915-b279-5ded87fa5169}</Project>
       <Name>Vici.CoolStorage.PCL</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\WebMarco.Backend.App\WebMarco.Backend.App.iOS.csproj">
       <Project>{4f886a8b-7c4a-4bc8-8d4f-de4bb23cd156}</Project>
       <Name>WebMarco.Backend.App.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\WebMarco.Utilities.Test\WebMarco.Utilities.Test.iOS.csproj">
+      <Project>{535150a6-45af-407c-8bfc-01bb102f17af}</Project>
+      <Name>WebMarco.Utilities.Test.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\WebMarco.Utilities\WebMarco.Utilities.iOS.csproj">
       <Project>{2909bb02-2087-4ff6-8c18-73092a0c1021}</Project>

@@ -9,6 +9,9 @@ using BridgeTry.Backend.Core.Test;
 
 
 namespace TestRunner {
+using WebMarco.Utilities.Test;  
+
+namespace BridgeTry.Backend.Core.Test.iOS {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
@@ -34,6 +37,9 @@ namespace TestRunner {
             //runner.Add(System.Reflection.Assembly.GetExecutingAssembly());
 
             runner.Add(typeof(CoreTest).Assembly);
+            runner.Add(System.Reflection.Assembly.GetExecutingAssembly());
+            runner.Add(System.Reflection.Assembly.GetAssembly(typeof(EncryptorDecryptorTest)));  
+>>>>>>> EncryptorDecryptorTest:Sources/Task/Backend/Core.Test/BridgeTry.Backend.Core.Test/PlatformImplemented/iOS/AppDelegate.cs
 
             window.RootViewController = new UINavigationController(runner.GetViewController());
 
