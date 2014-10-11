@@ -103,5 +103,9 @@
       <Project>{2D4E1E35-7EB9-4C2E-A9F2-99881A0B9063}</Project>
       <Name>Vici.CoolStorage.Xamarin.Mac.Sqlite</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\WebMarco.Utilities.Test\WebMarco.Utilities.Test.Mac.csproj">
+      <Project>{F24FB85C-76CD-4D41-A6F7-D43D9AA072C3}</Project>
+      <Name>WebMarco.Utilities.Test.Mac</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

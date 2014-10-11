@@ -1,0 +1,55 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="WebMarco.Utilities.Test/EncryptorDecryptorTest.cs">
+    <Files>
+      <File FileName="WebMarco.Utilities.Test/EncryptorDecryptorTest.cs" Line="42" Column="42" />
+      <File FileName="Task/Backend/Core.Test/Common/CoreTest.Model.cs" Line="1" Column="1" />
+      <File FileName="Task/Backend/Core.Test/Common/CoreTest.cs" Line="1" Column="1" />
+      <File FileName="Task/Backend/Core.Test/Common/CoreTest.Logic.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True">
+          <Node name="Backend" expanded="True">
+            <Node name="Common" expanded="True">
+              <Node name="Task" expanded="True">
+                <Node name="BridgeTry.Backend.Core.Test.Mac" expanded="True">
+                  <Node name="BridgeTry" expanded="True">
+                    <Node name="Backend" expanded="True">
+                      <Node name="Core" expanded="True">
+                        <Node name="Test" expanded="True">
+                          <Node name="CoreTest" expanded="True">
+                            <Node name="EnsureDatabaseReadWriteWorksCorrectly" selected="True" />
+                          </Node>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+          <Node name="Utilities" expanded="True">
+            <Node name="WebMarco.Utilities.Test.Mac" expanded="True">
+              <Node name="WebMarco" expanded="True">
+                <Node name="Utilities" expanded="True">
+                  <Node name="Test" expanded="True">
+                    <Node name="EncryptorDecryptorTest" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>WebMarco.Utilities.Test/WebMarco.Utilities.Test.Mac/WebMarco.Utilities.Test.Mac.csproj</String>
+    <String>WebMarco.Utilities/WebMarco.Utilities.Mac.csproj</String>
+  </DisabledProjects>
+</Properties>

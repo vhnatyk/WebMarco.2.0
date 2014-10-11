@@ -58,5 +58,6 @@
     <Compile Include="StopWatchTimer.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="TinyIoC\TinyIoC.cs" />
+    <Compile Include="EncryptorDecryptor.cs" />
   </ItemGroup>
 </Project>
