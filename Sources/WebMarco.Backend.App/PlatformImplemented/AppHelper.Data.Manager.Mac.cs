@@ -14,7 +14,12 @@ namespace WebMarco.Backend.App.PlatformImplemented.Mac {
         public override void RestoreWorkingCopyOfDatabase(string databaseWorkingPath) { //TODO: seems to look like very crossplatform code
             string dataBaseName = Path.GetFileName(databaseWorkingPath);
             string databaseInAssetsPath = PathUtils.PathCombineCrossPlatform(AppHelper.Paths.DatafilesAssetPath, dataBaseName);
-            File.Copy(databaseInAssetsPath, databaseWorkingPath);
+			try {
+				File.Delete(databaseWorkingPath);
+			} catch (Exception ex) {
+				DLogger.WriteLog (ex);
+			}
+			File.Copy(databaseInAssetsPath, databaseWorkingPath);
         }
     }
 }

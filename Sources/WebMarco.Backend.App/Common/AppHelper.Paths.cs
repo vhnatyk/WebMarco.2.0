@@ -114,7 +114,7 @@ namespace WebMarco.Backend.App.Common {
                     if (workingRootFolder == null) {
 #if MACOSX
 					    //workingRootFolder = PathUtils.PathCombineCrossPlatform(FoundationFramework.NSHomeDirectory(), "YourCompanyName", "YourAppName");//Monobjc way
-						workingRootFolder = ContainerDirectory;
+						workingRootFolder = PathUtils.PathCombineCrossPlatform(ContainerDirectory, "YourCompanyName", "YourAppName");
 #elif ANDROID
                         workingRootFolder = //Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;//TODO: find out alternatives for this, work it out
                         Environment.GetFolderPath(Environment.SpecialFolder.Personal);

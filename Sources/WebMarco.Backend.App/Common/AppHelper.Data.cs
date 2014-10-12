@@ -34,17 +34,16 @@ namespace WebMarco.Backend.App.Common {
                 }
             }
 
-            public static bool ExistsMainDb
-            {
+            public static bool ExistsMainDb {
                 get { return File.Exists(MainDatabaseFileInWorkingPath); }
             }
 
             public static void ConnectDatabase() {
-                ConnectDb(MainDatabaseFileInWorkingPath);
+                ConnectDatabase(MainDatabaseFileInWorkingPath);
             }
 
-            public static void ConnectDb(string databaseWorkingCopyPath) {
-//                try {
+            public static void ConnectDatabase(string databaseWorkingCopyPath) {
+				try {
                     if (!FileExists(databaseWorkingCopyPath)) {
                         Manager.Instance.RestoreWorkingCopyOfDatabase(databaseWorkingCopyPath);
                     }
@@ -54,11 +53,12 @@ namespace WebMarco.Backend.App.Common {
                     DLogger.WriteLog(string.Format("Connected to Db: " + databaseWorkingCopyPath));
 
                     return;
-                //} catch (Exception ex) {
-                //    DLogger.WriteLog(ex);
-                //    throw new Exception(string.Format("Cant connect to database at \"{0}\"", databasePath), ex);
-                //}
+                } catch (Exception ex) {
+                    DLogger.WriteLog(ex);
+					throw new Exception(string.Format("Can't connect to database at \"{0}\"", databaseWorkingCopyPath), ex);
+                }
             }
+
             private static bool FileExists(string filePath) {
                 return File.Exists(filePath);
             }
@@ -70,9 +70,10 @@ namespace WebMarco.Backend.App.Common {
                     }
                 }
 
-                public abstract void RestoreWorkingCopyOfDatabase(string databasePathInAssets);
+				public abstract void RestoreWorkingCopyOfDatabase(string databaseWorkingPath);
+
                 public virtual void RestoreWorkingCopyOfMainDatabase() {
-                    RestoreWorkingCopyOfDatabase(MainDatabaseFileInAssets);
+					RestoreWorkingCopyOfDatabase(MainDatabaseFileInWorkingPath);
                 }
             }
         }
