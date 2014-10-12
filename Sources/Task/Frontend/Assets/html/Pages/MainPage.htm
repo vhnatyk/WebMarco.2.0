@@ -39,74 +39,75 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script type="text/javascript" src="../../js/Pages/MainPage.js"></script>
 
 
-    <script> <!-- TODO:is it ok to have inline script blocks ??? -->
-    function setPlatformNotePopupContentHtml(htmlValue) {
-        $('div.popup-platform-note').html(htmlValue);
-    }
-
-
-    function isVisible(elemLocator) {
-        try {
-            return $(elemLocator).is(":visible");
-        } catch (e) {
-
+    <script>
+        //<!-- TODO:is it ok to have inline script blocks ??? -->
+        function setPlatformNotePopupContentHtml(htmlValue) {
+            $('div.popup-platform-note').html(htmlValue);
         }
-        return false;
-    }
 
-    function displayShowcaseInfo(textToShow) {
-        var demoBoardLocator = 'div.pricing-grid.demo-board';
-        if (isVisible(demoBoardLocator)) {
-            $(demoBoardLocator).html('<p>' + textToShow + '</p>');
-        } else {
-            $('#demoShowcaseResultContainer').html(textToShow);
-            $.magnificPopup.open({
-                items: {
-                    src: '#small-dialog1'
-                },
-                type: 'inline',
-                preloader: false,
-                closeBtnInside: true,
-                mainClass: 'my-mfp-zoom-in'//,
-                //modal: true
-            });
+
+        function isVisible(elemLocator) {
+            try {
+                return $(elemLocator).is(":visible");
+            } catch (e) {
+
+            }
+            return false;
         }
-    }
 
-    $(document).ready(function () {
+        function displayShowcaseInfo(textToShow) {
+            var demoBoardLocator = 'div.pricing-grid.demo-board';
+            if (isVisible(demoBoardLocator)) {
+                $(demoBoardLocator).html('<p>' + textToShow + '</p>');
+            } else {
+                $('#demoShowcaseResultContainer').html(textToShow);
+                $.magnificPopup.open({
+                    items: {
+                        src: '#small-dialog1'
+                    },
+                    type: 'inline',
+                    preloader: false,
+                    closeBtnInside: true,
+                    mainClass: 'my-mfp-zoom-in'//,
+                    //modal: true
+                });
+            }
+        }
 
-        var console = (function (c) {
-            return {
-                log: function (v) {
-                    c.log('_original_');
-                    c.log(v);
-                    var debugDivs = $('#debugInfo');
-                    var debugDiv = debugDivs[0];
-                    if (debugDiv !== null) {
-                        debugDivs.html(v);
+        $(document).ready(function () {
+
+            var console = (function (c) {
+                return {
+                    log: function (v) {
+                        c.log('_original_');
+                        c.log(v);
+                        var debugDivs = $('#debugInfo');
+                        var debugDiv = debugDivs[0];
+                        if (debugDiv !== null) {
+                            debugDivs.html(v);
+                        }
                     }
-                }
-            };
-        }(window.console));
-        //console.log('hello world');
+                };
+            }(window.console));
+            //console.log('hello world');
 
-        //console.log("here ok1");
+            //console.log("here ok1");
 
-        $('.popup-with-zoom-anim').magnificPopup({
-            type: 'inline',
-            fixedContentPos: false,
-            fixedBgPos: true,
-            overflowY: 'auto',
-            closeBtnInside: true,
-            preloader: false,
-            midClick: true,
-            removalDelay: 300,
-            mainClass: 'my-mfp-zoom-in'
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+            //methods that can or need to be defined when DOM is loaded
+            //console.log("here ok2");     
         });
-
-        //methods that can or need to be defined when DOM is loaded
-        //console.log("here ok2");     
-    });
 
 
     </script>
