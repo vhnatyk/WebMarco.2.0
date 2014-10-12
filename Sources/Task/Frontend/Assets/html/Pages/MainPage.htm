@@ -1,4 +1,4 @@
-﻿<!--
+﻿<!--source
 Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -10,107 +10,46 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <title>BridgeTry - WebMarco framework showcase app.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <!--<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>-->
-    <!--    <link rel="stylesheet" href="../../css/jquery.treeview.css" />
-    <link rel="stylesheet" href="../../css/jquery-ui.css" />-->
-    <!--<link media="all" href="../../css/perfect-scrollbar.css" type="text/css" rel="stylesheet" />-->
     <link href="../../css/style.css" rel='stylesheet' type="text/css" />
     <link href="../../css/blue.css" rel='stylesheet' type="text/css" />
     <!--<link href="../../css/green.css" rel='stylesheet' type="text/css" />-->
-    <!--	<link media="all" href="../../css/main.css" type="text/css" rel="stylesheet" />
-	<link media="all" href="../../css/Pages/MainPages.css" type="text/css" rel="stylesheet" />-->
-    <!--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
-    <!-----text-slider---------->
-    <!-- <script type="text/javascript" src="../../js/jquery-1.9.1.js"></script> -->
+    <!--<link href="../../css/orange.css" rel='stylesheet' type="text/css" />-->
+    <!--Bootstrap styles-->
+    <link href="../../css/bootstrap.min.css" rel='stylesheet' type="text/css" />
+    <!--Page and WebMarco styles go last -->
+    <link media="all" href="../../css/main.css" type="text/css" rel="stylesheet" />
+    <link media="all" href="../../css/Pages/MainPage.css" type="text/css" rel="stylesheet" />
+
+    <!-----jQuery------->
+    <script type="text/javascript" src="../../js/jquery-1.11.1.min.js"></script>
     <!-- if DEBUG -->
-    <script type="text/javascript" src="../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/modernizr.custom.28468.js"></script>
-    <!-----//------------>
-    <!--<script type="text/javascript" src="../../js/jquery-ui.js"></script>-->
+    <!-----//------->
+
+    <!--Bootstrap script-->
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
     <!-- Add fancyBox light-box -->
     <script type="text/javascript" src="../../js/jquery.magnific-popup.js"></script>
-    <!--<script type="text/javascript" src="../../js/jquery.treeview.js"></script>-->
     <!--<script type="text/javascript" src="../../js/spin.js"></script>-->
     <!--<script type="text/javascript" src="../../js/jquery.mousewheel.js"></script>-->
     <!--<script type="text/javascript" src="../../js/perfect-scrollbar.js"></script>-->
     <!--<script type="text/javascript" src="../../js/jquery.ajax-cross-origin.min.js"></script>-->
 
-
+    <!--Page and WebMarco scripts go last -->
     <script type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="../../js/Pages/MainPage.js"></script>
 
 
-    <script> <!-- TODO:is it ok to have inline script blocks ??? -->
-    function setPlatformNotePopupContentHtml(htmlValue) {
-        $('div.popup-platform-note').html(htmlValue);
-    }
+    <script type="text/javascript"> 
+        //TODO:is it ok to have inline script blocks ???
+        //Lets assume it's ok to have them here first, and then if they tend to grow
+        //move them to the dedicated JavaScript file
 
-
-    function isVisible(elemLocator) {
-        try {
-            return $(elemLocator).is(":visible");
-        } catch (e) {
+        demoBootstrap = function () {
 
         }
-        return false;
-    }
-
-    function displayShowcaseInfo(textToShow) {
-        var demoBoardLocator = 'div.pricing-grid.demo-board';
-        if (isVisible(demoBoardLocator)) {
-            $(demoBoardLocator).html('<p>' + textToShow + '</p>');
-        } else {
-            $('#demoShowcaseResultContainer').html(textToShow);
-            $.magnificPopup.open({
-                items: {
-                    src: '#small-dialog1'
-                },
-                type: 'inline',
-                preloader: false,
-                closeBtnInside: true,
-                mainClass: 'my-mfp-zoom-in'//,
-                //modal: true
-            });
-        }
-    }
-
-    $(document).ready(function () {
-
-        var console = (function (c) {
-            return {
-                log: function (v) {
-                    c.log('_original_');
-                    c.log(v);
-                    var debugDivs = $('#debugInfo');
-                    var debugDiv = debugDivs[0];
-                    if (debugDiv !== null) {
-                        debugDivs.html(v);
-                    }
-                }
-            };
-        }(window.console));
-        //console.log('hello world');
-
-        //console.log("here ok1");
-
-        $('.popup-with-zoom-anim').magnificPopup({
-            type: 'inline',
-            fixedContentPos: false,
-            fixedBgPos: true,
-            overflowY: 'auto',
-            closeBtnInside: true,
-            preloader: false,
-            midClick: true,
-            removalDelay: 300,
-            mainClass: 'my-mfp-zoom-in'
-        });
-
-        //methods that can or need to be defined when DOM is loaded
-        //console.log("here ok2");     
-    });
-
 
     </script>
-    <!-- //End fancyBox light-box -->
 </head>
 <body>
     <!---strat-wrap---->
@@ -141,8 +80,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <h3>Demo Showcase</h3>
                     <ul>
                         <li><a href="#" onclick="testClick(); return false;">Demo the WebMarco bridge</a></li>
+                        <li><a href="#" onclick="demoBootstrap(); return false;">Bootstrap demo</a></li>
                         <li><a href="#debugInfo" onclick="$('#debugConsole').show(); $('#debugInfo').html('Test debugInfo will be shown here.');">Check debug info</a></li>
-                        <li><a href="#" onclick="$('#debugInfo').html(''); $('#debugConsole').hide(); ">Clear debug info</a></li>
+                        <li><a href="#" onclick="$('#debugInfo').html(''); $('#debugConsole').hide(); ">Clear debug info</a></li>                        
                         <li><a href="#" onclick="quit(); return false;">Exit</a></li>
                     </ul>
                     <div class="cart">
@@ -230,7 +170,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </ul>
                 </div>
                 <div class="about-right-grid">
-                    <iframe src="//player.vimeo.com/video/19954119?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="100%" height="290" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <!--<iframe src="//player.vimeo.com/video/19954119?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="100%" height="290" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
                 </div>
                 <div class="clear"></div>
             </div>
