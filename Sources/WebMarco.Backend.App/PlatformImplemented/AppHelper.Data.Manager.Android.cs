@@ -24,7 +24,7 @@ namespace WebMarco.Backend.App.PlatformImplemented.Android
             this.context = context;
         }
 
-        public override void RestoreWorkingCopyOfDatabase(string databaseWorkingPath) { //TODO: seems to look like very crossplatform code
+        public override void RestoreWorkingCopyOfDatabase(string databaseWorkingPath) { 
             string dataBaseName = Path.GetFileName(databaseWorkingPath);
 
             string databaseInAssetsPath = PathUtils.PathCombineCrossPlatform(AppHelper.Paths.DatafilesAssetPath, dataBaseName);

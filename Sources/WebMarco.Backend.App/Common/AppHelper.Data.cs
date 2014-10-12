@@ -70,7 +70,16 @@ namespace WebMarco.Backend.App.Common {
                     }
                 }
 
-				public abstract void RestoreWorkingCopyOfDatabase(string databaseWorkingPath);
+				public virtual void RestoreWorkingCopyOfDatabase(string databaseWorkingPath) {
+					string dataBaseName = Path.GetFileName(databaseWorkingPath);
+					string databaseInAssetsPath = PathUtils.PathCombineCrossPlatform(AppHelper.Paths.DatafilesAssetPath, dataBaseName);
+					try {
+						File.Delete(databaseWorkingPath);
+					} catch (Exception ex) {
+						DLogger.WriteLog (ex);
+					}
+					File.Copy(databaseInAssetsPath, databaseWorkingPath);
+				}
 
                 public virtual void RestoreWorkingCopyOfMainDatabase() {
 					RestoreWorkingCopyOfDatabase(MainDatabaseFileInWorkingPath);
