@@ -77,10 +77,6 @@
       <Project>{b92eddc6-d699-4495-8f0d-7d5dfe6a3211}</Project>
       <Name>WebMarco.Backend.App.Win</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\WebMarco.Utilities.Test\WebMarco.Utilities.Test.Win.csproj">
-      <Project>{d4b48e17-bd2e-484e-bda4-648f253c6ef4}</Project>
-      <Name>WebMarco.Utilities.Test.Win</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\WebMarco.Utilities\WebMarco.Utilities.Win.csproj">
       <Project>{78cdad65-f1c2-4ab3-b2c9-66bb422c3062}</Project>
       <Name>WebMarco.Utilities.Win</Name>
