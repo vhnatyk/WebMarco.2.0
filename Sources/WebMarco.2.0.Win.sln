@@ -156,7 +156,8 @@ Global
 		{D4B48E17-BD2E-484E-BDA4-648F253C6EF4}.Debug|x86.ActiveCfg = Debug|x86
 		{D4B48E17-BD2E-484E-BDA4-648F253C6EF4}.Debug|x86.Build.0 = Debug|x86
 		{D4B48E17-BD2E-484E-BDA4-648F253C6EF4}.Release|x64.ActiveCfg = Release|Any CPU
-		{D4B48E17-BD2E-484E-BDA4-648F253C6EF4}.Release|x86.ActiveCfg = Release|Any CPU
+		{D4B48E17-BD2E-484E-BDA4-648F253C6EF4}.Release|x86.ActiveCfg = Release|x86
+		{D4B48E17-BD2E-484E-BDA4-648F253C6EF4}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
