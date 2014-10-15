@@ -59,6 +59,7 @@ namespace WebMarco.Backend.App.Common {
                 //    throw new Exception(string.Format("Cant connect to database at \"{0}\"", databasePath), ex);
                 //}
             }
+
             private static bool FileExists(string filePath) {
                 return File.Exists(filePath);
             }
