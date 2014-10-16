@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("BridgeTry.Backend.Core.Test.Resource", IsApplication=false)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("WebMarco.Utilities.Test.Resource", IsApplication=false)]
 
-namespace BridgeTry.Backend.Core.Test
+namespace WebMarco.Utilities.Test
 {
 	
 	

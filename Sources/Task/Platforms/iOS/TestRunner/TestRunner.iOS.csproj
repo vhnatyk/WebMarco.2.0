@@ -122,6 +122,10 @@
       <Project>{4f886a8b-7c4a-4bc8-8d4f-de4bb23cd156}</Project>
       <Name>WebMarco.Backend.App.iOS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\WebMarco.Utilities.Test\WebMarco.Utilities.Test.iOS.csproj">
+      <Project>{535150a6-45af-407c-8bfc-01bb102f17af}</Project>
+      <Name>WebMarco.Utilities.Test.iOS</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\WebMarco.Utilities\WebMarco.Utilities.iOS.csproj">
       <Project>{2909bb02-2087-4ff6-8c18-73092a0c1021}</Project>
       <Name>WebMarco.Utilities.iOS</Name>
