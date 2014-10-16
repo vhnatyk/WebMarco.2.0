@@ -6,7 +6,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.NUnit.UI;
 using BridgeTry.Backend.Core.Test;
-
+using WebMarco.Utilities.Test;  
 
 namespace TestRunner {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -34,6 +34,8 @@ namespace TestRunner {
             //runner.Add(System.Reflection.Assembly.GetExecutingAssembly());
 
             runner.Add(typeof(CoreTest).Assembly);
+            runner.Add(System.Reflection.Assembly.GetAssembly(typeof(EncryptorDecryptorTest)));  
+
 
             window.RootViewController = new UINavigationController(runner.GetViewController());
 

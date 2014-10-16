@@ -15,9 +15,8 @@ namespace BridgeTry.Backend.Core.Test.iOS {
         static void Main(string[] args) {
             //do it asap
             DLogger.Initialize(AppHelper.Paths.WorkingRootFolder);
-            #region Register classes to TinyIoC container here
-            TinyIoCContainer.Current.Register<AppHelper.Data.Manager, Manager>(new Manager());
-            #endregion
+
+            CoreTest.Initialize();
 
             // if you want to use a different Application Delegate class from "AppDelegate"
             // you can specify it here.

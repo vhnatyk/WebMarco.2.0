@@ -5,7 +5,7 @@ using WebMarco.Backend.App.Common;
 
 namespace BridgeTry.Backend.Core.Test {
     [TestFixture]
-    public partial class CoreTest {
+    public partial class Logic {
 
         //[Test]
         //public void Pass() {
