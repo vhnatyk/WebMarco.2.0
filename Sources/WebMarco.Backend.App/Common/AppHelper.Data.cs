@@ -34,17 +34,16 @@ namespace WebMarco.Backend.App.Common {
                 }
             }
 
-            public static bool ExistsMainDb
-            {
+            public static bool ExistsMainDb {
                 get { return File.Exists(MainDatabaseFileInWorkingPath); }
             }
 
             public static void ConnectDatabase() {
-                ConnectDb(MainDatabaseFileInWorkingPath);
+                ConnectDatabase(MainDatabaseFileInWorkingPath);
             }
 
-            public static void ConnectDb(string databaseWorkingCopyPath) {
-//                try {
+            public static void ConnectDatabase(string databaseWorkingCopyPath) {
+				try {
                     if (!FileExists(databaseWorkingCopyPath)) {
                         Manager.Instance.RestoreWorkingCopyOfDatabase(databaseWorkingCopyPath);
                     }
@@ -54,10 +53,10 @@ namespace WebMarco.Backend.App.Common {
                     DLogger.WriteLog(string.Format("Connected to Db: " + databaseWorkingCopyPath));
 
                     return;
-                //} catch (Exception ex) {
-                //    DLogger.WriteLog(ex);
-                //    throw new Exception(string.Format("Cant connect to database at \"{0}\"", databasePath), ex);
-                //}
+                } catch (Exception ex) {
+                    DLogger.WriteLog(ex);
+					throw new Exception(string.Format("Can't connect to database at \"{0}\"", databaseWorkingCopyPath), ex);
+                }
             }
 
             private static bool FileExists(string filePath) {
@@ -71,9 +70,19 @@ namespace WebMarco.Backend.App.Common {
                     }
                 }
 
-                public abstract void RestoreWorkingCopyOfDatabase(string databasePathInAssets);
+				public virtual void RestoreWorkingCopyOfDatabase(string databaseWorkingPath) {
+					string dataBaseName = Path.GetFileName(databaseWorkingPath);
+					string databaseInAssetsPath = PathUtils.PathCombineCrossPlatform(AppHelper.Paths.DatafilesAssetPath, dataBaseName);
+					try {
+						File.Delete(databaseWorkingPath);
+					} catch (Exception ex) {
+						DLogger.WriteLog (ex);
+					}
+					File.Copy(databaseInAssetsPath, databaseWorkingPath);
+				}
+
                 public virtual void RestoreWorkingCopyOfMainDatabase() {
-                    RestoreWorkingCopyOfDatabase(MainDatabaseFileInAssets);
+					RestoreWorkingCopyOfDatabase(MainDatabaseFileInWorkingPath);
                 }
             }
         }

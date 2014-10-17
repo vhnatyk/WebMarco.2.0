@@ -3,8 +3,7 @@
 
 # User-specific files
 *.suo
-*.user
-*.userprefs
+*.user*
 *.sln.docstates
 
 # Build results
@@ -184,7 +183,8 @@ FakesAssemblies/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -211,3 +211,6 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+Sources/Task/Backend/Core.Test/BridgeTry.Backend.Core.Test/Common/CoreTest.cs
+Sources/Task/Frontend/BridgeTry.Frontend/Resources/Resource.Designer.cs
+Sources/Task/Frontend/BridgeTry.Frontend/BridgeTry.Frontend.Win.csproj

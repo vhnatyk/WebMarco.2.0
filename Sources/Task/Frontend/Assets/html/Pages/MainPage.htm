@@ -45,8 +45,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         //Lets assume it's ok to have them here first, and then if they tend to grow
         //move them to the dedicated JavaScript file
 
-        demoBootstrap = function () {
+        function demoConsoleWrite(message) {
+            $('#debugConsole').show();
+            $('#debugInfo').html(message);
+        }
 
+        function supportsImports() {
+            return 'import' in document.createElement('link');
+        }
+
+        demoBootstrap = function () {
+            var isSupported = supportsImports() ? '' : 'not ';
+            demoConsoleWrite("html import is " + isSupported + "supported");
         }
 
     </script>
@@ -81,7 +91,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <ul>
                         <li><a href="#" onclick="testClick(); return false;">Demo the WebMarco bridge</a></li>
                         <li><a href="#" onclick="demoBootstrap(); return false;">Bootstrap demo</a></li>
-                        <li><a href="#debugInfo" onclick="$('#debugConsole').show(); $('#debugInfo').html('Test debugInfo will be shown here.');">Check debug info</a></li>
+                        <li><a href="#debugInfo" onclick="demoConsoleWrite('Test debugInfo will be shown here.');">Check debug info</a></li>
                         <li><a href="#" onclick="$('#debugInfo').html(''); $('#debugConsole').hide(); ">Clear debug info</a></li>                        
                         <li><a href="#" onclick="quit(); return false;">Exit</a></li>
                     </ul>
