@@ -252,6 +252,6 @@ Global
 		{F24FB85C-76CD-4D41-A6F7-D43D9AA072C3} = {A69CD7B0-68D0-4633-8F24-701CF9FBF5DD}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Task\Backend\Core.Test\BridgeTry.Backend.Core.Test.Mac.csproj
+		StartupItem = Task\Platforms\Mac\BridgeTry.Mac.csproj
 	EndGlobalSection
 EndGlobal

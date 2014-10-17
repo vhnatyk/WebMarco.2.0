@@ -10,14 +10,14 @@
     <OutputType>Library</OutputType>
     <RootNamespace>WebMarco.Utilities.Test</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>WebMarcoUtilitiesTestiOS</AssemblyName>
+    <AssemblyName>WebMarco.Utilities.Test.iOS</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhone\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
+    <DefineConstants>DEBUG;__MOBILE__;__IOS__;iOS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
+    <DefineConstants>__MOBILE__;__IOS__;iOS</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="EncryptorDecryptorTest.cs" />

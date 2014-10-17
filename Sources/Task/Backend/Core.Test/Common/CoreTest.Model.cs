@@ -3,11 +3,14 @@ using NUnit.Framework;
 using WebMarco.Utilities.Logging;
 using WebMarco.Utilities.Misc;
 using BridgeTry.Backend.Core.Model.Entities;
+using Vici.CoolStorage;
+using System.Collections.Generic;
 
 
 namespace BridgeTry.Backend.Core.Test {
     [TestFixture]
-    public partial class CoreTest {
+    public partial class Model
+    {
         #region Model
         [Test]
         public void EnsureDatabaseReadWriteWorksCorrectly() {

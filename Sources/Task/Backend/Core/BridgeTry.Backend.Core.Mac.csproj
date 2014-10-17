@@ -67,8 +67,8 @@
     <Compile Include="Common\Model\Entities\TestData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\db\master.db">
+    <None Include="Assets\db\master.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
 </Project>

@@ -3,8 +3,7 @@
 
 # User-specific files
 *.suo
-*.user
-*.userprefs
+*.user*
 *.sln.docstates
 
 # Build results

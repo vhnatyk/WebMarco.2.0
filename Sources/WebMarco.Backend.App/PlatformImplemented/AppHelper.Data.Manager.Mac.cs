@@ -10,11 +10,7 @@ using WebMarco.Utilities.Logging;
 using WebMarco.Utilities.Paths;
 
 namespace WebMarco.Backend.App.PlatformImplemented.Mac {
-    public class Manager : AppHelper.Data.Manager {//TODO: a separate file only for this? hmm...
-        public override void RestoreWorkingCopyOfDatabase(string databaseWorkingPath) { //TODO: seems to look like very crossplatform code
-            string dataBaseName = Path.GetFileName(databaseWorkingPath);
-            string databaseInAssetsPath = PathUtils.PathCombineCrossPlatform(AppHelper.Paths.DatafilesAssetPath, dataBaseName);
-            File.Copy(databaseInAssetsPath, databaseWorkingPath);
-        }
+    public class Manager : AppHelper.Data.Manager {
+
     }
 }

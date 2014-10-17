@@ -34,7 +34,6 @@ namespace TestRunner {
             //runner.Add(System.Reflection.Assembly.GetExecutingAssembly());
 
             runner.Add(typeof(CoreTest).Assembly);
-            runner.Add(System.Reflection.Assembly.GetExecutingAssembly());
             runner.Add(System.Reflection.Assembly.GetAssembly(typeof(EncryptorDecryptorTest)));  
 
 
