@@ -222,6 +222,12 @@ namespace WebMarco.Utilities {
                     }
                 }
 #endif
+
+                public static string UrlFromPath(String pathToFile)
+                {
+                    return new Uri(pathToFile, UriKind.Absolute).AbsoluteUri;
+                }
+
             }
         }
     }
