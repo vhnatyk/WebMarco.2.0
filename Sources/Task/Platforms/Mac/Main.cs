@@ -16,6 +16,13 @@ namespace BridgeTry.Mac
 			NSApplication.Init ();//!!!Must be very first thing to run!!!
 			#if DEBUG
 			NSApplication.CheckForIllegalCrossThreadCalls = false;//causes wrong exceptions alluring that NSApplication.SharedApplication.InvokeOnMainThread doesnt work as expected
+
+			//WebInspector
+			NSUserDefaults userDefaults = NSUserDefaults.StandardUserDefaults;
+			NSMutableDictionary appDefaults = new NSMutableDictionary ();
+			appDefaults.SetValueForKey (NSObject.FromObject (true), new NSString ("WebKitDeveloperExtras"));
+			userDefaults.RegisterDefaults (appDefaults);
+			userDefaults.Synchronize ();
 			#endif
 
 			TinyIoCContainer.Current.Register<AppHelper.Data.Manager, Manager>(new Manager());

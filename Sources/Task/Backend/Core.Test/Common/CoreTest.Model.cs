@@ -15,12 +15,6 @@ namespace BridgeTry.Backend.Core.Test {
         [Test]
         public void EnsureDatabaseReadWriteWorksCorrectly() {
 
-#if DEBUG
-#if WIN            
-            CefSharp.CefErrorCode err = CefSharp.CefErrorCode.Aborted;
-            DLogger.WriteLog(err.ToString());
-#endif
-#endif
             DLogger.WriteLog("EnsureDatabaseReadWriteWorksCorrectly");
             TestData entrySaved = TestData.New();
             const string TextToTestDatabaseIoWith = "Text to test";

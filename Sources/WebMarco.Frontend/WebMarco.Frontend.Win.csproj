@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.WinForms.33.0.0\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.33.0.0\build\CefSharp.WinForms.props')" />
+  <Import Project="..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -62,18 +64,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CefSharp">
-      <HintPath>Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="CefSharp.Core">
-      <HintPath>Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="CefSharp.Example">
-      <HintPath>Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.Example.dll</HintPath>
-    </Reference>
-    <Reference Include="CefSharp.WinForms">
-      <HintPath>Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.WinForms.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -85,6 +75,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\bootstrap_fonts.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Common\BaseRectangle.cs" />
     <Compile Include="Common\BaseViewImplementer.cs" />
     <Compile Include="Common\BaseWebViewImplementer.cs" />
@@ -120,13 +113,31 @@
     <Content Include="Assets\css\baseStyle.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\css\bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\css\jquery-ui.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\css\main.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\js\jquery-1.9.1.js">
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\html\templates\modal.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\html\templates\progressbar.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\HTMLImports.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\jquery-1.11.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\js\jquery-ui.js">
@@ -135,19 +146,10 @@
     <Content Include="Assets\js\jquery-ui.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\js\jquery.ajax-cross-origin.min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\js\jquery.min.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Assets\js\main.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\js\modernizr.custom.28468.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\js\script.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\js\spin.js">
@@ -156,65 +158,13 @@
     <Content Include="Assets\js\templateForView.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Binary\$(PlatformName)\$(Configuration)\CefSharp.BrowserSubprocess.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.BrowserSubprocess.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.Core.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.Core.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.Core.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.Example.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.Example.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.WinForms.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.WinForms.Example.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.WinForms.Example.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.WinForms.pdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\icudt.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\libcef.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\nunit.framework.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\nunit.framework.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Binary\AnyCPU\Debug\!!!_PleaseRead_DoNotFixMissingContentRefs_.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\css\Pages\" />
-    <Folder Include="Assets\fonts\" />
     <Folder Include="Assets\html\Pages\" />
     <Folder Include="Assets\img\" />
     <Folder Include="Assets\js\Pages\" />
+    <Folder Include="Binary\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\js\jsapi">
@@ -236,26 +186,55 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\cef.pak">
+    <Content Include="Assets\fonts\cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.BrowserSubprocess.exe.config">
+    <Content Include="Assets\fonts\DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.WinForms.Example.exe.config">
+    <Content Include="Assets\fonts\k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\devtools_resources.pak">
+    <Content Include="Assets\fonts\PRmiXeptR36kaC0GEAetxh_xHqYgAV9Bl_ZQbYUxnQU.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Binary\$(PlatformName)\$(ConfigurationName)\locales\en-US.pak">
+    <Content Include="Assets\fonts\PRmiXeptR36kaC0GEAetxjqR_3kx9_hJXbbyU8S6IN0.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\fonts\xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\fonts\glyphicons-halflings-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y/E  "$(ProjectDir)Binary\$(PlatformName)\$(ConfigurationName)\*.*" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\cef.redist.3.1750.1738\build\cef.redist.targets" Condition="Exists('..\packages\cef.redist.3.1750.1738\build\cef.redist.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.3.1750.1738\build\cef.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.3.1750.1738\build\cef.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.33.0.0\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.33.0.0\build\CefSharp.WinForms.props'))" />
+  </Target>
+  <Import Project="..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

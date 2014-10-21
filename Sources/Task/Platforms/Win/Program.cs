@@ -1,4 +1,4 @@
-﻿using CefSharp.Example;
+﻿using CefSharp;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -16,7 +16,7 @@ namespace BridgeTry.Win {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            CefExample.Init();
+            CefSharp.Cef.Initialize();
 
             Application.Run(new MainWindow());
 
