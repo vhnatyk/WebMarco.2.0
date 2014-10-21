@@ -152,9 +152,6 @@
     <Content Include="Assets\js\modernizr.custom.28468.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\js\script.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Assets\js\spin.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
