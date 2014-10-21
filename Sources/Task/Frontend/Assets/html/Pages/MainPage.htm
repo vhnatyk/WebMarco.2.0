@@ -34,13 +34,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--<script type="text/javascript" src="../../js/jquery.mousewheel.js"></script>-->
     <!--<script type="text/javascript" src="../../js/perfect-scrollbar.js"></script>-->
     <!--<script type="text/javascript" src="../../js/jquery.ajax-cross-origin.min.js"></script>-->
+    <script type="text/javascript" src="../../js/HTMLImports.js"></script>
+
+    <link rel="import" href="../../html/templates/modal.html">
+    <link rel="import" href="../../html/templates/progressbar.html">
+
+    <script type="text/javascript">
+        var templates = document.querySelectorAll('link[rel="import"]');
+    </script>
+
+
 
     <!--Page and WebMarco scripts go last -->
     <script type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="../../js/Pages/MainPage.js"></script>
 
 
-    <script type="text/javascript"> 
+    <script type="text/javascript">
         //TODO:is it ok to have inline script blocks ???
         //Lets assume it's ok to have them here first, and then if they tend to grow
         //move them to the dedicated JavaScript file
@@ -50,13 +60,72 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             $('#debugInfo').html(message);
         }
 
+        //TODO: move to main script file
         function supportsImports() {
             return 'import' in document.createElement('link');
         }
 
+        function startProgressDemo() {
+            /* working progress bar example */
+            var bar = $('.progress-bar');
+            var progressValue = 0;
+            /*//can't be done here since works with animation, and we need immediate reset
+            bar.width(0);
+            bar.text('');
+            */
+
+            modalDemo.on('hidden.bs.modal', function (e) {
+                //var bar = $('.progress-bar');
+                //reset progress bar
+                bar.width(0);
+                bar.text('');
+            })
+
+            var progress = setInterval(function () {
+                if (progressValue == 100) {
+                    clearInterval(progress);
+                    $('.progress').removeClass('active');
+                } else {
+                    progressValue += 1;
+                    bar.width(progressValue + '%');
+                }
+                bar.text(progressValue + "%");
+            }, 40);
+        }
+
+        var modalDemo;
+        var progress;
+
+        //TODO: make this part of API
+        loadElementFromTemplate = function (itemToLoad, elementId, template) {
+            var el = template.import.querySelector('.' + itemToLoad);
+            el.id = elementId;
+            document.body.appendChild(el.cloneNode(true));
+            return $('#' + elementId);
+        };
+
+        initDemo = function () {
+            if (modalDemo == null) {
+                var isSupported = supportsImports() ? '' : 'not ';
+                demoConsoleWrite("html import is " + isSupported + "supported by this browser core");
+                //if (isSupported) {
+                //TODO: this has to be done via some API
+                //load modal
+                modalDemo = loadElementFromTemplate('modal', 'myModal', templates[0]);
+                //load progress bar
+                progress = loadElementFromTemplate('progress', 'myProgress', templates[1]);
+                //}
+                modalDemo.find('.modal-title').html("Demo of Bootstrap responsive HTML 5 framework");
+                var modalContentContainer = modalDemo.find('.modal-body');
+                modalContentContainer.html("This is the demo of Bootstrap - dummy progress bar. It's quite nice.");
+                modalContentContainer.append(progress);
+            }
+        };
+
         demoBootstrap = function () {
-            var isSupported = supportsImports() ? '' : 'not ';
-            demoConsoleWrite("html import is " + isSupported + "supported");
+            initDemo();
+            modalDemo.modal({ show: true });
+            startProgressDemo();
         }
 
     </script>
@@ -92,7 +161,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <li><a href="#" onclick="testClick(); return false;">Demo the WebMarco bridge</a></li>
                         <li><a href="#" onclick="demoBootstrap(); return false;">Bootstrap demo</a></li>
                         <li><a href="#debugInfo" onclick="demoConsoleWrite('Test debugInfo will be shown here.');">Check debug info</a></li>
-                        <li><a href="#" onclick="$('#debugInfo').html(''); $('#debugConsole').hide(); ">Clear debug info</a></li>                        
+                        <li><a href="#" onclick="$('#debugInfo').html(''); $('#debugConsole').hide(); ">Clear debug info</a></li>
                         <li><a href="#" onclick="quit(); return false;">Exit</a></li>
                     </ul>
                     <div class="cart">
@@ -123,293 +192,29 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <!----End-welcome-Note---->
     </div>
-    <div id="extraScrollDownContainer" style="display: none;">
-        <!---start-content----->
-        <div class="wrap">
-            <div class="content">
-                <!---strat-top-grids---->
-                <div class="top-grids">
-                    <div class="top-grid">
-                        <a class="icon monitor" href="#"></a>
-                        <a href="#">Flat Design</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                    </div>
-                    <div class="top-grid">
-                        <a class="icon target" href="#"></a>
-                        <a href="#">Mraketable</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                    </div>
-                    <div class="top-grid">
-                        <a class="icon photo" href="#"></a>
-                        <a href="#">Edit Photos</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                    </div>
-                    <div class="top-grid top-grid1">
-                        <label></label>
-                        <a class="icon colors" href="#"></a>
-                        <a href="#">Edit Colors</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                    </div>
-                    <div class="top-grid top-grid1">
-                        <label></label>
-                        <a class="icon man" href="#"></a>
-                        <a href="#">User Friendly</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                    </div>
-                    <div class="top-grid top-grid1">
-                        <label></label>
-                        <a class="icon spare" href="#"></a>
-                        <a href="#">100% Editable</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                    </div>
-                    <div class="clear"></div>
+    <!--bootstrap modal -->
+    <!--    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Modal with Bootstrap demo</h4>
                 </div>
-                <!---End-top-grids---->
-            </div>
-        </div>
-        <!---start-about-grids---->
-        <div class="about-grids">
-            <div class="wrap">
-                <div class="about-left-grid">
-                    <h3>What's WebMarco all About ?</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur.</p>
-                    <p>Dolore magna aliqua. Duis aute irure dolor in rtempor incididunt ut labore et dolore magna aliqua.</p>
-                    <ul>
-                        <li><a href="#"><span></span>Lorem ipsum dolor sit amet,</a></li>
-                        <li><a href="#"><span></span>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</a></li>
-                    </ul>
-                </div>
-                <div class="about-right-grid">
-                    <!--<iframe src="//player.vimeo.com/video/19954119?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="100%" height="290" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <!---End-about-grids---->
-        <!----------------start-testmonials-------------->
-        <div class="test-monials-grids">
-            <div class="wrap">
-                <div class="examples" id="textslider">
-                    <div class="slider">
-                        <div class="slider-mask-wrap">
-                            <div class="slider-mask">
-                                <ul class="slider-target instance-1" style="position: relative; left: -3510px; width: 5850px;">
-                                    <li data-slide="0" style="width: 1170px;">
-                                        <div class="inner">
-                                            <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntsed do eiusmod  quis nostrud !!</p>
-                                        </div>
-                                        <div class="test-auther">
-                                            <span></span>
-                                            <p><a href="#">Robert Markel,</a></p>
-                                        </div>
-                                    </li>
-                                    <li data-slide="1" style="width: 1170px;">
-                                        <div class="inner">
-                                            <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntsed do eiusmod  quis nostrud !!</p>
-                                        </div>
-                                        <div class="test-auther">
-                                            <span></span>
-                                            <p><a href="#">Robert Markel,</a></p>
-                                        </div>
-                                    </li>
-                                    <li data-slide="2" style="width: 1170px;">
-                                        <div class="inner">
-                                            <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntsed do eiusmod  quis nostrud !!</p>
-                                        </div>
-                                        <div class="test-auther">
-                                            <span></span>
-                                            <p><a href="#">Robert Markel,</a></p>
-                                        </div>
-                                    </li>
-                                    <li data-slide="3" style="width: 1170px;">
-                                        <div class="inner">
-                                            <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntsed do eiusmod  quis nostrud !!</p>
-                                        </div>
-                                        <div class="test-auther">
-                                            <span></span>
-                                            <p><a href="#">Robert Markel,</a></p>
-                                        </div>
-                                    </li>
-                                    <li data-slide="4" style="width: 1170px;">
-                                        <div class="inner">
-                                            <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntsed do eiusmod  quis nostrud !!</p>
-                                        </div>
-                                        <div class="test-auther">
-                                            <span></span>
-                                            <p><a href="#">Robert Markel,</a></p>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="clearit"></div>
-                            </div>
+                <div class="modal-body">
+                    This is the demo of the modal done with Bootstrap. It's quite nice.
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
                         </div>
                     </div>
-                    <ul id="selector">
-                        <li><a href="#" rel="frame_0" class=""></a></li>
-                        <li><a href="#" rel="frame_1" class=""></a></li>
-                        <li><a href="#" rel="frame_3" class="current"></a></li>
-                    </ul>
-                    <script src="../../js/jquery-ui.min.js"></script>
-                    <script src="../../js/hammer.min.js"></script>
-                    <script src="../../js/responsiveCarousel.js"></script>
-                    <script>
-                        /* Okay, everything is loaded. Let's go! (on dom ready) */
-                        $(function () {
-                            /* a generic product carousel - something that might appear in the body of a e-commerce site. */
-                            $('#textslider')
-                            .responsiveCarousel({
-                                unitWidth: 'compute',
-                                target: '#textslider .slider-target',
-                                unitElement: '#textslider .slider-target > li',
-                                mask: '#textslider .slider-mask',
-                                arrowLeft: '#textslider .arrow-left',
-                                arrowRight: '#textslider .arrow-right',
-                                dragEvents: Modernizr.touch,
-                                responsiveUnitSize: function () {
-                                    return 1;
-                                },
-                                step: -1,
-                                onShift: function (i) {
-                                    var $current = $('#selector li a[rel=frame_' + i + ']');
-                                    $('#selector li a').removeClass('current');
-                                    $current.addClass('current');
-                                }
-                            });
+                </div>
+                <div class="modal-footer">
+                    <a href="#" data-dismiss="modal" class="btn">Close</a>
+                    <a href="#" class="btn btn-primary">Save changes</a>
+                </div>
+            </div>
+        </div>
+    </div>-->
 
-                            /* this next part toggles the "auto slide show" option. */
-                            $('#toggle-slide-show').on('click', function (ev) {
-                                ev.preventDefault();
-                                $('#textslider').responsiveCarousel('toggleSlideShow');
-                            });
-
-                            /* this lets us jump to a slide */
-                            $('#selector a').on('click', function (ev) {
-                                ev.preventDefault();
-                                var i = /\d/.exec($(this).attr('rel'));
-                                $('#textslider').responsiveCarousel('goToSlide', i);
-                            });
-
-                        });
-                        $(window).on('load', function () {
-                            $('.examples').responsiveCarousel('redraw');
-                        });
-                    </script>
-                </div>
-            </div>
-        </div>
-        <!------------//-------------->
-        <!----start-pricingplans---->
-        <div class="pricing-plans">
-            <div class="wrap">
-                <div class="pricing-plans-head">
-                    <h3>Pricing plans</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
-                </div>
-                <div class="pricing-grids">
-                    <div class="pricing-grid">
-                        <h3>Basic</h3>
-                        <div class="price-value">
-                            <a href="#">$19 <span>99</span></a>
-                        </div>
-                        <ul>
-                            <li><a href="#">Feature 1</a></li>
-                            <li><a href="#">Feature 2</a></li>
-                            <li><a href="#">Feature 3</a></li>
-                            <li><a href="#">Feature 4</a></li>
-                            <li><a href="#">Feature 5</a></li>
-                        </ul>
-                        <div class="cart">
-                            <a class="popup-with-zoom-anim" href="#small-dialog">Purchase</a>
-                        </div>
-                    </div>
-                    <div class="pricing-grid">
-                        <h3>Standard</h3>
-                        <div class="price-value">
-                            <a href="#">$39 <span>99</span></a>
-                        </div>
-                        <ul>
-                            <li><a href="#">Feature 1</a></li>
-                            <li><a href="#">Feature 2</a></li>
-                            <li><a href="#">Feature 3</a></li>
-                            <li><a href="#">Feature 4</a></li>
-                            <li><a href="#">Feature 5</a></li>
-                        </ul>
-                        <div class="cart">
-                            <a class="popup-with-zoom-anim" href="#small-dialog">Purchase</a>
-                        </div>
-                    </div>
-                    <div class="pricing-grid">
-                        <h3>Deluxe</h3>
-                        <div class="price-value">
-                            <a href="#">$59 <span>99</span></a>
-                        </div>
-                        <ul>
-                            <li><a href="#">Feature 1</a></li>
-                            <li><a href="#">Feature 2</a></li>
-                            <li><a href="#">Feature 3</a></li>
-                            <li><a href="#">Feature 4</a></li>
-                            <li><a href="#">Feature 5</a></li>
-                        </ul>
-                        <div class="cart">
-                            <a class="popup-with-zoom-anim" href="#small-dialog">Purchase</a>
-                        </div>
-                    </div>
-                    <div class="pricing-grid">
-                        <h3>Unlimited</h3>
-                        <div class="price-value">
-                            <a href="#">$79 <span>99</span></a>
-                        </div>
-                        <ul>
-                            <li><a href="#">Feature 1</a></li>
-                            <li><a href="#">Feature 2</a></li>
-                            <li><a href="#">Feature 3</a></li>
-                            <li><a href="#">Feature 4</a></li>
-                            <li><a href="#">Feature 5</a></li>
-                        </ul>
-                        <div class="cart">
-                            <a class="popup-with-zoom-anim" href="#small-dialog">Purchase</a>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <!----End-pricingplans---->
-                <!---start-social-chatch-on-icons------>
-                <div class="social-icons">
-                    <div class="wrap">
-                        <h3>Say Hi & Get in Touch</h3>
-                        <p>Please feel free to contribute, spread the word about WebMarco or to contact regarding any other inqueries  </p>
-                        <ul>
-                            <li><a class="twitter" href="#"></a></li>
-                            <li><a class="facebook" href="#"></a></li>
-                            <li><a class="pin" href="#"></a></li>
-                            <li><a class="in" href="#"></a></li>
-                            <li><a class="youtube" href="#"></a></li>
-                            <div class="clear"></div>
-                        </ul>
-                    </div>
-                </div>
-                <!---End-social-chatch-on-icons------>
-                <!---//End-content----->
-                <!---start-footer----->
-                <div class="footer">
-                    <div class="wrap">
-                        <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Download</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Email</a></li>
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <div class="clear"></div>
-                        </ul>
-                        <p class="copy-right">Template by <a href="http://w3layouts.com/">W3layouts</a></p>
-                    </div>
-                </div>
-                <!---End-footer----->
-            </div>
-        </div>
-        <!---End-wrap---->
-    </div>
     <!-----pop-up-grid---->
     <div id="small-dialog" class="mfp-hide">
         <div class="pop_up">

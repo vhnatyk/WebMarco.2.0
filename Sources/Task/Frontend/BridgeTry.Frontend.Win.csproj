@@ -115,9 +115,9 @@
     <Content Include="Assets\fonts\OpenSans-Regular-webfont.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\html\Pages\MainPage.htm">
+    <None Include="Assets\html\Pages\MainPage.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="Assets\img\bg.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

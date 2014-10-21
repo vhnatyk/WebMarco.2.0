@@ -136,6 +136,33 @@
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\jsapi">
       <Link>Assets\js\jsapi</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\fonts\cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff">
+      <Link>Assets\fonts\cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\fonts\DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff">
+      <Link>Assets\fonts\DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\fonts\glyphicons-halflings-regular.eot">
+      <Link>Assets\fonts\glyphicons-halflings-regular.eot</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\fonts\glyphicons-halflings-regular.ttf">
+      <Link>Assets\fonts\glyphicons-halflings-regular.ttf</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\fonts\glyphicons-halflings-regular.woff">
+      <Link>Assets\fonts\glyphicons-halflings-regular.woff</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\fonts\k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff">
+      <Link>Assets\fonts\k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\fonts\PRmiXeptR36kaC0GEAetxh_xHqYgAV9Bl_ZQbYUxnQU.woff">
+      <Link>Assets\fonts\PRmiXeptR36kaC0GEAetxh_xHqYgAV9Bl_ZQbYUxnQU.woff</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\fonts\PRmiXeptR36kaC0GEAetxjqR_3kx9_hJXbbyU8S6IN0.woff">
+      <Link>Assets\fonts\PRmiXeptR36kaC0GEAetxjqR_3kx9_hJXbbyU8S6IN0.woff</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\fonts\xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff">
+      <Link>Assets\fonts\xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff</Link>
+    </AndroidAsset>
     <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -148,21 +175,6 @@
     <AndroidResource Include="Resources\Drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="..\..\Frontend\Assets\css\blue.css">
-      <Link>Assets\css\blue.css</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\css\green.css">
-      <Link>Assets\css\green.css</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\css\jquery.treeview.css">
-      <Link>Assets\css\jquery.treeview.css</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\css\orange.css">
-      <Link>Assets\css\orange.css</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\css\style.css">
-      <Link>Assets\css\style.css</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\Frontend\Assets\css\Pages\MainPage.css">
       <Link>Assets\css\Pages\MainPage.css</Link>
     </AndroidAsset>
@@ -235,38 +247,29 @@
     <AndroidAsset Include="..\..\Frontend\Assets\fonts\OpenSans-Regular-webfont.svg">
       <Link>Assets\fonts\OpenSans-Regular-webfont.svg</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\js\hammer.min.js">
-      <Link>Assets\js\hammer.min.js</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.jscrollpane.min.js">
-      <Link>Assets\js\jquery.jscrollpane.min.js</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.magnific-popup.js">
-      <Link>Assets\js\jquery.magnific-popup.js</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.mousewheel.js">
-      <Link>Assets\js\jquery.mousewheel.js</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.tinyscrollbar.min.js">
-      <Link>Assets\js\jquery.tinyscrollbar.min.js</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.treeview.js">
-      <Link>Assets\js\jquery.treeview.js</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\js\responsiveCarousel.js">
-      <Link>Assets\js\responsiveCarousel.js</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\Frontend\Assets\js\Pages\MainPage.js">
       <Link>Assets\js\Pages\MainPage.js</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\jquery.ajax-cross-origin.min.js">
-      <Link>Assets\js\jquery.ajax-cross-origin.min.js</Link>
+    <AndroidAsset Include="..\..\Frontend\Assets\fonts\OFL.txt">
+      <Link>Assets\fonts\OFL.txt</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\jquery.min.js">
-      <Link>Assets\js\jquery.min.js</Link>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\html\templates\modal.html">
+      <Link>Assets\html\templates\modal.html</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\jquery-1.9.1.js">
-      <Link>Assets\js\jquery-1.9.1.js</Link>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\html\templates\progressbar.html">
+      <Link>Assets\html\templates\progressbar.html</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\bootstrap.min.js">
+      <Link>Assets\js\bootstrap.min.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\HTMLImports.js">
+      <Link>Assets\js\HTMLImports.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\jquery-1.11.1.js">
+      <Link>Assets\js\jquery-1.11.1.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\jquery-1.11.1.min.js">
+      <Link>Assets\js\jquery-1.11.1.min.js</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\jquery-ui.js">
       <Link>Assets\js\jquery-ui.js</Link>
@@ -289,8 +292,17 @@
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\templateForView.js">
       <Link>Assets\js\templateForView.js</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\fonts\glyphicons-halflings-regular.svg">
+      <Link>Assets\fonts\glyphicons-halflings-regular.svg</Link>
+    </AndroidAsset>
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\css\baseStyle.css">
       <Link>Assets\css\baseStyle.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\css\bootstrap.min.css">
+      <Link>Assets\css\bootstrap.min.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\css\bootstrap_fonts.css">
+      <Link>Assets\css\bootstrap_fonts.css</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\css\jquery-ui.css">
       <Link>Assets\css\jquery-ui.css</Link>
@@ -298,8 +310,41 @@
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\css\main.css">
       <Link>Assets\css\main.css</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\fonts\OFL.txt">
-      <Link>Assets\fonts\OFL.txt</Link>
+    <AndroidAsset Include="..\..\Frontend\Assets\css\blue.css">
+      <Link>Assets\css\blue.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\css\green.css">
+      <Link>Assets\css\green.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\css\jquery.treeview.css">
+      <Link>Assets\css\jquery.treeview.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\css\orange.css">
+      <Link>Assets\css\orange.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\css\style.css">
+      <Link>Assets\css\style.css</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\js\hammer.min.js">
+      <Link>Assets\js\hammer.min.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.jscrollpane.min.js">
+      <Link>Assets\js\jquery.jscrollpane.min.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.magnific-popup.js">
+      <Link>Assets\js\jquery.magnific-popup.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.mousewheel.js">
+      <Link>Assets\js\jquery.mousewheel.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.tinyscrollbar.min.js">
+      <Link>Assets\js\jquery.tinyscrollbar.min.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.treeview.js">
+      <Link>Assets\js\jquery.treeview.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\js\responsiveCarousel.js">
+      <Link>Assets\js\responsiveCarousel.js</Link>
     </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
