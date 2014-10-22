@@ -283,9 +283,6 @@
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\modernizr.custom.28468.js">
       <Link>Assets\js\modernizr.custom.28468.js</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\script.js">
-      <Link>Assets\js\script.js</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\spin.js">
       <Link>Assets\js\spin.js</Link>
     </AndroidAsset>

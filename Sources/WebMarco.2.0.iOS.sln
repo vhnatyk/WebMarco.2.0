@@ -51,7 +51,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMarco.Backend.App.iOS", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMarco.Backend.Bridge.iOS", "WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.iOS.csproj", "{75B9764D-399C-4A5C-8253-B19FB09BCF47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BridgeTry.Frontend", "Task\Frontend\BridgeTry.Frontend.csproj", "{012A9D5A-E2BD-4133-910F-56975DBE48DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BridgeTry.Frontend.iOS", "Task\Frontend\BridgeTry.Frontend.iOS.csproj", "{012A9D5A-E2BD-4133-910F-56975DBE48DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMarco.Frontend.iOS", "WebMarco.Frontend\WebMarco.Frontend.iOS.csproj", "{080E3D4F-0C91-46DE-8BD9-5CBC2222424B}"
 EndProject

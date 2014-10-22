@@ -94,14 +94,7 @@
       <Project>{54CE4B27-E637-4F46-B2D5-319C7920599E}</Project>
       <Name>WebMarco.Utilities.Mac</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Backend\Core\BridgeTry.Backend.Core.Mac.csproj">
-      <Project>{B5FDC856-27DE-403F-854B-8672FCE879CF}</Project>
-      <Name>BridgeTry.Backend.Core.Mac</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Frontend\BridgeTry.Frontend.Mac.csproj">
-      <Project>{EACA62DF-5BF8-4643-96D9-9204B841D19A}</Project>
-      <Name>BridgeTry.Frontend.Mac</Name>
-    </ProjectReference>
+
     <ProjectReference Include="..\..\..\WebMarco.Backend.App\WebMarco.Backend.App.Mac.csproj">
       <Project>{981DFA30-DC22-4789-A31B-21BC5E54EC02}</Project>
       <Name>WebMarco.Backend.App.Mac</Name>
@@ -113,6 +106,14 @@
     <ProjectReference Include="..\..\..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.Mac.csproj">
       <Project>{97BB789D-E03A-463D-8701-313FDE9BCB93}</Project>
       <Name>WebMarco.Backend.Bridge.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Backend\Core\BridgeTry.Backend.Core.Mac.csproj">
+      <Project>{B5FDC856-27DE-403F-854B-8672FCE879CF}</Project>
+      <Name>BridgeTry.Backend.Core.Mac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Frontend\BridgeTry.Frontend.Mac.csproj">
+      <Project>{EACA62DF-5BF8-4643-96D9-9204B841D19A}</Project>
+      <Name>BridgeTry.Frontend.Mac</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
