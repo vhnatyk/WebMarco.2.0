@@ -16,7 +16,7 @@ namespace BridgeTry.Win {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            CefSharp.Cef.Initialize();
+            Cef.Initialize();
 
             Application.Run(new MainWindow());
 
