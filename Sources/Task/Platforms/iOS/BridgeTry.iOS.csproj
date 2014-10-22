@@ -128,7 +128,9 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="Views\MainView.cs" />
-    <None Include="Info.plist" />
+    <None Include="Info.plist">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,9 +161,9 @@
       <Project>{7e9740c4-6833-4ad0-9d44-bcc10c5254ef}</Project>
       <Name>BridgeTry.Backend.Core.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Frontend\BridgeTry.Frontend.csproj">
+    <ProjectReference Include="..\..\Frontend\BridgeTry.Frontend.iOS.csproj">
       <Project>{012a9d5a-e2bd-4133-910f-56975dbe48de}</Project>
-      <Name>BridgeTry.Frontend</Name>
+      <Name>BridgeTry.Frontend.iOS</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
