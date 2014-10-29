@@ -104,7 +104,7 @@ namespace WebMarco.Backend.App.Common {
 
             #endregion
 
-            public static string GetUpdatesDataFilePath(string filename)
+            public static string GetFilePathInTemporaryFolder(string filename)
             {
                 return PathUtils.PathCombineCrossPlatform(TemporaryRootFolder, filename);
             }
