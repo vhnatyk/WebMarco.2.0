@@ -70,7 +70,7 @@ namespace WebMarco.Backend.App.Common {
                     }
                 }
 
-				public virtual void RestoreWorkingCopyOfDatabase(string databaseWorkingPath) {
+				public virtual string RestoreWorkingCopyOfDatabase(string databaseWorkingPath) {
 					string dataBaseName = Path.GetFileName(databaseWorkingPath);
 					string databaseInAssetsPath = PathUtils.PathCombineCrossPlatform(AppHelper.Paths.DatafilesAssetPath, dataBaseName);
 					try {
@@ -78,7 +78,12 @@ namespace WebMarco.Backend.App.Common {
 					} catch (Exception ex) {
 						DLogger.WriteLog (ex);
 					}
-					File.Copy(databaseInAssetsPath, databaseWorkingPath);
+
+                    databaseWorkingPath = PathUtils.PathCombineCrossPlatform(AppHelper.Paths.DatafilesWorkingPath, dataBaseName);
+
+					File.Copy(databaseInAssetsPath, databaseWorkingPath);                    
+
+                    return databaseWorkingPath;
 				}
 
                 public virtual void RestoreWorkingCopyOfMainDatabase() {

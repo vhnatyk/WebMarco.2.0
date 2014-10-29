@@ -15,7 +15,7 @@ namespace WebMarco.Backend.App.Common {
     /// <summary>
     /// Due to its inclusion of #if <PLATFORM> .. #endif blocks - this class has to be abstract
     /// and has to have it's implementation in PlatformImplemented subnamespace, but due to oneliner or simple nature of the 
-    /// platform-speciffic code blocks - let's avoid implementing of a class-per-line mess:) Sort of a hack...
+    /// platform-specific code blocks - let's avoid implementing of a class-per-line mess:) Sort of a hack...
     /// </summary>
 
 	public static partial class AppHelper {
@@ -37,10 +37,6 @@ namespace WebMarco.Backend.App.Common {
 		#endif
 
         public static class Paths {
-            public static string UrlFromPath(String pathToFile) {
-                return new Uri(pathToFile, UriKind.Absolute).AbsoluteUri;
-            }
-
             #region Folders
 
             #region Assets
@@ -151,6 +147,9 @@ namespace WebMarco.Backend.App.Common {
             }
             #endregion
 
+            public static string GetFilePathInTemporaryFolder(string filename) {
+                return PathUtils.PathCombineCrossPlatform(TemporaryRootFolder, filename);
+            }
         }
         #endregion
     }

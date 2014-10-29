@@ -5,9 +5,12 @@ using System.Text;
 using System.Threading;
 using WebMarco.Utilities.Paths;
 
-namespace WebMarco.Utilities {
-    namespace Logging {
-        public enum LoggingLevel {
+namespace WebMarco.Utilities
+{
+    namespace Logging
+    {
+        public enum LoggingLevel
+        {
             Default = 0, //everything
             Low,
             Medium,
@@ -15,7 +18,8 @@ namespace WebMarco.Utilities {
             ExceptionsOnly
         }
 
-        public static class DLogger {
+        public static class DLogger
+        {
             //private static readonly Lazy<Logger> lazy = new Lazy<Logger>(() => new Logger());
 
             //public static Logger Instance { get { return lazy.Value; } }
@@ -34,7 +38,8 @@ namespace WebMarco.Utilities {
             public static void Initialize(string rootLoggingFolder = null, bool isEncryptionOfLogEnabled = false) {
                 if (String.IsNullOrWhiteSpace(rootLoggingFolder)) {
                     IsLoggingToFileEnabled = false;
-                } else {
+                }
+                else {
                     RootLoggingFolder = PathUtils.PathCombineCrossPlatform(rootLoggingFolder, "Log");
                     if (!Directory.Exists(RootLoggingFolder)) {
                         Directory.CreateDirectory(RootLoggingFolder);
@@ -72,7 +77,8 @@ namespace WebMarco.Utilities {
                         try {
                             message = string.Format(messageFormat, args);
                             isNotMessageFormatted = false;
-                        } catch { }
+                        }
+                        catch { }
 
                         WriteConsole(message);
 
@@ -140,7 +146,8 @@ namespace WebMarco.Utilities {
 
                     string formattedMessage = string.Format("{0:dd-MM-yy HH:mm:ss} {1}{2}", DateTime.Now, message, Environment.NewLine);
                     File.AppendAllText(logFileName, formattedMessage, ASCIIEncoding.ASCII);
-                } catch (Exception ex) {
+                }
+                catch (Exception ex) {
                     WriteConsole(GetExceptionDescription(ex));
                 }
             }
@@ -200,8 +207,10 @@ namespace WebMarco.Utilities {
         }
     }
 
-    namespace Paths {
-        public static class PathUtils {
+    namespace Paths
+    {
+        public static class PathUtils
+        {
             public static string FixPathCrossPlatform(string path) {
                 return string.IsNullOrWhiteSpace(path) ? string.Empty : path.Replace("\\", "/");
             }
@@ -212,7 +221,8 @@ namespace WebMarco.Utilities {
                     : Path.Combine(pathComponent1, pathComponent2, pathComponent3));
             }
 
-            public static class UrlUtils {
+            public static class UrlUtils
+            {
 #if iOS
                 public static MonoTouch.Foundation.NSUrl GetNSUrlFromUri(Uri uri) {
                     try {
@@ -222,13 +232,19 @@ namespace WebMarco.Utilities {
                     }
                 }
 #endif
+                public static string GetUrlFromPath(String pathToFile) {
+                    return new Uri(pathToFile, UriKind.Absolute).AbsoluteUri;
+                }
+
             }
         }
     }
 
-    namespace Misc {
+    namespace Misc
+    {
 
-        public static class UiCallbackTimer {
+        public static class UiCallbackTimer
+        {
             public static void DelayExecution(TimeSpan delay, Action action, Action<Action> invoker) {
                 Timer timer = null;
 
@@ -247,7 +263,8 @@ namespace WebMarco.Utilities {
             }
         }
 
-        public static class ComparisonHelper {
+        public static class ComparisonHelper
+        {
             public static bool Equality(byte[] a1, byte[] b1) {
                 // If not same length, done
                 if (a1.Length != b1.Length) {
