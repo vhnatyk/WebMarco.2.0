@@ -37,10 +37,6 @@ namespace WebMarco.Backend.App.Common {
 		#endif
 
         public static class Paths {
-            public static string UrlFromPath(String pathToFile) {
-                return new Uri(pathToFile, UriKind.Absolute).AbsoluteUri;
-            }
-
             #region Folders
 
             #region Assets
@@ -107,6 +103,11 @@ namespace WebMarco.Backend.App.Common {
             }
 
             #endregion
+
+            public static string GetUpdatesDataFilePath(string filename)
+            {
+                return PathUtils.PathCombineCrossPlatform(TemporaryRootFolder, filename);
+            }
 
             private static string workingRootFolder;
             public static string WorkingRootFolder {
