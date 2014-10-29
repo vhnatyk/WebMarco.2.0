@@ -13,6 +13,7 @@ using WebMarco.Backend.App.Common;
 using System.Windows.Forms;
 using CefSharp.WinForms;
 
+
 namespace WebMarco.Frontend.PlatformImplemented.Win {
 
 
@@ -203,6 +204,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
         public virtual void Load() {
             implementer.Load(); /*Sort of base.Load if BaseView would be base class for this one, 
             but it's not, but still can be executed in implementer if necessary */
+            //a place to add firebug-lite ??? ?
             LoadMarkup();
         }
 

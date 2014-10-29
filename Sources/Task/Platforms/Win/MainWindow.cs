@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using WebMarco.Frontend.Common;
 using CefSharp.WinForms;
 using CefSharp;
-using CefSharp.Example;
 using WebMarco.Frontend.PlatformImplemented.Win;
 
 namespace BridgeTry {
@@ -37,7 +36,7 @@ namespace BridgeTry {
             //browser = new ChromiumWebBrowser("http://html5test.com/");
             mainWebView.Dock = DockStyle.Fill;
             //browser.BackColor = System.Drawing.Color.Blue;            
-            mainWebView.DownloadHandler = new DownloadHandler();
+            //mainWebView.DownloadHandler = new DownloadHandler();
             //browser.MenuHandler = new MenuHandler();
             mainWebView.NavStateChanged += OnBrowserNavStateChanged;
             mainWebView.ConsoleMessage += OnBrowserConsoleMessage;

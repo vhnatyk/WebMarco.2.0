@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\..\packages\CefSharp.WinForms.33.0.0\build\CefSharp.WinForms.props" Condition="Exists('..\..\..\packages\CefSharp.WinForms.33.0.0\build\CefSharp.WinForms.props')" />
+  <Import Project="..\..\..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.props" Condition="Exists('..\..\..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -88,18 +91,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="CefSharp">
-      <HintPath>..\..\..\WebMarco.Frontend\Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="CefSharp.Core">
-      <HintPath>..\..\..\WebMarco.Frontend\Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="CefSharp.Example">
-      <HintPath>..\..\..\WebMarco.Frontend\Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.Example.dll</HintPath>
-    </Reference>
-    <Reference Include="CefSharp.WinForms">
-      <HintPath>..\..\..\WebMarco.Frontend\Binary\$(PlatformName)\$(ConfigurationName)\CefSharp.WinForms.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -131,6 +122,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\Icon2.ico" />
     <None Include="Resources\Icon1.bmp" />
   </ItemGroup>
@@ -169,16 +161,28 @@
       <LastGenOutput>ResourceFile1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Binary\System.Data.SQLite.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y/E  "$(ProjectDir)$(OutDir)\Binary\$(PlatformName)\$(ConfigurationName)\*.*" "$(ProjectDir)$(OutDir)"
-rmdir /S/Q $(ProjectDir)$(OutDir)\Binary\$(PlatformName)\"
-xcopy /Y/E  "$(ProjectDir)Binary\*.*" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\..\..\packages\cef.redist.3.1750.1738\build\cef.redist.targets" Condition="Exists('..\..\..\packages\cef.redist.3.1750.1738\build\cef.redist.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\..\packages\cef.redist.3.1750.1738\build\cef.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\cef.redist.3.1750.1738\build\cef.redist.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\..\..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\CefSharp.WinForms.33.0.0\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\CefSharp.WinForms.33.0.0\build\CefSharp.WinForms.props'))" />
+  </Target>
+  <Import Project="..\..\..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.targets" Condition="Exists('..\..\..\packages\CefSharp.Common.33.0.0\build\CefSharp.Common.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

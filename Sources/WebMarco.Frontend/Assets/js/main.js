@@ -1,5 +1,12 @@
 ﻿/* various common service methods and vars */
 
+function isVisible(elemLocator) {
+    try {
+        return $(elemLocator).is(":visible");
+    } catch (e) { }
+    return false;
+}
+
 /* logging methods */
 writeLog = function (logText, ex, noFormat) {
     //console.log(logText);
@@ -135,7 +142,7 @@ function callBackendWithConfig(callConfig) {
         async: callConfig.IsAsync, //true,
         type: 'POST',
         url: 'http://' + serverIP + ':' + serverInstancePort + '/' + serverInstanceUid + '/callbackend?params=' + encodeURIComponent(JSON.stringify(callConfig)),
-       // data: callConfig,
+        // data: callConfig,
         success: function (responseData) {
             console.log('ajax success');
             var callbackConfig = null;
@@ -162,7 +169,7 @@ function callBackendWithConfig(callConfig) {
 /* Common methods */
 
 function quit() {
-    var result = callBackend('Quit', null, true);    
+    var result = callBackend('Quit', null, true);
 }
 
 //--common init----------------------
