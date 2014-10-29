@@ -30,9 +30,9 @@ namespace BridgeTry.Backend.Core.Test {
 
             var entryRead = TestData.ReadFirst("ID = @ID", "@ID", entrySaved.ID);
 
-            Assert.True(entrySaved.ID == entryRead.ID, string.Format("ID mistmatch, was {0} and now is: {1}", entrySaved.ID, entryRead.ID));
-            Assert.True(entrySaved.TestText == entryRead.TestText, string.Format("TestText mistmatch, was {0} and now is {1}", entrySaved.TestText, entryRead.TestText));
-            Assert.True(ComparisonHelper.Equality(entrySaved.TestBlob,entryRead.TestBlob), string.Format("TestBlob mistmatch, was {0} and now is {1}", entrySaved.TestBlob, entryRead.TestBlob));
+            Assert.True(entrySaved.ID == entryRead.ID, string.Format("ID mismatch, was {0} and now is: {1}", entrySaved.ID, entryRead.ID));
+            Assert.True(entrySaved.TestText == entryRead.TestText, string.Format("TestText mismatch, was {0} and now is {1}", entrySaved.TestText, entryRead.TestText));
+            Assert.True(ComparisonHelper.Equality(entrySaved.TestBlob,entryRead.TestBlob), string.Format("TestBlob mismatch, was {0} and now is {1}", entrySaved.TestBlob, entryRead.TestBlob));
             entrySaved.Delete();
         }
 
