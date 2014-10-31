@@ -28,7 +28,7 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
 
         public new Point Center {
             get {
-                throw new NotImplementedException();
+                return implementer.Center;
             }
             set {
                 throw new NotImplementedException();

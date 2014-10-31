@@ -93,7 +93,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
         }
 
         public void LoadMarkup(Uri url) {
-            base.Load(url.ToString()); //TODO: sort of not working on load !??
+            base.Load(url.ToString()); //TODO: sort of not working on load in Window!??
         }
 
         public void LoadMarkup() {

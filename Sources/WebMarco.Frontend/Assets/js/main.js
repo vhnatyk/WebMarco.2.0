@@ -28,7 +28,7 @@ writeLog = function (logText, ex, noFormat) {
 /* end of logging methods */
 
 var serverInstanceUid = '898316fb-f8d6-41ea-8ccf-a58090745d9f';
-var serverInstancePort = '8801';
+var serverInstancePort = '38701';
 var serverIP = '127.0.0.1';
 
 function setServerInstanceUid(val) {
@@ -189,3 +189,12 @@ function quit() {
 //function disableActivityIndicator() {
 //    $("#overlay").fadeOut("100");
 //}
+
+$(document).ready(function () {
+    try {
+        reinitializeServerUid();
+        console.log("reinitializeServerUid passed ok3");
+    } catch (e) {
+        console.log("exception : " + e.description + "number:" + e.number);
+    }
+});

@@ -18,6 +18,15 @@ namespace WebMarco.Frontend.Common {
 
         #endregion
 
+
+        protected BaseWebPage() { 
+        
+        }
+
+        protected BaseWebPage(IBaseWebView parentWebView = null) {            
+            ParentWebView = parentWebView;
+        }
+
         private IBaseWebView parentWebView;
         public IBaseWebView ParentWebView {
             get {
@@ -45,7 +54,7 @@ namespace WebMarco.Frontend.Common {
         }
 
         public virtual void Load() {
-            ParentWebView.LoadMarkup();
+            ParentWebView.LoadMarkup(this);
         }
     }
 }

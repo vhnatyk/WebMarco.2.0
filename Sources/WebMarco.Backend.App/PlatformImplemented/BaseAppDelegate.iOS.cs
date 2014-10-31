@@ -21,7 +21,7 @@ namespace WebMarco.Backend.App.PlatformImplemented.iOS {
         }
 
         public override void Quit() {
-           ///We can terminate app but it's not desired behaviour
+           ///We can terminate app but it's not desired behavior
            ///So does nothing on iOS
             //UIApplication.SharedApplication.PerformSelector(new Selector("terminateWithSuccess"), null, 0f);
         }

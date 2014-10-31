@@ -31,7 +31,7 @@ namespace WebMarco.Backend.App.Common {
             }
         }
 
-        public virtual void StartServer(Func<CallConfig, CallResult> requestHandleCallback) {
+        public virtual void StartServer(Func<CallConfig, CallResult> requestHandleCallback = null) {
             MicroServer.Instance.Start(null, null, null, requestHandleCallback);
         }
 

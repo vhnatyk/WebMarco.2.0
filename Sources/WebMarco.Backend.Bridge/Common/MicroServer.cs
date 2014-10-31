@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using WebMarco.Utilities.Logging;
+using System.Net.Mime;
 
 namespace WebMarco.Backend.Bridge.Common {
     public class MicroServer : IDisposable {
@@ -35,9 +36,9 @@ namespace WebMarco.Backend.Bridge.Common {
         }
         #endregion
 
-        //TODO: from config?
-        private string serverInstanceUid = "898316fb-f8d6-41ea-8ccf-a58090745d9f";//TODO: from some config file
-        private string serverInstancePort = "8801";
+        //TODO: from config? for now !!!DON'T FORGET to set same values in main.js file!!!
+        private string serverInstanceUid = "898316fb-f8d6-41ea-8ccf-a58090745d9f";//TODO: from config file, some very random string
+        private string serverInstancePort = "38701"; //some very random port number
         private string serverIP = "127.0.0.1";
 
         public string ServerIP {
@@ -60,13 +61,11 @@ namespace WebMarco.Backend.Bridge.Common {
 
         public Func<CallConfig, CallResult> OnHandleRequest { private get; set; }
 
-        private HttpListener listener;
-
         public void ReinitializeInstanceUid(string instanceUid) {
-            if (!IsInstanceUidReintialized) {
+            //if (!IsInstanceUidReintialized) {
                 Start(instanceUid);
                 IsInstanceUidReintialized = true;
-            }
+            //}
         }
 
         public void Start(string instanceUid = null, string instancePort = null, string instanceIP = null, Func<CallConfig, CallResult> requestHandleCallback = null) {
@@ -111,11 +110,23 @@ namespace WebMarco.Backend.Bridge.Common {
             }
 
 
-            listener = new HttpListener();
+            var listener = new HttpListener();
             //listener.Prefixes.Add(string.Format("http://*:{1}/", ServerInstanceUid, ServerInstancePort));
             //listener.Prefixes.Add(string.Format("http://{2}:{1}/{0}/", ServerInstanceUid, ServerInstancePort, ServerIP));
-			listener.Prefixes.Add(string.Format("http://*:{1}/{0}/", ServerInstanceUid, ServerInstancePort, ServerIP));
-            listener.Start();
+			listener.Prefixes.Add(string.Format("http://{2}:{1}/{0}/", ServerInstanceUid, ServerInstancePort, ServerIP));
+            try
+            {
+                listener.Start();
+            }
+            catch(Exception ex) { 
+#if DEBUG && WIN
+                if (ex.Message.Equals("Access is denied")) {
+                    const string listnerExceptionWithFix = "Access is denied. Please set serverInstancePort to some >10000 value(like for example 38701) and run the following command line in admin mode:\nnetsh http add urlacl http://+127.0.0.1:38701/ user=Everyone\n";
+                    DLogger.WriteLog(listnerExceptionWithFix);
+                    throw new HttpListenerException(500, listnerExceptionWithFix);
+                } 
+#endif
+            }
 
             listener.BeginGetContext(new AsyncCallback(HandleRequest), listener);
         }
@@ -135,16 +146,10 @@ namespace WebMarco.Backend.Bridge.Common {
         }
 
         private void HandleRequest(IAsyncResult result) {
-
             //Get the listener context
-
             HttpListenerContext context = null;
-            try {
-                context = listener.EndGetContext(result);
-            } catch {
-                listener.Stop();
-                listener.Start();
-            }
+            var listener = (HttpListener)result.AsyncState;
+            context = listener.EndGetContext(result);
 
             //Start listening for the next request
             listener.BeginGetContext(new AsyncCallback(HandleRequest), listener);
@@ -184,21 +189,24 @@ namespace WebMarco.Backend.Bridge.Common {
                 throw ex;
 #endif
             }
-
-            if (handleRequestResult != null) {
-                context.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            context.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            context.Response.StatusCode = (int)HttpStatusCode.OK;
+            if (handleRequestResult != null)
+            {
                 context.Response.ContentType = handleRequestResult.ContentType;
-                context.Response.StatusCode = (int)HttpStatusCode.OK;
                 context.Response.ContentLength64 = handleRequestResult.Bytes.LongLength;
                 context.Response.OutputStream.Write(handleRequestResult.Bytes, 0, handleRequestResult.Bytes.Length);
-                context.Response.OutputStream.Flush();
-                context.Response.OutputStream.Close();
-                context.Response.Close();
+            } else {
+                context.Response.ContentType = MediaTypeNames.Text.Plain;
+                context.Response.ContentLength64 = 0;
             }
+            context.Response.OutputStream.Flush();
+            context.Response.OutputStream.Close();
+            context.Response.Close();
         }
 
         public void Dispose() {
-            listener = null;
+            //listener = null;
         }
     }
 }

@@ -63,12 +63,11 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
 
             ContextMenu = null;
             MenuHandler = new MenuHandlerToDisableContextMenu();
-            loadMainViewUrlOnceOnInitialization = new Action(this.Load);
-            
+            loadMainViewUrlOnceOnInitialization = new Action(this.Load);            
         }
 
         protected override void OnHandleCreated(EventArgs e) {
-            //Address = ViewUrl.ToString(); //a hack to load marckup
+            //Address = ViewUrl.ToString(); //a hack to load markup
             base.OnHandleCreated(e);
             
             //TODO: initial Load() here ?? safe?..
