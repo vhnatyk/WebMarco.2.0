@@ -2,9 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{080E3D4F-0C91-46DE-8BD9-5CBC2222424B}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
@@ -59,15 +57,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WebMarco.Backend.App\WebMarco.Backend.App.iOS.csproj">
-      <Project>{4f886a8b-7c4a-4bc8-8d4f-de4bb23cd156}</Project>
+      <Project>{4F886A8B-7C4A-4BC8-8D4F-DE4BB23CD156}</Project>
       <Name>WebMarco.Backend.App.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.iOS.csproj">
-      <Project>{75b9764d-399c-4a5c-8253-b19fb09bcf47}</Project>
+      <Project>{75B9764D-399C-4A5C-8253-B19FB09BCF47}</Project>
       <Name>WebMarco.Backend.Bridge.iOS</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebMarco.Utilities\WebMarco.Utilities.iOS.csproj">
-      <Project>{2909bb02-2087-4ff6-8c18-73092a0c1021}</Project>
+      <Project>{2909BB02-2087-4FF6-8C18-73092A0C1021}</Project>
       <Name>WebMarco.Utilities.iOS</Name>
     </ProjectReference>
   </ItemGroup>

@@ -14,15 +14,11 @@ using MonoMac.AppKit;
 namespace WebMarco.Backend.App.PlatformImplemented.Mac {
     public abstract class BaseAppDelegate : WebMarco.Backend.App.Common.BaseAppDelegate {
         public override void ExecuteOnMainThread(Action action) {
-			//NSApplication.CheckForIllegalCrossThreadCalls = false;
            	NSApplication.SharedApplication.InvokeOnMainThread(() => { action.Invoke(); });//TODO: emm... Separate file for these oneliners ? :| 
-			//NSApplication.CheckForIllegalCrossThreadCalls = true;
         }
 
         public override void ExecuteOnMainThread<T>(Action<T> action, T optionalParameter) {
-			//NSApplication.CheckForIllegalCrossThreadCalls = false;
             NSApplication.SharedApplication.InvokeOnMainThread(() => { action.Invoke(optionalParameter); });
-			//NSApplication.CheckForIllegalCrossThreadCalls = true;
         }
 
         public override void Quit() {

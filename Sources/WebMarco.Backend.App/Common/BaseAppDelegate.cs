@@ -21,13 +21,7 @@ namespace WebMarco.Backend.App.Common {
 
         public static BaseAppDelegate Instance {
             get {
-#if iOS
-                return (BaseAppDelegate)(MonoTouch.UIKit.UIApplication.SharedApplication.Delegate);
-#elif MACOSX
-				return (BaseAppDelegate)(MonoMac.AppKit.NSApplication.SharedApplication.Delegate);
-#else
                 return TinyIoC.TinyIoCContainer.Current.Resolve<BaseAppDelegate>();
-#endif
             }
         }
 
@@ -54,6 +48,7 @@ namespace WebMarco.Backend.App.Common {
 
         public abstract void ExecuteOnMainThread(Action action);
         public abstract void ExecuteOnMainThread<T>(Action<T> action, T optionalParameter);
+
         public abstract void Quit();
 
         public virtual void OpenUrlInSystemBrowser(string url) {

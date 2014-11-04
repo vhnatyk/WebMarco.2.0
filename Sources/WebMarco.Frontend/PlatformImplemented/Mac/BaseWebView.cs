@@ -78,7 +78,9 @@ namespace WebMarco.Frontend.PlatformImplemented.Mac {
         #endregion
 
         public void LoadMarkup(string markup) {
-            base.MainFrame.LoadHtmlString(markup, new NSUrl(string.Empty));//TODO: why url is empty
+			BaseAppDelegate.Instance.ExecuteOnMainThread (() => {
+				base.MainFrame.LoadHtmlString (markup, new NSUrl (string.Empty));//TODO: why url is empty
+			});
         }
 
         public void LoadMarkup(Uri url) {
@@ -86,8 +88,9 @@ namespace WebMarco.Frontend.PlatformImplemented.Mac {
             if (nsUrl == null) {
                nsUrl = NSUrl.FromFilename(url.LocalPath);    
             }
-           
-            base.MainFrame.LoadRequest(new NSUrlRequest(nsUrl));
+			BaseAppDelegate.Instance.ExecuteOnMainThread (() => {           
+				base.MainFrame.LoadRequest (new NSUrlRequest (nsUrl));
+			});
         }
 
         public void LoadMarkup() {
