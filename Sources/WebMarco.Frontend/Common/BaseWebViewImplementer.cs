@@ -80,7 +80,7 @@ namespace WebMarco.Frontend.Common {
         }
 
         /// <summary>
-        /// This method is not crossplatform, therefore makes no sence here.
+        /// This method is not crossplatform, therefore makes no sense here.
         /// </summary>
         public object CallFrontend(string script) {
             throw new NotImplementedException();
@@ -123,13 +123,13 @@ namespace WebMarco.Frontend.Common {
 
             CallResult result = new CallResult(string.Empty);
             try {
-				//BaseAppDelegate.Instance.InvokeOnMainThread(()=>{
+				//BaseAppDelegate.Instance.ExecuteOnMainThread(()=> {
                 	result = (CallResult)theMethod.Invoke(instance, new object[] { config.Params });
 				//});
             } catch (Exception ex) {
                 DLogger.WriteLog(ex);
                 try {//try parameter less
-					//BaseAppDelegate.Instance.InvokeOnMainThread(()=>{
+                    //BaseAppDelegate.Instance.ExecuteOnMainThread(() => {
 						result = (CallResult)theMethod.Invoke(instance, null);
 					//});
                 } catch (Exception ex2) {
