@@ -5,9 +5,9 @@ using MonoMac.AppKit;
 using MonoMac.ObjCRuntime;
 using TinyIoC;
 using WebMarco.Backend.App.Common;
-using WebMarco.Backend.App.PlatformImplemented.Mac;
+using WebMarco.Backend.App.PlatformImplemented.Mac.Monobjc;
 
-namespace BridgeTry.Mac
+namespace BridgeTry.Mac.Monobjc
 {
 	class MainClass
 	{

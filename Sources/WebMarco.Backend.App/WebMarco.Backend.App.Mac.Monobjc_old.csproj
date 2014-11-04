@@ -4,11 +4,11 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{42C0BBD9-55CE-4FC1-8D90-A7348ABAFB23};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{97BB789D-E03A-463D-8701-313FDE9BCB93}</ProjectGuid>
+    <ProjectGuid>{981DFA30-DC22-4789-A31B-21BC5E54EC02}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>WebMarco.Backend.Bridge</RootNamespace>
+    <RootNamespace>WebMarco.Backend.App</RootNamespace>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
-    <AssemblyName>WebMarco.Backend.Bridge.Mac</AssemblyName>
+    <AssemblyName>WebMarco.Backend.App.Mac</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,21 +43,25 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
     <Reference Include="XamMac" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="PlatformImplemented\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="Common\" />
+    <Compile Include="Common\AppHelper.Data.cs" />
+    <Compile Include="Common\AppHelper.Paths.cs" />
+    <Compile Include="Common\BaseAppDelegate.cs" />
+    <Compile Include="PlatformImplemented\AppHelper.Data.Manager.Mac.cs" />
+    <Compile Include="PlatformImplemented\BaseAppDelegate.Mac.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\CallConfig.cs" />
-    <Compile Include="Common\CallResult.cs" />
-    <Compile Include="Common\MicroServer.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WebMarco.Utilities\WebMarco.Utilities.Mac.csproj">
-      <Project>{54CE4B27-E637-4F46-B2D5-319C7920599E}</Project>
-      <Name>WebMarco.Utilities.Mac</Name>
+    <ProjectReference Include="..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
+      <Project>{2DD3D8D0-7CEC-4915-B279-5DED87FA5169}</Project>
+      <Name>Vici.CoolStorage.PCL</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

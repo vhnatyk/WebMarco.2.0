@@ -1,11 +1,9 @@
-﻿
-using MonoTouch.UIKit;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using WebMarco.Frontend.Common;
 
-namespace WebMarco.Frontend.PlatformImplemented.Mac.Monobjc {
+namespace WebMarco.Frontend.PlatformImplemented.Mac {
     public class BaseViewImplementer : WebMarco.Frontend.Common.BaseViewImplementer {
 
         protected override IBaseView View { get; set; }

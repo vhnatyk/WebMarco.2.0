@@ -15,7 +15,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;MACOSX</DefineConstants>
+    <DefineConstants>DEBUG;MACOSX;MONOBJC</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -43,22 +43,13 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="XamMac" />
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\WebMarco.Utilities\WebMarco.Utilities.Mac.csproj">
-      <Project>{54CE4B27-E637-4F46-B2D5-319C7920599E}</Project>
-      <Name>WebMarco.Utilities.Mac</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebMarco.Backend.App\WebMarco.Backend.App.Mac.csproj">
-      <Project>{981DFA30-DC22-4789-A31B-21BC5E54EC02}</Project>
-      <Name>WebMarco.Backend.App.Mac</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.Mac.csproj">
-      <Project>{97BB789D-E03A-463D-8701-313FDE9BCB93}</Project>
-      <Name>WebMarco.Backend.Bridge.Mac</Name>
+    <ProjectReference Include="..\WebMarco.Utilities\WebMarco.Utilities.Mac.Monobjc.csproj">
+      <Project>{107E0A2A-F4D3-4E09-B1C3-DB587B6F1F0B}</Project>
+      <Name>WebMarco.Utilities.Mac.Monobjc</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +57,7 @@
     <Folder Include="PlatformImplemented\" />
     <Folder Include="Assets\" />
     <Folder Include="Assets\html\" />
+    <Folder Include="PlatformImplemented\Mac\Monobjc\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\BaseRectangle.cs" />
@@ -79,15 +71,15 @@
     <Compile Include="Common\Point.cs" />
     <Compile Include="Common\ViewsHolder.cs" />
     <Compile Include="Common\Helpers\HtmlUiHelper.cs" />
-    <Compile Include="PlatformImplemented\Mac\BaseView.cs" />
-    <Compile Include="PlatformImplemented\Mac\BaseViewImplementer.cs" />
-    <Compile Include="PlatformImplemented\Mac\BaseWebView.cs" />
-    <Compile Include="PlatformImplemented\Mac\BaseWebViewImplementer.cs" />
-    <Compile Include="PlatformImplemented\Mac\BaseWindow.cs" />
-    <Compile Include="PlatformImplemented\Mac\BaseWindowImplementer.cs" />
-    <Compile Include="PlatformImplemented\Mac\MainWebView.cs" />
-    <Compile Include="PlatformImplemented\Mac\MainWindow.cs" />
-    <Compile Include="PlatformImplemented\Mac\Rectangle.cs" />
+    <Compile Include="PlatformImplemented\Mac\Monobjc\BaseView.cs" />
+    <Compile Include="PlatformImplemented\Mac\Monobjc\BaseViewImplementer.cs" />
+    <Compile Include="PlatformImplemented\Mac\Monobjc\BaseWebView.cs" />
+    <Compile Include="PlatformImplemented\Mac\Monobjc\BaseWebViewImplementer.cs" />
+    <Compile Include="PlatformImplemented\Mac\Monobjc\BaseWindow.cs" />
+    <Compile Include="PlatformImplemented\Mac\Monobjc\BaseWindowImplementer.cs" />
+    <Compile Include="PlatformImplemented\Mac\Monobjc\MainWebView.cs" />
+    <Compile Include="PlatformImplemented\Mac\Monobjc\MainWindow.cs" />
+    <Compile Include="PlatformImplemented\Mac\Monobjc\Rectangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\baseStyle.css">

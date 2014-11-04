@@ -8,7 +8,7 @@ using WebMarco.Frontend;
 using WebMarco.Frontend.Common;
 using WebMarco.Utilities.Logging;
 
-namespace WebMarco.Frontend.PlatformImplemented.Mac.Monobjc {
+namespace WebMarco.Frontend.PlatformImplemented.Mac {
     /// <summary>
     /// Such design scheme of WebMarco.Frontend.<Platform>.PlatformImplemented.<BaseObject>Implementer 
     /// and WebMarco.Frontend.Common.<BaseObject>Implementer classes with same name replaces 

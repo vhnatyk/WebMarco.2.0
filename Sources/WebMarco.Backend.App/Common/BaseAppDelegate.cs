@@ -5,6 +5,7 @@ using System.Text;
 using WebMarco.Backend;
 using WebMarco.Backend.Bridge.Common;
 using WebMarco.Utilities.Logging;
+using Monobjc.Foundation;
 
 
 
@@ -12,7 +13,11 @@ namespace WebMarco.Backend.App.Common {
 #if iOS
     public abstract partial class BaseAppDelegate : MonoTouch.UIKit.UIApplicationDelegate
 #elif MACOSX
+	#if MONOBJC
+	public abstract partial class BaseAppDelegate : NSObject //, Monobjc.AppKit.INSApplicationDelegate
+	#else
 	public abstract partial class BaseAppDelegate : MonoMac.AppKit.NSApplicationDelegate
+	#endif
 #else
     public abstract class BaseAppDelegate 
 #endif    
@@ -24,7 +29,11 @@ namespace WebMarco.Backend.App.Common {
 #if iOS
                 return (BaseAppDelegate)(MonoTouch.UIKit.UIApplication.SharedApplication.Delegate);
 #elif MACOSX
+				#if MONOBJC
+				return (BaseAppDelegate)(Monobjc.AppKit.NSApplication.SharedApplication.Delegate);
+				#else
 				return (BaseAppDelegate)(MonoMac.AppKit.NSApplication.SharedApplication.Delegate);
+				#endif
 #else
                 return TinyIoC.TinyIoCContainer.Current.Resolve<BaseAppDelegate>();
 #endif

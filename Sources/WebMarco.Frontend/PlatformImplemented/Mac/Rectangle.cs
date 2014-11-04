@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using WebMarco.Frontend.Common;
 
-namespace WebMarco.Frontend.PlatformImplemented.Mac {
+namespace WebMarco.Frontend.PlatformImplemented.Mac.Monobjc {
     public class Rectangle : BaseRectangle {
         public Rectangle(System.Drawing.RectangleF iOsRectangle) :
             base(

@@ -3,72 +3,94 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectTypeGuids>{42C0BBD9-55CE-4FC1-8D90-A7348ABAFB23};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectTypeGuids>{804445EB-57E1-4F64-8830-61A8701F1C25};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{EACA62DF-5BF8-4643-96D9-9204B841D19A}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>BridgeTry.Frontend</RootNamespace>
-    <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
-    <AssemblyName>BridgeTry.Frontend.Mac.Monobjc</AssemblyName>
+    <RootNamespace>BridgeTry.Frontend.Mac.Monobjc</RootNamespace>
+    <MacOSApplicationType>CocoaLibrary</MacOSApplicationType>
+    <MacOSApplicationCategory>
+    </MacOSApplicationCategory>
+    <BundleId>net.monobjc.application.Test</BundleId>
+    <BundleVersion>1.0</BundleVersion>
+    <MacOSVersion>MacOS106</MacOSVersion>
+    <Signing>false</Signing>
+    <SigningIdentity>
+    </SigningIdentity>
+    <UseEntitlements>false</UseEntitlements>
+    <AdditionalLibraries>
+    </AdditionalLibraries>
+    <CombineArtwork>false</CombineArtwork>
+    <EncryptionSeed>
+    </EncryptionSeed>
+    <Archive>false</Archive>
+    <ArchiveIdentity>
+    </ArchiveIdentity>
+    <MacOSArch>X86</MacOSArch>
+    <EmbeddedFrameworks>
+    </EmbeddedFrameworks>
+    <AdditionalAssemblies>
+    </AdditionalAssemblies>
+    <ExcludedAssemblies>
+    </ExcludedAssemblies>
+    <MacOSFrameworks>Foundation;AppKit</MacOSFrameworks>
+    <AssemblyName>BridgeTry.Frontend.Mac.Monobjc_r</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;MACOSX;MONOBJC</DefineConstants>
+    <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <UseSGen>false</UseSGen>
-    <IncludeMonoRuntime>false</IncludeMonoRuntime>
-    <EnablePackageSigning>false</EnablePackageSigning>
-    <EnableCodeSigning>false</EnableCodeSigning>
-    <CreatePackage>false</CreatePackage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <UseSGen>false</UseSGen>
-    <IncludeMonoRuntime>false</IncludeMonoRuntime>
-    <EnablePackageSigning>false</EnablePackageSigning>
-    <EnableCodeSigning>false</EnableCodeSigning>
-    <CreatePackage>false</CreatePackage>
-    <DefineConstants>MACOSX</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Monobjc, Version=0.0.0.0, Culture=neutral, PublicKeyToken=d5a8d181860c16be">
+      <Package>monobjc-10.9</Package>
+    </Reference>
+    <Reference Include="Monobjc.AppKit, Version=10.9.0.0, Culture=neutral, PublicKeyToken=d5a8d181860c16be">
+      <Package>monobjc-10.9</Package>
+    </Reference>
+    <Reference Include="Monobjc.Foundation, Version=10.9.0.0, Culture=neutral, PublicKeyToken=d5a8d181860c16be">
+      <Package>monobjc-10.9</Package>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="XamMac" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Common\" />
-    <Folder Include="Assets\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildBinPath)\Monobjc.CocoaLibrary.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\WebMarco.Frontend\WebMarco.Frontend.Mac.Monobjc.csproj">
-      <Project>{16221803-A863-42FF-9016-CAE7E36A0776}</Project>
-      <Name>WebMarco.Frontend.Mac.Monobjc</Name>
+    <ProjectReference Include="..\Backend\Core\BridgeTry.Backend.Core.Mac.Monobjc.csproj">
+      <Project>{B5FDC856-27DE-403F-854B-8672FCE879CF}</Project>
+      <Name>BridgeTry.Backend.Core.Mac.Monobjc</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.Mac.Monobjc.csproj">
       <Project>{97BB789D-E03A-463D-8701-313FDE9BCB93}</Project>
       <Name>WebMarco.Backend.Bridge.Mac.Monobjc</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Backend\Core\BridgeTry.Backend.Core.Mac.Monobjc.csproj">
-      <Project>{B5FDC856-27DE-403F-854B-8672FCE879CF}</Project>
-      <Name>BridgeTry.Backend.Core.Mac.Monobjc</Name>
+    <ProjectReference Include="..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">
+      <Project>{2DD3D8D0-7CEC-4915-B279-5DED87FA5169}</Project>
+      <Name>Vici.CoolStorage.PCL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Common\Pages\MainPage.cs" />
-    <Compile Include="Common\Views\MainView.cs" />
+    <ProjectReference Include="..\..\WebMarco.Utilities\WebMarco.Utilities.Mac.Monobjc.csproj">
+      <Project>{107E0A2A-F4D3-4E09-B1C3-DB587B6F1F0B}</Project>
+      <Name>WebMarco.Utilities.Mac.Monobjc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WebMarco.Frontend\WebMarco.Frontend.Mac.Monobjc.csproj">
+      <Project>{16221803-A863-42FF-9016-CAE7E36A0776}</Project>
+      <Name>WebMarco.Frontend.Mac.Monobjc</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\blue.css">
@@ -83,10 +105,10 @@
     <Content Include="Assets\css\orange.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\css\style.css">
+    <Content Include="Assets\css\Pages\MainPage.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\css\Pages\MainPage.css">
+    <Content Include="Assets\css\style.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\fonts\BEBAS___-webfont.eot">
@@ -96,6 +118,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\fonts\BEBAS___-webfont.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\fonts\desyrel-webfont.eot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\fonts\desyrel-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\fonts\desyrel-webfont.woff">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\fonts\Jura-DemiBold.ttf">
@@ -155,40 +186,16 @@
     <Content Include="Assets\fonts\OpenSans-Regular-webfont.woff">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\fonts\desyrel-webfont.eot">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\fonts\desyrel-webfont.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\fonts\desyrel-webfont.woff">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Assets\html\Pages\MainPage.htm">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\img\HTML5 Logo Badge.svg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\img\HTML5CSS3Logos.svg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\img\handpic.psd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\img\iphone.psd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\img\iphones.psd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\img\bg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\img\bgMain.png">
+    <Content Include="Assets\img\bgg.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\img\bgg.jpg">
+    <Content Include="Assets\img\bgMain.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\img\bgo.jpg">
@@ -209,13 +216,25 @@
     <Content Include="Assets\img\handpic.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\img\handpic.psd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\img\handpicg.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\img\handpico.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\img\HTML5 Logo Badge.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\img\HTML5CSS3Logos.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\img\iphone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\img\iphone.psd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\img\iphoneg.png">
@@ -231,6 +250,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\img\iphones.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\img\iphones.psd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\img\osprits.png">
@@ -257,11 +279,15 @@
     <Content Include="Assets\js\jquery.treeview.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\js\responsiveCarousel.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Assets\js\Pages\MainPage.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\js\responsiveCarousel.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Pages\MainPage.cs" />
+    <Compile Include="Common\Views\MainView.cs" />
   </ItemGroup>
 </Project>

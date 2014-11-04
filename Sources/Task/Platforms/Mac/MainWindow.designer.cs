@@ -1,5 +1,5 @@
 ﻿
-namespace WebMarco.Mac
+namespace WebMarco.Mac.Monobjc
 {
 	
 	// Should subclass MonoMac.AppKit.NSWindow

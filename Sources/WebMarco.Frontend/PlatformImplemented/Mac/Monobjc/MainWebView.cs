@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebMarco.Frontend.Common;
 
-namespace WebMarco.Frontend.PlatformImplemented.Mac.Monobjc {
+namespace WebMarco.Frontend.PlatformImplemented.Mac {
     public class MainWebView : BaseWebView {
 
         public MainWebView(IBaseWindow window, BaseWebPage defaultPage)

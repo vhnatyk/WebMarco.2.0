@@ -5,10 +5,16 @@ using WebMarco.Utilities.Logging;
 using WebMarco.Utilities.Paths;
 
 #if MACOSX
+#if MONOBJC
+using Monobjc;
+using Monobjc.Foundation;
+using Monobjc.AppKit;
+#else
 using MonoMac;
 using MonoMac.Foundation;
 using MonoMac.ObjCRuntime;
 using System.Runtime.InteropServices;
+#endif
 #endif
 
 namespace WebMarco.Backend.App.Common {
@@ -21,7 +27,7 @@ namespace WebMarco.Backend.App.Common {
 	public static partial class AppHelper {
         #region Paths
 
-		#if MACOSX
+		#if MACOSX && !MONOBJC
 		[DllImport(Constants.FoundationLibrary)]
 		public static extern IntPtr NSHomeDirectory();
 
@@ -50,7 +56,11 @@ namespace WebMarco.Backend.App.Common {
                 get {
                     if (assetRootFolder == null) {
 #if MACOSX
+						#if MONOBJC
+
+						#else
 						assetRootFolder = PathUtils.PathCombineCrossPlatform(AppDomain.CurrentDomain.BaseDirectory, "Assets");//TODO: seems unnecessary
+						#endif
 #elif ANDROID
                         assetRootFolder = PathUtils.PathCombineCrossPlatform("/android_asset/", string.Empty);
 #elif iOS
@@ -113,8 +123,11 @@ namespace WebMarco.Backend.App.Common {
                 get {
                     if (workingRootFolder == null) {
 #if MACOSX
-					    //workingRootFolder = PathUtils.PathCombineCrossPlatform(FoundationFramework.NSHomeDirectory(), "YourCompanyName", "YourAppName");//Monobjc way
+						#if MONOBJC
+					    workingRootFolder = PathUtils.PathCombineCrossPlatform(FoundationFramework.NSHomeDirectory(), "YourCompanyName", "YourAppName");//Monobjc way
+						#else
 						workingRootFolder = PathUtils.PathCombineCrossPlatform(ContainerDirectory, "YourCompanyName", "YourAppName");
+						#endif
 #elif ANDROID
                         workingRootFolder = //Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;//TODO: find out alternatives for this, work it out
                         Environment.GetFolderPath(Environment.SpecialFolder.Personal);

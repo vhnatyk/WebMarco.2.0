@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using MonoMac.Foundation;
 using MonoMac.AppKit;
-using WebMarco.Frontend.PlatformImplemented.Mac;
+using WebMarco.Frontend.PlatformImplemented.Mac.Monobjc;
 using WebMarco.Frontend.Common;
 
-namespace BridgeTry.Mac
+namespace BridgeTry.Mac.Monobjc
 {
 	public partial class MainWindowController : MonoMac.AppKit.NSWindowController
 	{
@@ -41,7 +41,7 @@ namespace BridgeTry.Mac
 			//does center itself in MakeKeyAndFront to replicate iOS behaviour
 			//Point centerOfScreen = new Rectangle(NSScreen.MainScreen.Frame).Center;
 			var rectangle = new Rectangle (new Point (0, 0), 800, 700);//TODO: must come from config, like last position etc
-			Window = new BridgeTry.Mac.MainWindow (rectangle);
+			Window = new BridgeTry.Mac.Monobjc.MainWindow (rectangle);
 			//Window.CurrentFrame.Center = centerOfScreen;//TODO:Make it work and cross platform
 			//Window.SetFrameOrigin (new System.Drawing.PointF ((float)(centerOfScreen.X), (float)(centerOfScreen.Y)));
 			Window.StyleMask = NSWindowStyle.Miniaturizable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
@@ -52,7 +52,7 @@ namespace BridgeTry.Mac
 		#endregion
 
 		//strongly typed window accessor
-		public new BridgeTry.Mac.MainWindow Window { get; private set; }
+		public new BridgeTry.Mac.Monobjc.MainWindow Window { get; private set; }
 	}
 }
 

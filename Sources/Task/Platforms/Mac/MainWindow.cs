@@ -2,17 +2,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MonoMac.Foundation;
-using MonoMac.AppKit;
-using BridgeTry.Mac.Views;
+using BridgeTry.Mac.Monobjc.Views;
 using TinyIoC;
 using WebMarco.Backend.App.Common;
-using WebMarco.Backend.App.PlatformImplemented.Mac;
-using WebMarco.Frontend.PlatformImplemented.Mac;
+
 using WebMarco.Frontend.Common;
 
-namespace BridgeTry.Mac {
-	public partial class MainWindow : WebMarco.Frontend.PlatformImplemented.Mac.MainWindow
+#if MONOBJC
+using Monobjc.Foundation;
+using Monobjc.AppKit;
+using WebMarco.Backend.App.PlatformImplemented.Mac.Monobjc;
+using WebMarco.Frontend.PlatformImplemented.Mac.Monobjc;
+#else
+using MonoMac.Foundation;
+using MonoMac.AppKit;
+using WebMarco.Backend.App.PlatformImplemented.Mac.Xamarin;
+using WebMarco.Frontend.PlatformImplemented.Mac.Xamarin;
+#endif
+
+namespace BridgeTry.Mac.Monobjc {
+	public partial class MainWindow : WebMarco.Frontend.PlatformImplemented.Mac.Monobjc.MainWindow
 	{
 		#region Constructors
 

@@ -11,10 +11,15 @@ using WebMarco.Utilities.Logging;
 using WebMarco.Backend.Bridge.Common;
 using WebMarco.Backend.App.Common;
 using WebMarco.Utilities.Paths;
+#if MONOBJC
+using Monobjc.WebKit;
+using Monobjc.Foundation;
+#else
 using MonoMac.WebKit;
 using MonoMac.Foundation;
+#endif
 
-namespace WebMarco.Frontend.PlatformImplemented.Mac.Monobjc {
+namespace WebMarco.Frontend.PlatformImplemented.Mac {
 
 
 	public abstract class BaseWebView : WebView, IBaseWebView {

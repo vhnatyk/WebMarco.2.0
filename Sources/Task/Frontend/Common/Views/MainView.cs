@@ -21,7 +21,11 @@ using WebMarco.Frontend.PlatformImplemented.Win;
 #elif iOS
 using WebMarco.Frontend.PlatformImplemented.iOS;
 #elif MACOSX
-using WebMarco.Frontend.PlatformImplemented.Mac;
+#if MONOBJC
+using WebMarco.Frontend.PlatformImplemented.Mac.Monobjc;
+#else
+using WebMarco.Frontend.PlatformImplemented.Mac.Xamarin;
+#endif
 #else 
   ///
 #endif

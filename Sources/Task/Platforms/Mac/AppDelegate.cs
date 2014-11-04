@@ -2,11 +2,11 @@
 using MonoMac.Foundation;
 using MonoMac.AppKit;
 using MonoMac.ObjCRuntime;
-using WebMarco.Frontend.PlatformImplemented.Mac;
+using WebMarco.Frontend.PlatformImplemented.Mac.Monobjc;
 
-namespace BridgeTry.Mac
+namespace BridgeTry.Mac.Monobjc
 {
-	public partial class AppDelegate : WebMarco.Backend.App.PlatformImplemented.Mac.BaseAppDelegate
+	public partial class AppDelegate : WebMarco.Backend.App.PlatformImplemented.Mac.Monobjc.BaseAppDelegate
 	{
 		MainWindowController mainWindowController;
 

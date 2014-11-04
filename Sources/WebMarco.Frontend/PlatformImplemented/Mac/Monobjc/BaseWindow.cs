@@ -1,7 +1,4 @@
-﻿
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +6,18 @@ using WebMarco.Backend.App.PlatformImplemented.Mac.Monobjc;
 using WebMarco.Backend.Bridge.Common;
 using WebMarco.Frontend;
 using WebMarco.Frontend.Common;
+#if iOS
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+#elif MONOBJC
+using Monobjc.AppKit;
+using Monobjc.Foundation;
+#else
 using MonoMac.AppKit;
 using MonoMac.Foundation;
+#endif
 
-namespace WebMarco.Frontend.PlatformImplemented.Mac.Monobjc {
+namespace WebMarco.Frontend.PlatformImplemented.Mac {
     public abstract class BaseWindow : NSWindow, IBaseWindow {
 
         #region Private Fields
@@ -127,7 +132,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Mac.Monobjc {
         #region Public methods
 
         public void ExecuteOnMainThread(Action action) {
-            InvokeOnMainThread(new NSAction(() => { action.Invoke(); }));
+            Invoke(new Action(() => { action.Invoke(); }));
             //or can be 
             //BaseAppDelegate.Instance.ExecuteOnMainThread(action);
         }

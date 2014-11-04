@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-using WebMarco.Frontend.PlatformImplemented.Mac;
+using WebMarco.Frontend.PlatformImplemented.Mac.Monobjc;
 using WebMarco.Frontend.Common;
 using WebMarco.Backend.Bridge.Common;
 using System.Globalization;
@@ -13,7 +13,7 @@ using MonoMac.AppKit;
 
 
 
-namespace BridgeTry.Mac.Views {
+namespace BridgeTry.Mac.Monobjc.Views {
     class MainView : BridgeTry.Frontend.Common.Views.MainView {
         public MainView(IBaseWindow window)
             : base(window) {

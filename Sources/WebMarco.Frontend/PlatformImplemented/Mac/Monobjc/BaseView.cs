@@ -1,12 +1,18 @@
 ﻿
-using MonoTouch.UIKit;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using WebMarco.Frontend.Common;
-using MonoMac.AppKit;
 
-namespace WebMarco.Frontend.PlatformImplemented.Mac.Monobjc {
+#if iOS
+using MonoTouch.UIKit;
+#elif MONOBJC
+using Monobjc.AppKit;
+#else
+using MonoMac.AppKit;
+#endif
+
+namespace WebMarco.Frontend.PlatformImplemented.Mac {
     public class BaseView : NSView, IBaseView {
 
         private IBaseWindow parentWindow = null;
@@ -20,7 +26,13 @@ namespace WebMarco.Frontend.PlatformImplemented.Mac.Monobjc {
 
         public Point TopLeft {
             get {
-                return new Point((double)(this.Frame.Left), (double)(this.Frame.Top));
+                return new Point(
+					#if MONOBJC
+					(double)(this.Frame.MinX.value), (double)(this.Frame.MinY.value)
+					#else
+					(double)(this.Frame.Left), (double)(this.Frame.Top)
+					#endif
+				);
             }
             set {
                 throw new NotImplementedException();

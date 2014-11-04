@@ -6,7 +6,7 @@ using System.Text;
 using WebMarco.Frontend;
 using WebMarco.Frontend.Common;
 
-namespace WebMarco.Frontend.PlatformImplemented.Mac.Monobjc {
+namespace WebMarco.Frontend.PlatformImplemented.Mac {
     /// <summary>
     /// A place for #if WIN .. #endif code
     /// </summary>

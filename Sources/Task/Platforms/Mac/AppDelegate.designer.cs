@@ -1,5 +1,5 @@
 ﻿
-namespace BridgeTry.Mac
+namespace BridgeTry.Mac.Monobjc
 {
 	// Should subclass MonoMac.AppKit.NSResponder
 	[MonoMac.Foundation.Register ("AppDelegate")]

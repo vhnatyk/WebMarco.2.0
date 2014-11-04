@@ -6,16 +6,16 @@
     <ProjectTypeGuids>{42C0BBD9-55CE-4FC1-8D90-A7348ABAFB23};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{E6CC7EC3-E7CC-4FE4-AF58-9261FBDE11C5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>BridgeTry.Mac</RootNamespace>
+    <RootNamespace>BridgeTry.Mac.Monobjc</RootNamespace>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
-    <AssemblyName>BridgeTry.Mac</AssemblyName>
+    <AssemblyName>BridgeTry.Mac.Monobjc</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;MACOSX</DefineConstants>
+    <DefineConstants>DEBUG;MACOSX;MONOBJC</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -90,30 +90,13 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\..\WebMarco.Utilities\WebMarco.Utilities.Mac.csproj">
-      <Project>{54CE4B27-E637-4F46-B2D5-319C7920599E}</Project>
-      <Name>WebMarco.Utilities.Mac</Name>
-    </ProjectReference>
-
-    <ProjectReference Include="..\..\..\WebMarco.Backend.App\WebMarco.Backend.App.Mac.csproj">
-      <Project>{981DFA30-DC22-4789-A31B-21BC5E54EC02}</Project>
-      <Name>WebMarco.Backend.App.Mac</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\WebMarco.Frontend\WebMarco.Frontend.Mac.csproj">
-      <Project>{16221803-A863-42FF-9016-CAE7E36A0776}</Project>
-      <Name>WebMarco.Frontend.Mac</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\WebMarco.Backend.Bridge\WebMarco.Backend.Bridge.Mac.csproj">
-      <Project>{97BB789D-E03A-463D-8701-313FDE9BCB93}</Project>
-      <Name>WebMarco.Backend.Bridge.Mac</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Backend\Core\BridgeTry.Backend.Core.Mac.csproj">
+    <ProjectReference Include="..\..\Backend\Core\BridgeTry.Backend.Core.Mac.Monobjc.csproj">
       <Project>{B5FDC856-27DE-403F-854B-8672FCE879CF}</Project>
-      <Name>BridgeTry.Backend.Core.Mac</Name>
+      <Name>BridgeTry.Backend.Core.Mac.Monobjc</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Frontend\BridgeTry.Frontend.Mac.csproj">
+    <ProjectReference Include="..\..\Frontend\BridgeTry.Frontend.Mac.Monobjc.csproj">
       <Project>{EACA62DF-5BF8-4643-96D9-9204B841D19A}</Project>
-      <Name>BridgeTry.Frontend.Mac</Name>
+      <Name>BridgeTry.Frontend.Mac.Monobjc</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

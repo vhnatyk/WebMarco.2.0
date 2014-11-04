@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>WebMarco.2.0.Mac</string>
+	<string>WebMarco.2.0.Mac.Monobjc</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.your-company.WebMarco.Mac</string>
+	<string>com.your-company.WebMarco.Mac.Monobjc</string>
 	<key>CFBundleName</key>
-	<string>WebMarco.2.0.Mac</string>
+	<string>WebMarco.2.0.Mac.Monobjc</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
