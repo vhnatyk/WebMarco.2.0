@@ -6,8 +6,8 @@ using WebMarco.Backend.Bridge.Common;
 using WebMarco.Backend.App.Common;
 
 namespace WebMarco.Frontend.Common {
-    public abstract class BaseWindowImplementer : IBaseWindow {
-        public abstract IBaseView MainView { get; set; }
+    public class BaseWindowImplementer : IBaseWindow {
+        public IBaseView MainView { get; set; }
 
         public virtual IBaseView TopView {
             get {

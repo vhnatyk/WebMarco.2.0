@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using WebMarco.Frontend.Common;
 
 namespace WebMarco.Frontend.PlatformImplemented.Win {
-    public class BaseView : UserControl, IBaseView {
+    public class BaseView : UserControl, INativeView {
 
         private IBaseWindow parentWindow = null;
         public BaseView(IBaseWindow window)

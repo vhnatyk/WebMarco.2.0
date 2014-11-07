@@ -17,7 +17,7 @@ namespace BridgeTry {
     /// <summary>
     /// The term "Task" was used because other more suitable words like "App" and "Solution" or "Project"
     /// are so heavily overloaded that it's almost impossible to use them to identify your 
-    /// Crossplatform Application Solution, so the term "Task" as it turns out  - is second to none, unfortunatelly.
+    /// Crossplatform Application Solution, so the term "Task" as it turns out  - is second to none, nfortunately.
     /// But perhaps some other good and more meaningful words can be on some native English speaking guy's mind out there;)
     /// The code in the region "Singleton realization" should be copypasted to your AppDelegate of your new so called Task.
     /// So this file may be called a template or an example.

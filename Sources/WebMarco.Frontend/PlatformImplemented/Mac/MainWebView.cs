@@ -22,7 +22,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Mac {
         /// </summary>
         protected override void InitializeComponent() {//TODO: why override and where that initialization should really happen, here!?
             base.InitializeComponent();
-            //some extra initialization, seciffic to current platform only
+            //some extra initialization, specific to current platform only
             
             //TODO: Load here?
         }

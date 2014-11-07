@@ -17,27 +17,18 @@ using CefSharp.WinForms;
 namespace WebMarco.Frontend.PlatformImplemented.Win {
 
 
-    public abstract class BaseWebView : ChromiumWebBrowser, IBaseWebView {
+    public abstract class NativeBaseWebView : ChromiumWebBrowser, INativeWebView {
 
         #region Private methods
 
         #endregion
 
-        private IBaseWindow parentWindow = null;
+        protected IBaseWindow parentWindow = null;
+        protected BaseWebViewImplementer implementer;
 
-        private BaseWebViewImplementer implementer;
+        public NativeBaseWebView(string address)
+            : base(address) {
 
-        //public BaseWebView(IBaseWindow window)
-        //    : base("about:blank") {
-        //    parentWindow = window;
-        //    implementer = new BaseWebViewImplementer(this);
-        //}
-
-        public BaseWebView(IBaseWindow window, BaseWebPage defaultPage)
-            : base(defaultPage.Url.ToString()) {
-            Page = defaultPage;
-            parentWindow = window;
-            implementer = new BaseWebViewImplementer(this);
         }
 
         #region Hide base properties
@@ -63,28 +54,15 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
 
         }
 
+        #region INativeWebView
 
-        #region IBaseWebView
-
-        #region Public Properties
-
-        public string NameString {
-            get { return this.GetType().Name; }
-        }
+        #region Public properties
 
         public virtual Uri ViewUrl {
             get {
-                return (Page == null)? new Uri(this.Address) : Page.Url;
+                return new Uri(this.Address);
             }
         }
-
-        public string Markup {
-            get {
-                throw new NotImplementedException();
-            }
-        }
-
-        public BaseWebPage Page { get; private set; }
 
         #endregion
 
@@ -96,28 +74,15 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
             base.Load(url.ToString()); //TODO: sort of not working on load in Window!??
         }
 
-        public void LoadMarkup() {
-            implementer.LoadMarkup();
-        }
-
-        public void LoadMarkup(BaseWebPage page) {
-            Page = page;
-            LoadMarkup(page.Url);
-        }
-
         public object CallFrontend(string script) {
             object result = null;
             BaseAppDelegate.Instance.ExecuteOnMainThread(() => result = this.EvaluateScript(script));
             return (result != null) ? result.ToString() : result;
         }
 
-        public CallResult ProcessCallFromFrontend(CallConfig config) {
-            return implementer.ProcessCallFromFrontend(config);
-        }
-
         #endregion
 
-        #region IBaseView
+        #region INativeView
 
         public Point TopLeft {
             get {
@@ -201,15 +166,9 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
             get { return parentWindow; }
         }
 
-        public virtual void Load() {
-            implementer.Load(); /*Sort of base.Load if BaseView would be base class for this one, 
-            but it's not, but still can be executed in implementer if necessary */
-            //a place to add firebug-lite ??? ?
-            LoadMarkup();
+        public void Load() {
+            throw new NotImplementedException();
         }
-
-        #endregion
-
 
         public BaseRectangle CurrentFrame {
             get {
@@ -219,5 +178,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
                 throw new NotImplementedException();
             }
         }
+
+        #endregion
     }
 }

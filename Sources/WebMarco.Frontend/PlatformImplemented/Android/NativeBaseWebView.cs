@@ -45,7 +45,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
         /// <param name="webView"></param>
         /// <param name="expression"></param>
         /// <returns></returns>
-        public string EvaluateScript(BaseWebView webView, string expression) {
+        public string EvaluateScript(NativeBaseWebView webView, string expression) {
             latch = new CountDownLatch(1);
             string code = "javascript:window." + Name + ".setValue((function(){try{return " + expression
             + "+\"\";}catch(js_eval_err){console.log('js_eval_err : ' + js_eval_err); return '';}})());";
@@ -80,7 +80,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
         }
     }
 
-    public abstract class BaseWebView : WebView, IBaseWebView {
+    public abstract class NativeBaseWebView : WebView, INativeWebView {
         SynchronousFrontendScriptInterface scriptInterface;
         #region Private methods
 
@@ -90,17 +90,11 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
 
         #endregion
 
-        private IBaseWindow parentWindow = null;
+        protected IBaseWindow parentWindow = null;
+        protected BaseWebViewImplementer implementer;
 
-        private BaseWebViewImplementer implementer;
-
-        public BaseWebView(IBaseWindow window, BaseWebPage defaultPage = null)
+        public NativeBaseWebView(IBaseWindow window)
             : base((Context)window) {
-            parentWindow = window;
-            Page = defaultPage;
-            implementer = new BaseWebViewImplementer(this);
-
-
             scriptInterface = new SynchronousFrontendScriptInterface();
             AddJavascriptInterface((Java.Lang.Object)scriptInterface, scriptInterface.Name);
         }
@@ -127,27 +121,15 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
 
         }
 
-        #region IBaseWebView
+        #region INativeWebView
 
-        #region Public Properties
-
-        public string NameString {
-            get { return this.GetType().Name; }
-        }
+        #region Public properties
 
         public virtual Uri ViewUrl {
             get {
-                return (Page == null) ? new Uri(this.Url) : Page.Url;
+                return new Uri(this.Url);
             }
         }
-
-        public string Markup {
-            get {
-                throw new NotImplementedException();
-            }
-        }
-
-        public BaseWebPage Page { get; private set; }
 
         #endregion
 
@@ -159,28 +141,15 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
             base.LoadUrl(url.ToString());
         }
 
-        public void LoadMarkup() {
-            implementer.LoadMarkup();
-        }
-
-        public void LoadMarkup(BaseWebPage page) {
-            Page = page;
-            LoadMarkup(page.Url);
-        }
-
         public object CallFrontend(string script) {
             object result = null;
             BaseAppDelegate.Instance.ExecuteOnMainThread(() => result = scriptInterface.EvaluateScript(this, script));
             return (result != null) ? result.ToString() : result;
         }
 
-        public CallResult ProcessCallFromFrontend(CallConfig config) {
-            return implementer.ProcessCallFromFrontend(config);
-        }
-
         #endregion
 
-        #region IBaseView
+        #region INativeView
         public Point TopLeft {
             get {
                 return implementer.TopLeft;
@@ -217,7 +186,6 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
             }
         }
 
-
         public bool IsFullFrame {
             get {
                 return implementer.IsFullFrame;
@@ -226,8 +194,6 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
                 implementer.IsFullFrame = value;
             }
         }
-
-
 
         public bool IsModal { get; protected set; }
 
@@ -260,9 +226,8 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
             get { return parentWindow; }
         }
 
-        public virtual void Load() {
-            implementer.Load();
-            LoadMarkup();
+        public void Load() {
+            throw new NotImplementedException();
         }
 
         public BaseRectangle CurrentFrame {

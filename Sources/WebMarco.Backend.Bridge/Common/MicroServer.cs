@@ -121,7 +121,7 @@ namespace WebMarco.Backend.Bridge.Common {
             catch(Exception ex) { 
 #if DEBUG && WIN
                 if (ex.Message.Equals("Access is denied")) {
-                    const string listnerExceptionWithFix = "Access is denied. Please set serverInstancePort to some >10000 value(like for example 38701) and run the following command line in admin mode:\nnetsh http add urlacl http://+127.0.0.1:38701/ user=Everyone\n";
+                    const string listnerExceptionWithFix = "Access is denied. Please set serverInstancePort to some >10000 value(like for example 38701) and run the following command line in admin mode:\nnetsh http add urlacl http://127.0.0.1:38701/ user=Everyone\n";
                     DLogger.WriteLog(listnerExceptionWithFix);
                     throw new HttpListenerException(500, listnerExceptionWithFix);
                 } 

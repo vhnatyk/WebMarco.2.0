@@ -1,12 +1,4 @@
 ﻿/* various common service methods and vars */
-
-function isVisible(elemLocator) {
-    try {
-        return $(elemLocator).is(":visible");
-    } catch (e) { }
-    return false;
-}
-
 /* logging methods */
 writeLog = function (logText, ex, noFormat) {
     //console.log(logText);
@@ -27,19 +19,18 @@ writeLog = function (logText, ex, noFormat) {
 }
 /* end of logging methods */
 
-var serverInstanceUid = '898316fb-f8d6-41ea-8ccf-a58090745d9f';
-var serverInstancePort = '38701';
-var serverIP = '127.0.0.1';
-
-function setServerInstanceUid(val) {
-    serverInstanceUid = val;
-    console.log('serverInstanceUid = ' + val);
+function isEmpty(obj) {
+    if (typeof obj == 'undefined' || obj === null || obj === '') return true;
+    if (typeof obj == 'number' && isNaN(obj)) return true;
+    if (obj instanceof Date && isNaN(Number(obj))) return true;
+    return false;
 }
 
-function reinitializeServerUid() {
-    console.log("reinitializeServerUid()");
-    var result = callBackend("ReinitializeServerUid", null, false); //["1", "test", 1], false);
-    console.log('result : ' + result);
+function isVisible(elemLocator) {
+    try {
+        return $(elemLocator).is(":visible");
+    } catch (e) { }
+    return false;
 }
 
 function htmlEncode(value) {
@@ -67,26 +58,8 @@ function Guid() {
             S4() + S4() + S4());
 }
 
-function isEmpty(obj) {
-    if (typeof obj == 'undefined' || obj === null || obj === '') return true;
-    if (typeof obj == 'number' && isNaN(obj)) return true;
-    if (obj instanceof Date && isNaN(Number(obj))) return true;
-    return false;
-}
-
-/* end of service methods */
-
-/* view loading methods */
-
-loadedViews = {}; //contains true values for views that are already loaded
-
-function LoadView(viewName, callbackFunction) {
-    var config = new CallConfig(null, "LoadView", viewName, false);
-    callBackendWithConfig(configObject);
-}
-/* end of view loading methods */
-
-/* Handle call from backend */
+/* WebMarco Bridge */
+/* handle call from backend */
 backendCallResultHandler = function (config) {
     try {
         if (!config) {
@@ -109,11 +82,10 @@ backendCallResultHandler = function (config) {
 backendCallResultHandlerWithJsonConfig = function (configAsJson) {
     backendCallResultHandler(JSON.parse(configAsJson));
 }
-/* End */
+/* end of handle call from backend */
 
-//call backend from frontend
-
-/* Backend bridge media prototypes */
+/* call backend from frontend */
+/* backend bridge media prototypes */
 CallConfig = function (uid, methodName, params, isAsync) {
     if (isEmpty(uid)) {
         uid = Guid();
@@ -123,14 +95,13 @@ CallConfig = function (uid, methodName, params, isAsync) {
     this.Params = params;
     this.IsAsync = isAsync;
 }
-/* End */
-
+/* end of backend bridge media prototypes */
 
 callBackend = function (name, arguments, async) {
     return callBackendWithConfig(new CallConfig(null, name, arguments, async));
 }
 
-function callBackendWithConfig(callConfig) {
+callBackendWithConfig = function (callConfig) {
     var result;
 
     if (isEmpty(callConfig.UID)) {
@@ -165,16 +136,65 @@ function callBackendWithConfig(callConfig) {
 
     return result;
 }
+/* end of call backend from frontend */
 
-/* Common methods */
+/* server initialization */
+var serverInstanceUid = '898316fb-f8d6-41ea-8ccf-a58090745d9f';
+var serverInstancePort = '38701';
+var serverIP = '127.0.0.1';
 
+function setServerInstanceUid(val) {
+    serverInstanceUid = val;
+    console.log('serverInstanceUid = ' + val);
+}
+
+function reinitializeServerUid() {
+    console.log("reinitializeServerUid()");
+    var result = callBackend("ReinitializeServerUid", null, false); //["1", "test", 1], false);
+    console.log('result : ' + result);
+}
+/* end of server initialization */
+/* end of WebMarco Bridge */
+
+/* WebMarco API */
+function setElementWithBackendMethod(id, backendMethodName, updateOrAppend) {
+    var resultFromBackend = callBackend(backendMethodName);
+    var el = $('#' + id);
+    if (updateOrAppend) {
+        el.append(resultFromBackend);
+    } else {
+        el.html(resultFromBackend);
+    }
+}
+
+function appendToElementWithBackendMethod(id, backendMethodName) {
+    setElementWithDataFromBackend(id, backendMethodName, true);
+}
+
+/* view loading */
+loadedViews = {}; //contains true values for views that are already loaded
+
+function loadView(viewName, callbackFunction) {
+    callBackendWithConfig("LoadView", [viewName, callbackFunction]);
+}
+
+function loadPage(pageName, callbackFunction) {
+    callBackendWithConfig("LoadPage", [pageName, callbackFunction]);
+}
+/* end of view loading */
+/* end of WebMarco API */
+/* end of various common service methods and vars */
+
+
+
+/* common methods */
 function quit() {
     var result = callBackend('Quit', null, true);
 }
 
 //--common init----------------------
 ////load MainView
-//LoadView("MainView");
+//loadView("MainView");
 
 
 //openUrlInSystemBrowser = function (url) {

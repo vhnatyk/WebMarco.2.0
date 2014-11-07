@@ -31,7 +31,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
         /// </summary>
         protected override void InitializeComponent() {//TODO: why override and where that initialization should really happen, here!?
             base.InitializeComponent();
-            //some extra initialization, seciffic to current task only
+            //some extra initialization, specific to current task only
             //this.AutomaticUpdater = new wyDay.Controls.AutomaticUpdater();
             //((System.ComponentModel.ISupportInitialize)(this.automaticUpdater)).BeginInit();
             //this.SuspendLayout();

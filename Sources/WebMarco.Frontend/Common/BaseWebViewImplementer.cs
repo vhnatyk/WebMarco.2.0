@@ -11,10 +11,10 @@ namespace WebMarco.Frontend.Common {
     public class BaseWebViewImplementer : BaseViewImplementer, IBaseWebView {
 
         /// <summary>
-        /// Things that make no sence to beimplemented here and 
+        /// Things that make no sense to be implemented here and 
         /// are here just because of compliance with IBaseWebView, must be declared abstract,
         /// so if they later will be "implemented" in platform implementation
-        /// they can be autocreated with "Implement abstarct class" feature
+        /// they can be autocreated with "Implement abstract class" feature
         /// and just will be throwing NotImplementedException to ensure they aren't used.
         /// </summary>
 
@@ -41,7 +41,7 @@ namespace WebMarco.Frontend.Common {
 
         /// <summary>
         /// This property must be implemented in BaseWebView descendant, 
-        /// therefore makes no sence here.
+        /// therefore makes no sense here.
         /// </summary>
         public string NameString {
             get { throw new NotImplementedException(); }
@@ -49,7 +49,7 @@ namespace WebMarco.Frontend.Common {
 
         /// <summary>
         /// This property must be implemented in BaseWebView descendant, 
-        /// therefore makes no sence here.
+        /// therefore makes no sense here.
         /// </summary>
         public string Markup {
             get { throw new NotImplementedException(); }
@@ -147,6 +147,7 @@ namespace WebMarco.Frontend.Common {
         public override void Load() {
             LoadedViews.TryAddView(webView);
         }
+
         #endregion
 
         protected override IBaseView View {

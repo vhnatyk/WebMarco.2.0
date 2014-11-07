@@ -15,7 +15,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Mac {
     /// the #if PLATFORM1 ... #elif PLATFORM2 .. #elif ... #endif preprocessor directives
     /// that, according to experiense achieved in previous projects - these tend to be unmanagable.
     /// With this approach common frontend code goes to WebMarco.Frontend.Common.<BaseObject>Implementer
-    /// and the code that is speciffic for a platform, for exaple Android, - if it was in #if ANDROID ... #endif
+    /// and the code that is specific for a platform, for exaple Android, - if it was in #if ANDROID ... #endif
     /// then it goes to WebMarco.Frontend.PlatformImplemented.Android.<BaseObject>Implementer
     /// </summary>
     public class BaseWebViewImplementer : WebMarco.Frontend.Common.BaseWebViewImplementer {
