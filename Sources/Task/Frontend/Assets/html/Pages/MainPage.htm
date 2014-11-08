@@ -36,8 +36,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--<script type="text/javascript" src="../../js/jquery.ajax-cross-origin.min.js"></script>-->
     <script type="text/javascript" src="../../js/HTMLImports.js"></script>
 
-    <link rel="import" href="../../html/templates/modal.html">
-    <link rel="import" href="../../html/templates/progressbar.html">
+    <link rel="import" href="../../html/templates/bootstrap.html">
 
     <script type="text/javascript">
         var templates = document.querySelectorAll('link[rel="import"]');
@@ -96,14 +95,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         var modalDemo;
         var progress;
 
-        //TODO: make this part of API
-        loadElementFromTemplate = function (itemToLoad, elementId, template) {
-            var el = template.import.querySelector('.' + itemToLoad);
-            el.id = elementId;
-            document.body.appendChild(el.cloneNode(true));
-            return $('#' + elementId);
-        };
-
         initDemo = function () {
             if (modalDemo == null) {
                 var isSupported = supportsImports() ? '' : 'not ';
@@ -113,7 +104,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 //load modal
                 modalDemo = loadElementFromTemplate('modal', 'myModal', templates[0]);
                 //load progress bar
-                progress = loadElementFromTemplate('progress', 'myProgress', templates[1]);
+                progress = loadElementFromTemplate('progress', 'myProgress', templates[0]);
                 //}
                 modalDemo.find('.modal-title').html("Demo of Bootstrap responsive HTML 5 framework");
                 var modalContentContainer = modalDemo.find('.modal-body');
@@ -155,11 +146,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         onclick="setPlatformNotePopupContentHtml(this.title);"></a></li>
                     <div class="clear"></div>
                 </ul>
-                <div class="pricing-grid features-showcase">
+                <div class="grid1 features-showcase">
                     <h3>Demo Showcase</h3>
                     <ul>
                         <li><a href="#" onclick="testClick(); return false;">Demo the WebMarco bridge</a></li>
                         <li><a href="#" onclick="demoBootstrap(); return false;">Bootstrap demo</a></li>
+                        <li><a href="#" onclick="loadPage('TemplatePage'); return false;">Template page</a></li>
                         <li><a href="#debugInfo" onclick="demoConsoleWrite('Test debugInfo will be shown here.');">Check debug info</a></li>
                         <li><a href="#" onclick="$('#debugInfo').html(''); $('#debugConsole').hide(); ">Clear debug info</a></li>
                         <li><a href="#" onclick="quit(); return false;">Exit</a></li>
@@ -169,7 +161,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             onclick="setPlatformNotePopupContentHtml(this.title);">Cool popup:)</a>
                     </div>
                 </div>
-                <div class="pricing-grid demo-board">
+                <div class="grid1 demo-board">
                 </div>
             </div>
             <div class="header-right">

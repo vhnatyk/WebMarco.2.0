@@ -1,0 +1,133 @@
+﻿<!--source
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>BridgeTry - WebMarco framework template page.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <!--<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>-->
+    <link href="../../css/style.css" rel='stylesheet' type="text/css" />
+    <!--Bootstrap styles-->
+    <link href="../../css/bootstrap.min.css" rel='stylesheet' type="text/css" />
+    <!--Page and WebMarco styles go last -->
+    <link media="all" href="../../css/main.css" type="text/css" rel="stylesheet" />
+    <link media="all" href="../../css/Pages/TemplatePage.css" type="text/css" rel="stylesheet" />
+
+    <!-----jQuery------->
+    <script type="text/javascript" src="../../js/jquery-1.11.1.min.js"></script>
+
+    <!--Bootstrap script-->
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/HTMLImports.js"></script>
+
+    <!--bootstrap import-->
+    <link rel="import" href="../../html/templates/bootstrap.html">
+    <!--templates import-->
+    <script type="text/javascript">
+        var templates = document.querySelectorAll('link[rel="import"]');
+    </script>
+
+    <!-- Add fancyBox light-box --><!--TODO: replace with bootstrap-->
+    <script type="text/javascript" src="../../js/jquery.magnific-popup.js"></script>
+
+    <!--Page and WebMarco scripts go last -->
+    <script type="text/javascript" src="../../js/main.js"></script>
+    <script type="text/javascript" src="../../js/Pages/TemplatePage.js"></script>
+
+
+    <script type="text/javascript">
+        //TODO:is it ok to have inline script blocks ???
+        //Lets assume it's ok to have them here first, and then if they tend to grow
+        //move them to the dedicated JavaScript file
+
+        function demoConsoleWrite(message) {
+            $('#debugConsole').show();
+            $('#debugInfo').html(message);
+        }
+
+        function apiDemo() {
+            setElementWithBackendMethod('apiDemoOutput', 'GetTestDataFromBackend');
+            appendToElementWithBackendMethod('apiDemoOutput', 'GetTestDataFromBackend');
+        }
+
+        function displayShowcaseInfo(textToShow) {
+            $('#demoShowcaseResultContainer').html(textToShow);
+            $.magnificPopup.open({
+                items: {
+                    src: '#small-dialog1'
+                },
+                type: 'inline',
+                preloader: false,
+                closeBtnInside: true,
+                mainClass: 'my-mfp-zoom-in'//,
+                //modal: true
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <!---start-wrap---->
+    <!---start-header----->
+    <div class="header">
+        <div class="wrap">
+            <div class="header-left">
+                <p class="webmarco-logo-note">WebMarco 2.0</p>
+                <p>
+                    Template page
+                   
+                    <br />
+                    HTML5 UI capabilities.
+               
+                </p>
+                <div class="grid1 features-showcase">
+                    <h3>Template</h3>
+                    <ul>
+                        <li><a href="#debugInfo" onclick="demoConsoleWrite('Test debugInfo will be shown here.');">Check debug info</a></li>
+                        <li><a href="#" onclick="$('#debugInfo').html(''); $('#debugConsole').hide(); ">Clear debug info</a></li>
+                        <li><a href="#" onclick="apiDemo(); return false;">WebMarco API demo</a></li>
+                        <li><a href="#" onclick="quit(); return false;">Exit</a></li>
+                    </ul>
+                </div>
+                <div class="grid1 demo-board">
+                </div>
+            </div>
+            <div class="header-right">
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!---End-header----->
+
+    <div class="wrap">
+        <!----start-welcome-Note---->
+        <div class="welcome-note">
+            <h3>WebMarco 2.0 Features</h3>
+            <p>▪<b>Hybrid UI</b> based on ▪<b>Responsive design and HTML5</b> ▪<b>Crossplatform</b> ▪<b>Desktop + Mobile</b> due to multiple resolution support</p>
+            <div id="debugConsole" style="color: red;">
+                <br />
+                <br />
+                Console:
+                <div id="debugInfo" style="display: inline;">Debug test data</div>
+                <br />
+                <div id="apiDemoOutput" style="display: inline;">Api Demo will change this text</div>
+            </div>
+        </div>
+        <!----End-welcome-Note---->
+    </div>
+
+    <div id="small-dialog1" class="mfp-hide">
+        <div class="pop_up">
+            <div id="demoShowcaseResultContainer">
+            </div>
+        </div>
+    </div>
+
+    <p class="copy-right">Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+</body>
+</html>
+

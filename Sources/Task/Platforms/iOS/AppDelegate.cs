@@ -8,6 +8,7 @@ using MonoTouch.UIKit;
 using WebMarco.Frontend.PlatformImplemented.iOS;
 using WebMarco.Utilities.Logging;
 using WebMarco.Backend.App.Common;
+using TinyIoC;
 
 namespace BridgeTry {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -45,6 +46,8 @@ namespace BridgeTry {
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options) {
+            //Level 1 for IoC registration
+            TinyIoCContainer.Current.Register<BaseAppDelegate, AppDelegate>(AppDelegate.Instance);
             // create a new window instance based on the screen size
             window = new MainWindow(new Rectangle(UIScreen.MainScreen.Bounds));
 

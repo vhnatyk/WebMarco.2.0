@@ -17,23 +17,19 @@ using WebMarco.Utilities.Paths;
 namespace WebMarco.Frontend.PlatformImplemented.iOS {
 
 
-    public abstract class BaseWebView : UIWebView, IBaseWebView {
+    public abstract class NativeBaseWebView : UIWebView, INativeWebView {
 
         #region Private methods
 
         #endregion
 
-        private IBaseWindow parentWindow = null;
+        protected IBaseWindow parentWindow = null;
+        protected BaseWebViewImplementer implementer;
 
-        private BaseWebViewImplementer implementer;
 
-
-        public BaseWebView(IBaseWindow window, BaseWebPage defaultPage, bool bouncingEnabled = false)
+        public NativeBaseWebView(bool bouncingEnabled = false)
             : base()//window.Frame) 
         {
-            Page = defaultPage;
-            parentWindow = window;
-            implementer = new BaseWebViewImplementer(this);
             ScrollView.Bounces = bouncingEnabled;
         }
 
@@ -53,27 +49,15 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
         }
 
 
-        #region IBaseWebView
+        #region INativeWebView
 
         #region Public Properties
 
-        public string NameString {
-            get { return this.GetType().Name; }
-        }
-
         public virtual Uri ViewUrl {
             get {
-                return (Page == null)? new Uri(this.Request.Url.ToString()) : Page.Url;
+                return new Uri(this.Request.Url.ToString());
             }
         }
-
-        public string Markup {
-            get {
-                throw new NotImplementedException();
-            }
-        }
-
-        public BaseWebPage Page { get; private set; }
 
         #endregion
 
@@ -85,31 +69,18 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
 
         public void LoadMarkup(Uri url) {
             NSUrl nsUrl = NSUrl.FromString(url.ToString());
-            if (nsUrl == null) {
-               nsUrl = NSUrl.FromFilename(url.LocalPath);    
+            if(nsUrl == null) {
+                nsUrl = NSUrl.FromFilename(url.LocalPath);
             }
             BaseAppDelegate.Instance.ExecuteOnMainThread(() => {
                 base.LoadRequest(new NSUrlRequest(nsUrl));
             });
         }
 
-        public void LoadMarkup() {
-            implementer.LoadMarkup();
-        }
-
-        public void LoadMarkup(BaseWebPage page) {
-            Page = page;
-            LoadMarkup(page.Url);
-        }
-
         public object CallFrontend(string script) {
             object result = null;
             BaseAppDelegate.Instance.ExecuteOnMainThread(() => result = this.EvaluateJavascript(script));
             return (result != null) ? result.ToString() : result;
-        }
-
-        public CallResult ProcessCallFromFrontend(CallConfig config) {
-            return implementer.ProcessCallFromFrontend(config);
         }
 
         #endregion
@@ -175,7 +146,7 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
 
         public BaseRectangle CurrentFrame {
             get {
-                return new Rectangle(this);
+                return new Rectangle(this.Frame);
             }
             set {
                 Frame = Rectangle.GetRectangleF(value);
@@ -203,9 +174,7 @@ namespace WebMarco.Frontend.PlatformImplemented.iOS {
         }
 
         public virtual void Load() {
-            implementer.Load(); /*Sort of base.Load if BaseView would be base class for this one, 
-            but it's not, but still can be executed in implementer if necessary */
-            LoadMarkup();
+            throw new NotImplementedException();
         }
 
         #endregion

@@ -127,10 +127,7 @@
     <Content Include="Assets\fonts\glyphicons-halflings-regular.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\html\templates\modal.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\html\templates\progressbar.html">
+    <Content Include="Assets\html\templates\bootstrap.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\js\bootstrap.min.js">

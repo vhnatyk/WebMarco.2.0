@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using WebMarco.Backend.App.Common;
 using WebMarco.Backend.Bridge.Common;
+using WebMarco.Utilities.Logging;
 
 ///TODO: this #if block can be avoided if .PlatformImplemented 
 ///namespace would be stripped of platform subnamespace, for example .Android
@@ -17,7 +20,7 @@ namespace WebMarco.Frontend.Common {
 #if ANDROID
         WebMarco.Frontend.PlatformImplemented.Android.NativeBaseWebView
 #elif WIN
-        WebMarco.Frontend.PlatformImplemented.Win.NativeBaseWebView
+ WebMarco.Frontend.PlatformImplemented.Win.NativeBaseWebView
 #elif iOS
         WebMarco.Frontend.PlatformImplemented.iOS.NativeBaseWebView 
 #elif MACOSX
@@ -34,17 +37,13 @@ namespace WebMarco.Frontend.Common {
 #elif WIN
             base(defaultPage.Url.ToString())
 #elif iOS
-    WebMarco.Frontend.PlatformImplemented.iOS.NativeBaseWebView 
+            base() 
 #elif MACOSX
-    WebMarco.Frontend.PlatformImplemented.Mac.NativeBaseWebView 
+            base()
 #else 
   ///
 #endif
-            
-
-       
-        {
-
+ {
             Page = defaultPage;
             parentWindow = window;
             implementer = new BaseWebViewImplementer(this);
@@ -76,6 +75,49 @@ namespace WebMarco.Frontend.Common {
             Page = page;
             LoadMarkup(page.Url);
         }
+
+        #region LoadPage API
+
+        private static BaseWebPage GetPageByTypeName(string pageTypeName, string assemblyName) {
+            return (BaseWebPage)(Activator.CreateInstance(
+                       assemblyName,
+                       string.Format("{0}.Common.Pages.{1}", assemblyName, pageTypeName),
+                       true,
+                       System.Reflection.BindingFlags.ExactBinding,
+                       null,
+                       null,
+                       CultureInfo.InvariantCulture,
+                       null).Unwrap()
+                    );
+        }
+
+        private static string taskAssemblyName;
+        private static BaseWebPage GetPageFromTaskFrontendAssembly(string pageTypeName) {
+            if(string.IsNullOrWhiteSpace(taskAssemblyName)) {
+                List<string> assemblyNames = AppDomain.CurrentDomain.GetAssemblies().
+                    Where(assembly => assembly.GetName().Name.Contains("Frontend") && !assembly.GetName().Name.Contains("WebMarco")).
+                    Select(assembly => assembly.GetName().Name).ToList();
+                foreach(var assemblyName in assemblyNames) {
+                    try {
+                        BaseWebPage page = GetPageByTypeName(pageTypeName, assemblyName);
+                        taskAssemblyName = assemblyName;
+                        return page;
+                    } catch (Exception ex) {
+                        DLogger.WriteLog(ex);
+                        return null;
+                    }
+                }
+            } 
+            return GetPageByTypeName(pageTypeName, taskAssemblyName);
+        }
+
+        public virtual void LoadPage(string pageTypeName, string callBackMethodName = null) {//TODO: callBackMethodName ignored for now
+            BaseWebPage page = GetPageFromTaskFrontendAssembly(pageTypeName);
+            page.ParentWebView = this;
+            page.Load();
+        }
+
+        #endregion
 
         public CallResult ProcessCallFromFrontend(CallConfig config) {
             return implementer.ProcessCallFromFrontend(config);

@@ -9,7 +9,7 @@ body{
 	background: url(../img/handpico.png) no-repeat 100% 101%;
 	height: 600px;
 }
-.pricing-grid ul li a:hover,.footer ul li a:hover, .copy-right a:hover {
+.grid1 ul li a:hover,.footer ul li a:hover, .copy-right a:hover {
 		color:#DB7734;
 }
 /*----*/
@@ -116,7 +116,7 @@ input[type=checkbox].css-checkbox2:checked + label.css-label2 {
 	  background: url(../img/osprits.png) no-repeat -44px -231px;
   }
 /*----*/
-.pricing-grid h3,.cart{
+.grid1 h3,.cart{
 	background:#DB7734;
 }
 .cart a {

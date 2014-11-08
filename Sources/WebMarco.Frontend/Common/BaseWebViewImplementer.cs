@@ -32,33 +32,16 @@ namespace WebMarco.Frontend.Common {
 
         public Uri ViewUrl { get { return (Page == null) ? webView.ViewUrl : Page.Url; } }
 
-        /// <summary>
-        /// Returns BaseWebPage descendant, associated with current WebView. 
-        /// IMPORTANT!!! : This property has priority over ViewUrl. 
-        /// It's here to make crossplatform, where required in this class.
-        /// </summary>
         public BaseWebPage Page { get { return webView.Page; } }
 
-        /// <summary>
-        /// This property must be implemented in BaseWebView descendant, 
-        /// therefore makes no sense here.
-        /// </summary>
         public string NameString {
             get { throw new NotImplementedException(); }
         }
 
-        /// <summary>
-        /// This property must be implemented in BaseWebView descendant, 
-        /// therefore makes no sense here.
-        /// </summary>
         public string Markup {
             get { throw new NotImplementedException(); }
         }
 
-        /// <summary>
-        /// IMPORTANT!!! : WebView must implement this method itself, otherwise will be an endless loop.
-        /// </summary>
-        /// <param name="url">URL</param>
         public void LoadMarkup(Uri url) {
             webView.LoadMarkup(url);
         }
@@ -71,12 +54,12 @@ namespace WebMarco.Frontend.Common {
             LoadMarkup(ViewUrl);
         }
 
-        /// <summary>
-        /// IMPORTANT!!! : WebView must implement this method itself, otherwise will be an endless loop.
-        /// </summary>
-        /// <param name="page"></param>
         public void LoadMarkup(BaseWebPage page) {
             webView.LoadMarkup(page);
+        }
+
+        public void LoadPage(string pageTypeName, string callBackMethodName = null) {
+            webView.LoadPage(pageTypeName, callBackMethodName);
         }
 
         /// <summary>
@@ -92,48 +75,49 @@ namespace WebMarco.Frontend.Common {
             object instance = webView.Page;
             MethodInfo theMethod = null;
 
-            if (Page != null) {//first lets look for the method in the page
+            if(Page != null) {//first lets look for the method in the page
                 theMethod = Page.GetType().GetMethod(config.MethodName);
             }
 
-            if (theMethod == null) {
+            if(theMethod == null) {
                 theMethod = webView.GetType().GetMethod(config.MethodName);
                 instance = webView;
             }
 
-            if (theMethod == null) {//if the method is not found in current view, then lets search for it in other loaded views
-                foreach (var view in LoadedViews.ViewForEachType) {
+            if(theMethod == null) {//if the method is not found in current view, then lets search for it in other loaded views
+                foreach(var view in LoadedViews.ViewForEachType) {
                     theMethod = view.GetType().GetMethod(config.MethodName);
-                    if (theMethod != null) {
+                    if(theMethod != null) {
                         instance = view;
                         break;
                     }
                 }
             }
 
-            if (theMethod == null) {//if the method is not found in loaded views, then lets search for it in parent window
+            if(theMethod == null) {//if the method is not found in loaded views, then lets search for it in parent window
                 theMethod = ParentWindow.GetType().GetMethod(config.MethodName);
                 instance = ParentWindow;
             }
 
-            if (theMethod == null) {//if the method is not found in parent window, then lets search for it in AppDelegate.Instance
+            if(theMethod == null) {//if the method is not found in parent window, then lets search for it in AppDelegate.Instance
                 theMethod = BaseAppDelegate.Instance.GetType().GetMethod(config.MethodName);
                 instance = BaseAppDelegate.Instance;
             }
 
             CallResult result = new CallResult(string.Empty);
             try {
-				//BaseAppDelegate.Instance.ExecuteOnMainThread(()=> {
-                	result = (CallResult)theMethod.Invoke(instance, new object[] { config.Params });
-				//});
-            } catch (Exception ex) {
+                result = (CallResult)(theMethod.Invoke(instance, new object[] { config.Params }));
+            } catch(Exception ex) {
                 DLogger.WriteLog(ex);
-                try {//try parameter less
-                    //BaseAppDelegate.Instance.ExecuteOnMainThread(() => {
-						result = (CallResult)theMethod.Invoke(instance, null);
-					//});
-                } catch (Exception ex2) {
-                    DLogger.WriteLog(ex2);
+                try {
+                    result = (CallResult)(theMethod.Invoke(instance, (object[])(config.Params)));
+                } catch(Exception ex1) {
+                    DLogger.WriteLog(ex1);
+                    try {//try parameterless
+                        result = (CallResult)(theMethod.Invoke(instance, null));
+                    } catch(Exception ex2) {
+                        DLogger.WriteLog(ex2);
+                    }
                 }
             }
 

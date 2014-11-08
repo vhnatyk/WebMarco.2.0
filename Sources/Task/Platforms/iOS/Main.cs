@@ -15,6 +15,7 @@ namespace BridgeTry {
             // if you want to use a different Application Delegate class from "AppDelegate"
             // you can specify it here.
 
+            //Level 0 for IoC registration
             TinyIoCContainer.Current.Register<AppHelper.Data.Manager, Manager>(new Manager());
             AppHelper.Data.ConnectDatabase();//TODO: noo has to be done async - otherwise will kill the app on huge db load due to timeout
 

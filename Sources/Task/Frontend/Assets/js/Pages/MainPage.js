@@ -12,15 +12,14 @@
     var currentTime = ("00" + now.getMinutes()).substr(-2) + ':' + ("00" + now.getSeconds()).substr(-2) + ':' + ("000" + now.getMilliseconds()).substr(-3);
     console.log("now.toTimeString() : " + currentTime);
 
-    var result = callBackend("GetUiMinimalResponseTime", currentTime, false);
+    var result = callBackend("GetUiMinimalResponseTime", currentTime);
     now = new Date();
     result += " end time :" + ("00" + now.getMinutes()).substr(-2) + ':' + ("00" + now.getSeconds()).substr(-2) + ':' + ("000" + now.getMilliseconds()).substr(-3);
 
     console.log('result : ' + result);
 
-    result += "</br>" + callBackend("GetTestStringFromDatabase", null, false);
+    result += "</br>" + callBackend("GetTestStringFromDatabase");
 
-    //$("#resp1").html(result);
 	displayShowcaseInfo(result);
 }
 
@@ -30,7 +29,7 @@ function setPlatformNotePopupContentHtml(htmlValue) {
 }
 
 function displayShowcaseInfo(textToShow) {
-    var demoBoardLocator = 'div.pricing-grid.demo-board';
+    var demoBoardLocator = 'div.grid1.demo-board';
     if (isVisible(demoBoardLocator)) {
         $(demoBoardLocator).html('<p>' + textToShow + '</p>');
     } else {
@@ -52,19 +51,6 @@ $(document).ready(function () {
 
     //methods that can or need to be defined when DOM is loaded
 
-    var console = (function (c) {
-        return {
-            log: function (v) {
-                c.log('_original_');
-                c.log(v);
-                var debugDivs = $('#debugInfo');
-                var debugDiv = debugDivs[0];
-                if (debugDiv !== null) {
-                    debugDivs.html(v);
-                }
-            }
-        };
-    }(window.console));
     //console.log('hello world');
 
     //console.log("here ok1");
@@ -83,20 +69,9 @@ $(document).ready(function () {
     //console.log("here ok2");     
 
     //console.log("$(document).ready(function ()...");
-    try {
-        reinitializeServerUid();
-        console.log("reinitializeServerUid passed ok3");
+    try {        
+        console.log("MainPage.js loaded");
     } catch (e) {
         console.log("exception : " + e.description + "number:" + e.number);
     }
 });
-
-//"View loaded" backend event handler method call template
-//function mainView_Loaded() {
-//    var configObject = {
-//        name: "MainView_Loaded",
-//        arguments: [],
-//        async: false
-//    };
-//    var res = callBackendWithConfig(configObject);
-//}

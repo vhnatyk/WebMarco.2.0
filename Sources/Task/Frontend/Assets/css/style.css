@@ -580,12 +580,12 @@ p.webmarco-logo-note {
     text-align: center;
 }
 /*----*/
-.pricing-grids {
+.grid1s {
     margin-top: 2em;
     margin-bottom: 2em;
 }
 
-.pricing-grid {
+.grid1 {
     width: 24.8%;
     float: left;
     background: #FFF;
@@ -599,36 +599,36 @@ p.webmarco-logo-note {
     margin-bottom: 2em;
 }
 
-    .pricing-grid.features-showcase {
+    .grid1.features-showcase {
         width: 80%;
         max-width: 370px;
         margin: 1em;
     }
 
-    .pricing-grid.demo-board {
+    .grid1.demo-board {
         margin: 1em;
         max-width: 370px;
         background: none;
         width: 80%;
     }
 
-        .pricing-grid.demo-board p {
+        .grid1.demo-board p {
             width: 100%;
             margin: 0px;
         }
 
-    .pricing-grid:hover {
+    .grid1:hover {
         box-shadow: 0 0 0px 2px #fff;
         -webkit-transform: scale(1.04) translateY(-5px);
         z-index: 1;
         border-bottom: 0 none;
     }
 
-    .pricing-grid:nth-child(4) {
+    .grid1:nth-child(4) {
         margin-right: 0;
     }
 
-    .pricing-grid h3 {
+    .grid1 h3 {
         background: #3598DB;
         padding: 0.3em 1em;
         display: block;
@@ -652,7 +652,7 @@ p.webmarco-logo-note {
         vertical-align: top;
     }
 
-.pricing-grid ul li a {
+.grid1 ul li a {
     color: #838383;
     line-height: 1.5em;
     font-size: 1.1em;
@@ -667,7 +667,7 @@ p.webmarco-logo-note {
     -o-transition: 0.5s all;
 }
 
-    .pricing-grid ul li a:hover {
+    .grid1 ul li a:hover {
         background: #EEE;
         color: #3598DB;
     }
@@ -1774,7 +1774,7 @@ img.mfp-img {
 }
 /*---start-responsive-deign----*/
 @media only screen and (max-width: 1880px) and (min-width:0px) {
-    .pricing-grid.demo-board {
+    .grid1.demo-board {
         display: none;
     }
 }
@@ -1931,13 +1931,13 @@ img.mfp-img {
         padding: 3em 0 2.5em 0;
     }
 
-    .pricing-grid {
+    .grid1 {
         width: 100%;
         float: none;
         margin-bottom: 1.5em;
     }
 
-        .pricing-grid.features-showcase {
+        .grid1.features-showcase {
             width: 100%;
             max-width: 100%;
         }
@@ -2018,13 +2018,13 @@ img.mfp-img {
         padding: 3em 0 2.5em 0;
     }
 
-    .pricing-grid {
+    .grid1 {
         width: 100%;
         float: none;
         margin-bottom: 1.5em;
     }
 
-        .pricing-grid.features-showcase {
+        .grid1.features-showcase {
             width: 100%;
             max-width: 100%;
         }
@@ -2172,11 +2172,11 @@ img.mfp-img {
         font-size: 2em;
     }
 
-    .pricing-grid h3 {
+    .grid1 h3 {
         font-size: 1.3em;
     }
 
-    .pricing-grid ul li a {
+    .grid1 ul li a {
         font-size: 0.9em;
     }
 
@@ -2185,13 +2185,13 @@ img.mfp-img {
         font-size: 0.9em;
     }
 
-    .pricing-grid {
+    .grid1 {
         width: 100%;
         float: none;
         margin-bottom: 1.5em;
     }
 
-        .pricing-grid.features-showcase {
+        .grid1.features-showcase {
             width: 100%;
             max-width: 100%;
             margin-left: 0em;
@@ -2378,11 +2378,11 @@ img.mfp-img {
         font-size: 2em;
     }
 
-    .pricing-grid h3 {
+    .grid1 h3 {
         font-size: 1.3em;
     }
 
-    .pricing-grid ul li a {
+    .grid1 ul li a {
         font-size: 0.9em;
     }
 
@@ -2391,13 +2391,13 @@ img.mfp-img {
         font-size: 0.9em;
     }
 
-    .pricing-grid {
+    .grid1 {
         width: 100%;
         float: none;
         margin-bottom: 1.5em;
     }
 
-        .pricing-grid.features-showcase {
+        .grid1.features-showcase {
             width: 100%;
             max-width: 100%;
         }

@@ -253,12 +253,6 @@
     <AndroidAsset Include="..\..\Frontend\Assets\fonts\OFL.txt">
       <Link>Assets\fonts\OFL.txt</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\html\templates\modal.html">
-      <Link>Assets\html\templates\modal.html</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\html\templates\progressbar.html">
-      <Link>Assets\html\templates\progressbar.html</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\bootstrap.min.js">
       <Link>Assets\js\bootstrap.min.js</Link>
     </AndroidAsset>
@@ -313,9 +307,6 @@
     <AndroidAsset Include="..\..\Frontend\Assets\css\green.css">
       <Link>Assets\css\green.css</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\css\jquery.treeview.css">
-      <Link>Assets\css\jquery.treeview.css</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\Frontend\Assets\css\orange.css">
       <Link>Assets\css\orange.css</Link>
     </AndroidAsset>
@@ -337,11 +328,17 @@
     <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.tinyscrollbar.min.js">
       <Link>Assets\js\jquery.tinyscrollbar.min.js</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\Frontend\Assets\js\jquery.treeview.js">
-      <Link>Assets\js\jquery.treeview.js</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\..\Frontend\Assets\js\responsiveCarousel.js">
       <Link>Assets\js\responsiveCarousel.js</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\html\Pages\TemplatePage.htm">
+      <Link>Assets\html\Pages\TemplatePage.htm</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\html\templates\bootstrap.html">
+      <Link>Assets\html\templates\bootstrap.html</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\..\Frontend\Assets\js\Pages\TemplatePage.js">
+      <Link>Assets\js\Pages\TemplatePage.js</Link>
     </AndroidAsset>
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>

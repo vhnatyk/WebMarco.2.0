@@ -1,5 +1,19 @@
 ﻿/* various common service methods and vars */
 /* logging methods */
+var console = (function (c) {
+    return {
+        log: function (v) {
+            //c.log('_original_');
+            c.log(v);
+            var debugDivs = $('#debugInfo');
+            var debugDiv = debugDivs[0];
+            if (debugDiv !== null) {
+                debugDivs.html(v);
+            }
+        }
+    };
+}(window.console));
+
 writeLog = function (logText, ex, noFormat) {
     //console.log(logText);
 
@@ -15,7 +29,7 @@ writeLog = function (logText, ex, noFormat) {
         logText = "\n\n******************* JavaScript log message ******************\n\n" + logText + "\n\n------------------- end of JavaScript log message ------------------\n\n";
     }
 
-    callBackend("WriteFrontendLog", logText, true);
+    //callBackend("WriteFrontendLog", logText, true);
 }
 /* end of logging methods */
 
@@ -93,12 +107,12 @@ CallConfig = function (uid, methodName, params, isAsync) {
     this.UID = uid; //unique ID of call,
     this.MethodName = methodName;
     this.Params = params;
-    this.IsAsync = isAsync;
+    this.IsAsync = (isAsync) ? true : false;
 }
 /* end of backend bridge media prototypes */
 
-callBackend = function (name, arguments, async) {
-    return callBackendWithConfig(new CallConfig(null, name, arguments, async));
+callBackend = function (name, arguments, isAsync) {
+    return callBackendWithConfig(new CallConfig(null, name, arguments, isAsync));
 }
 
 callBackendWithConfig = function (callConfig) {
@@ -148,16 +162,25 @@ function setServerInstanceUid(val) {
     console.log('serverInstanceUid = ' + val);
 }
 
-function reinitializeServerUid() {
+reinitializeServerUid = function() {
     console.log("reinitializeServerUid()");
-    var result = callBackend("ReinitializeServerUid", null, false); //["1", "test", 1], false);
+    var result = callBackend("ReinitializeServerUid", null, true);
     console.log('result : ' + result);
 }
 /* end of server initialization */
 /* end of WebMarco Bridge */
 
 /* WebMarco API */
-function setElementWithBackendMethod(id, backendMethodName, updateOrAppend) {
+/* template loading */
+loadElementFromTemplate = function (itemToLoad, elementId, template) {
+    var el = template.import.querySelector('.' + itemToLoad);
+    el.id = elementId;
+    document.body.appendChild(el.cloneNode(true));
+    return $('#' + elementId);
+};
+/* end of template loading */
+
+setElementWithBackendMethod = function (id, backendMethodName, updateOrAppend) {
     var resultFromBackend = callBackend(backendMethodName);
     var el = $('#' + id);
     if (updateOrAppend) {
@@ -167,19 +190,19 @@ function setElementWithBackendMethod(id, backendMethodName, updateOrAppend) {
     }
 }
 
-function appendToElementWithBackendMethod(id, backendMethodName) {
-    setElementWithDataFromBackend(id, backendMethodName, true);
+appendToElementWithBackendMethod = function (id, backendMethodName) {
+    setElementWithBackendMethod(id, backendMethodName, true);
 }
 
 /* view loading */
 loadedViews = {}; //contains true values for views that are already loaded
 
 function loadView(viewName, callbackFunction) {
-    callBackendWithConfig("LoadView", [viewName, callbackFunction]);
+    callBackend("LoadView", [viewName, callbackFunction]);
 }
 
 function loadPage(pageName, callbackFunction) {
-    callBackendWithConfig("LoadPage", [pageName, callbackFunction]);
+    callBackend("LoadPage", [pageName, callbackFunction]);
 }
 /* end of view loading */
 /* end of WebMarco API */
@@ -189,7 +212,7 @@ function loadPage(pageName, callbackFunction) {
 
 /* common methods */
 function quit() {
-    var result = callBackend('Quit', null, true);
+    var result = callBackend('Quit');
 }
 
 //--common init----------------------
@@ -213,7 +236,7 @@ function quit() {
 $(document).ready(function () {
     try {
         reinitializeServerUid();
-        console.log("reinitializeServerUid passed ok3");
+        console.log("reinitializeServerUid passed ok");
     } catch (e) {
         console.log("exception : " + e.description + "number:" + e.number);
     }

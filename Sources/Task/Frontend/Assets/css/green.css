@@ -10,7 +10,7 @@ body{
 	height: 600px;
 }
 /*-----*/
-.pricing-grid ul li a:hover,.footer ul li a:hover, .copy-right a:hover {
+.grid1 ul li a:hover,.footer ul li a:hover, .copy-right a:hover {
 		color:#34DB5A;
 }
 /*----*/
@@ -126,7 +126,7 @@ input[type=checkbox].css-checkbox2:checked + label.css-label2 {
 		background: #34DB5A;
 	}
 /*----*/
-.pricing-grid h3,.cart{
+.grid1 h3,.cart{
 	background:#34DB5A;
 }
 .cart a {

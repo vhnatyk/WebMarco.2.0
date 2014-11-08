@@ -36,20 +36,20 @@
     <Compile Include="Common\BaseRectangle.cs" />
     <Compile Include="Common\BaseViewImplementer.cs" />
     <Compile Include="Common\BaseWebPage.cs" />
+    <Compile Include="Common\BaseWebView.cs" />
     <Compile Include="Common\BaseWebViewImplementer.cs" />
     <Compile Include="Common\BaseWindowImplementer.cs" />
     <Compile Include="Common\Helpers\HtmlUiHelper.cs" />
     <Compile Include="Common\IBaseView.cs" />
     <Compile Include="Common\IBaseWebView.cs" />
     <Compile Include="Common\IBaseWindow.cs" />
+    <Compile Include="Common\INativeView.cs" />
+    <Compile Include="Common\INativeWebView.cs" />
     <Compile Include="Common\Point.cs" />
     <Compile Include="Common\ViewsHolder.cs" />
     <Compile Include="PlatformImplemented\iOS\BaseView.cs" />
-    <Compile Include="PlatformImplemented\iOS\BaseViewImplementer.cs" />
-    <Compile Include="PlatformImplemented\iOS\BaseWebView.cs" />
-    <Compile Include="PlatformImplemented\iOS\BaseWebViewImplementer.cs" />
+    <Compile Include="PlatformImplemented\iOS\NativeBaseWebView.cs" />
     <Compile Include="PlatformImplemented\iOS\BaseWindow.cs" />
-    <Compile Include="PlatformImplemented\iOS\BaseWindowImplementer.cs" />
     <Compile Include="PlatformImplemented\iOS\MainWebView.cs" />
     <Compile Include="PlatformImplemented\iOS\MainWindow.cs" />
     <Compile Include="PlatformImplemented\iOS\Rectangle.cs" />
@@ -94,10 +94,7 @@
     <Content Include="Assets\fonts\glyphicons-halflings-regular.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\html\templates\modal.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\html\templates\progressbar.html">
+    <Content Include="Assets\html\templates\bootstrap.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\js\bootstrap.min.js">

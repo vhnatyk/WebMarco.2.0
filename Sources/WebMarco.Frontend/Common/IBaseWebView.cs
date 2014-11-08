@@ -13,6 +13,8 @@ namespace WebMarco.Frontend.Common {
         void LoadMarkup();
         void LoadMarkup(BaseWebPage page);
 
+        void LoadPage(string pageTypeName, string callBackMethodName = null);
+
         object CallFrontend(string script);
         CallResult ProcessCallFromFrontend(CallConfig config);
     }
