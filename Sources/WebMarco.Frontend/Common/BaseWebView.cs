@@ -20,7 +20,7 @@ namespace WebMarco.Frontend.Common {
 #if ANDROID
         WebMarco.Frontend.PlatformImplemented.Android.NativeBaseWebView
 #elif WIN
- WebMarco.Frontend.PlatformImplemented.Win.NativeBaseWebView
+        WebMarco.Frontend.PlatformImplemented.Win.NativeBaseWebView
 #elif iOS
         WebMarco.Frontend.PlatformImplemented.iOS.NativeBaseWebView 
 #elif MACOSX
@@ -29,7 +29,6 @@ namespace WebMarco.Frontend.Common {
   ///
 #endif
 , IBaseWebView {
-
         #region IBaseWebView
         public BaseWebView(IBaseWindow window, BaseWebPage defaultPage) :
 #if ANDROID
@@ -44,6 +43,7 @@ namespace WebMarco.Frontend.Common {
   ///
 #endif
  {
+            LoadedPages = new Stack<BaseWebPage>();
             Page = defaultPage;
             parentWindow = window;
             implementer = new BaseWebViewImplementer(this);
@@ -61,9 +61,16 @@ namespace WebMarco.Frontend.Common {
             }
         }
 
+        public Stack<BaseWebPage> LoadedPages { get; private set; }
 
-
-        public BaseWebPage Page { get; private set; }
+        public BaseWebPage Page {
+            get {
+                return LoadedPages.Peek();
+            }
+            private set {
+                LoadedPages.Push(value);
+            }
+        }
 
         #endregion
 
@@ -76,7 +83,7 @@ namespace WebMarco.Frontend.Common {
             LoadMarkup(page.Url);
         }
 
-        #region LoadPage API
+        #region Navigation API
 
         private static BaseWebPage GetPageByTypeName(string pageTypeName, string assemblyName) {
             return (BaseWebPage)(Activator.CreateInstance(
@@ -102,12 +109,12 @@ namespace WebMarco.Frontend.Common {
                         BaseWebPage page = GetPageByTypeName(pageTypeName, assemblyName);
                         taskAssemblyName = assemblyName;
                         return page;
-                    } catch (Exception ex) {
+                    } catch(Exception ex) {
                         DLogger.WriteLog(ex);
                         return null;
                     }
                 }
-            } 
+            }
             return GetPageByTypeName(pageTypeName, taskAssemblyName);
         }
 
@@ -115,6 +122,11 @@ namespace WebMarco.Frontend.Common {
             BaseWebPage page = GetPageFromTaskFrontendAssembly(pageTypeName);
             page.ParentWebView = this;
             page.Load();
+        }
+
+        public void Back() {
+            LoadedPages.Pop();
+            LoadMarkup(LoadedPages.Pop());
         }
 
         #endregion

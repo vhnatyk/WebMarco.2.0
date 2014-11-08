@@ -200,9 +200,6 @@
     <Content Include="Assets\js\jquery.tinyscrollbar.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\js\jquery.treeview.js">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Assets\js\Pages\TemplatePage.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

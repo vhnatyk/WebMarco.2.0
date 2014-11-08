@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MainWindow.cs" />
-    <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\MainView.cs" />
   </ItemGroup>
@@ -163,13 +162,9 @@
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\fonts\xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff">
       <Link>Assets\fonts\xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff</Link>
     </AndroidAsset>
-    <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Layout\Main.axml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Values\Strings.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable\Icon.png" />
@@ -344,6 +339,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\" />
+    <Folder Include="Resources\Values\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Modules\Vici\CoolStorage\library\Vici.CoolStorage.PCL.csproj">

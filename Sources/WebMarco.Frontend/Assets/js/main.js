@@ -162,7 +162,7 @@ function setServerInstanceUid(val) {
     console.log('serverInstanceUid = ' + val);
 }
 
-reinitializeServerUid = function() {
+reinitializeServerUid = function () {
     console.log("reinitializeServerUid()");
     var result = callBackend("ReinitializeServerUid", null, true);
     console.log('result : ' + result);
@@ -204,6 +204,8 @@ function loadView(viewName, callbackFunction) {
 function loadPage(pageName, callbackFunction) {
     callBackend("LoadPage", [pageName, callbackFunction]);
 }
+
+function back() { callBackend("Back"); }
 /* end of view loading */
 /* end of WebMarco API */
 /* end of various common service methods and vars */

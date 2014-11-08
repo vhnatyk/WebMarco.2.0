@@ -28,9 +28,12 @@ namespace WebMarco.Frontend.Common {
         }
 
         #region IBaseWebView
-
-
+        
         public Uri ViewUrl { get { return (Page == null) ? webView.ViewUrl : Page.Url; } }
+        
+        public Stack<BaseWebPage> LoadedPages {
+            get { return webView.LoadedPages; }
+        }
 
         public BaseWebPage Page { get { return webView.Page; } }
 
@@ -60,6 +63,9 @@ namespace WebMarco.Frontend.Common {
 
         public void LoadPage(string pageTypeName, string callBackMethodName = null) {
             webView.LoadPage(pageTypeName, callBackMethodName);
+        }
+        public void Back() {
+            webView.Back();
         }
 
         /// <summary>

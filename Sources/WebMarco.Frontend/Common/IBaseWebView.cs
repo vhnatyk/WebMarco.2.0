@@ -6,7 +6,7 @@ using WebMarco.Backend.Bridge.Common;
 namespace WebMarco.Frontend.Common {
     public interface IBaseWebView : INativeWebView, IBaseView {
         string NameString { get; }
-        Uri ViewUrl { get; }
+        Stack<BaseWebPage> LoadedPages { get; }
         BaseWebPage Page { get; }
         string Markup { get; }
 
@@ -14,8 +14,8 @@ namespace WebMarco.Frontend.Common {
         void LoadMarkup(BaseWebPage page);
 
         void LoadPage(string pageTypeName, string callBackMethodName = null);
+        void Back();
 
-        object CallFrontend(string script);
         CallResult ProcessCallFromFrontend(CallConfig config);
     }
 }
