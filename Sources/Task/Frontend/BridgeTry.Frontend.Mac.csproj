@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>BridgeTry.Frontend</RootNamespace>
     <MonoMacResourcePrefix>Resources</MonoMacResourcePrefix>
-    <AssemblyName>BridgeTry.Frontend.Mac</AssemblyName>
+    <AssemblyName>BridgeTry.Frontend</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -77,15 +77,13 @@
   <ItemGroup>
     <Compile Include="Common\Pages\MainPage.cs" />
     <Compile Include="Common\Views\MainView.cs" />
+    <Compile Include="Common\Pages\TemplatePage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\blue.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\css\green.css">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\css\jquery.treeview.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\css\orange.css">
@@ -262,13 +260,19 @@
     <Content Include="Assets\js\jquery.tinyscrollbar.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\js\jquery.treeview.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Assets\js\responsiveCarousel.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\js\Pages\MainPage.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\js\Pages\TemplatePage.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\html\Pages\TemplatePage.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\css\Pages\TemplatePage.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -17,24 +17,21 @@ using MonoMac.Foundation;
 namespace WebMarco.Frontend.PlatformImplemented.Mac {
 
 
-	public abstract class BaseWebView : WebView, IBaseWebView {
+	public abstract class NativeBaseWebView : WebView, INativeWebView {
 
         #region Private methods
 
         #endregion
 
-        private IBaseWindow parentWindow = null;
+        protected IBaseWindow parentWindow = null;
 
-        private BaseWebViewImplementer implementer;
+        protected BaseWebViewImplementer implementer;
 
 
-        public BaseWebView(IBaseWindow window, BaseWebPage defaultPage, bool bouncingEnabled = false)
+        public NativeBaseWebView(bool bouncingEnabled = false)
             : base()//window.Frame) 
         {
-            Page = defaultPage;
-            parentWindow = window;
-            implementer = new BaseWebViewImplementer(this);
-            //ScrollView.Bounces = bouncingEnabled;
+
         }
 
         #region Hide base properties
@@ -53,27 +50,15 @@ namespace WebMarco.Frontend.PlatformImplemented.Mac {
         }
 
 
-        #region IBaseWebView
+        #region INativeWebView
 
         #region Public Properties
 
-        public string NameString {
-            get { return this.GetType().Name; }
-        }
-
         public virtual Uri ViewUrl {
             get {
-				return (Page == null)? new Uri(this.MainFrameUrl) : Page.Url;
+				return new Uri(this.MainFrameUrl);
             }
         }
-
-        public string Markup {
-            get {
-                throw new NotImplementedException();
-            }
-        }
-
-        public BaseWebPage Page { get; private set; }
 
         #endregion
 
@@ -93,28 +78,15 @@ namespace WebMarco.Frontend.PlatformImplemented.Mac {
 			});
         }
 
-        public void LoadMarkup() {
-            implementer.LoadMarkup();
-        }
-
-        public void LoadMarkup(BaseWebPage page) {
-            Page = page;
-            LoadMarkup(page.Url);
-        }
-
         public object CallFrontend(string script) {
             object result = null;
 			BaseAppDelegate.Instance.ExecuteOnMainThread(() => result = this.StringByEvaluatingJavaScriptFromString(script));
             return (result != null) ? result.ToString() : result;
         }
 
-        public CallResult ProcessCallFromFrontend(CallConfig config) {
-            return implementer.ProcessCallFromFrontend(config);
-        }
-
         #endregion
 
-        #region IBaseView
+        #region INativeView
 
         public Point TopLeft {
             get {
@@ -204,9 +176,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Mac {
         }
 
         public virtual void Load() {
-            implementer.Load(); /*Sort of base.Load if BaseView would be base class for this one, 
-            but it's not, but still can be executed in implementer if necessary */
-            LoadMarkup();
+			throw new NotImplementedException();
         }
 
         #endregion

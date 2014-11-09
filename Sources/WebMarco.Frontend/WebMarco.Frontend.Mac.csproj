@@ -66,6 +66,7 @@
     <Folder Include="PlatformImplemented\" />
     <Folder Include="Assets\" />
     <Folder Include="Assets\html\" />
+    <Folder Include="Assets\html\templates\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\BaseRectangle.cs" />
@@ -80,14 +81,14 @@
     <Compile Include="Common\ViewsHolder.cs" />
     <Compile Include="Common\Helpers\HtmlUiHelper.cs" />
     <Compile Include="PlatformImplemented\Mac\BaseView.cs" />
-    <Compile Include="PlatformImplemented\Mac\BaseViewImplementer.cs" />
-    <Compile Include="PlatformImplemented\Mac\BaseWebView.cs" />
-    <Compile Include="PlatformImplemented\Mac\BaseWebViewImplementer.cs" />
     <Compile Include="PlatformImplemented\Mac\BaseWindow.cs" />
-    <Compile Include="PlatformImplemented\Mac\BaseWindowImplementer.cs" />
     <Compile Include="PlatformImplemented\Mac\MainWebView.cs" />
     <Compile Include="PlatformImplemented\Mac\MainWindow.cs" />
     <Compile Include="PlatformImplemented\Mac\Rectangle.cs" />
+    <Compile Include="Common\INativeView.cs" />
+    <Compile Include="Common\INativeWebView.cs" />
+    <Compile Include="Common\BaseWebView.cs" />
+    <Compile Include="PlatformImplemented\Mac\NativeBaseWebView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\baseStyle.css">
@@ -126,12 +127,6 @@
     <Content Include="Assets\css\bootstrap_fonts.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\html\templates\modal.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\html\templates\progressbar.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Assets\js\HTMLImports.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -144,5 +139,8 @@
     <Content Include="Assets\js\jquery-1.11.1.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\html\templates\bootstrap.html" />
   </ItemGroup>
 </Project>

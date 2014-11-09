@@ -3,6 +3,8 @@ using MonoMac.Foundation;
 using MonoMac.AppKit;
 using MonoMac.ObjCRuntime;
 using WebMarco.Frontend.PlatformImplemented.Mac;
+using TinyIoC;
+using WebMarco.Backend.App.Common;
 
 namespace BridgeTry.Mac
 {
@@ -18,6 +20,7 @@ namespace BridgeTry.Mac
 
 		public override void FinishedLaunching (NSObject notification)
 		{
+			TinyIoCContainer.Current.Register<BaseAppDelegate, AppDelegate>(AppDelegate.Instance);
 			mainWindowController = new MainWindowController ();
 			mainWindowController.Window.MakeKeyAndOrderFront (this);
 		}
