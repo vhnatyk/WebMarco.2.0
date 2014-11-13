@@ -16,8 +16,8 @@ namespace BridgeTry.Frontend.Common.Pages {
         public CallResult GetTestDataFromBackend(object parameters) {
             var someValue = (string)parameters;//do your conversion as necessary
             string response = String.Format("Some text {0}", someValue);
-
             return new CallResult(response); //return data as CallResult
         }
+
     }
 }

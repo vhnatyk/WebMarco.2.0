@@ -21,6 +21,7 @@ namespace BridgeTry {
         public MainWindow()
             : base() {
             TinyIoCContainer.Current.Register<WebMarco.Backend.App.Common.BaseAppDelegate, AppDelegate>(AppDelegate.Instance);
+            AppDelegate.Instance.MainWindow = this;
             TinyIoCContainer.Current.Register<AppHelper.Data.Manager, Manager>(new Manager());
             AppHelper.Data.ConnectDatabase();
             /// Program entry point is here
@@ -86,7 +87,7 @@ namespace BridgeTry {
         }
 
         private void LoadUrl(string url) {
-            if (Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute)) {
+            if(Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute)) {
                 browser.Load(url);
             }
         }
@@ -97,9 +98,9 @@ namespace BridgeTry {
             ///
             //this.AutomaticUpdater = new wyDay.Controls.AutomaticUpdater();
             //((System.ComponentModel.ISupportInitialize)(this.automaticUpdater)).BeginInit();
-                        
+
             //this.SuspendLayout();           
-            
+
             /*
             // 
             // automaticUpdater
@@ -117,7 +118,7 @@ namespace BridgeTry {
             //this.automaticUpdater.ReadyToBeInstalled += new EventHandler(automaticUpdater_ReadyToBeInstalled);
             //
              */
-             
+
             ///
             /// MainForm
             /// 

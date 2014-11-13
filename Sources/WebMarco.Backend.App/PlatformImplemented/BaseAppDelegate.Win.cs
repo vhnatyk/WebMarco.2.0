@@ -12,11 +12,11 @@ using System.Windows.Forms;
 namespace WebMarco.Backend.App.PlatformImplemented.Win {
     public abstract class BaseAppDelegate : WebMarco.Backend.App.Common.BaseAppDelegate {
         public override void ExecuteOnMainThread(Action action) {
-            WindowsFormsSynchronizationContext.Current.Post(p => { action.Invoke(); }, null);//TODO: emm... Separate file for these oneliners ? :| 
+            ((Form)MainWindow).Invoke(action);//TODO: emm... Separate file for these oneliners ? :| 
         }
 
         public override void ExecuteOnMainThread<T>(Action<T> action, T optionalParameter) {
-            WindowsFormsSynchronizationContext.Current.Post(p => { action.Invoke((T)p); }, optionalParameter);
+            ((Form)MainWindow).Invoke(action, new object[] { optionalParameter });
         }
 
         public override void Quit() {

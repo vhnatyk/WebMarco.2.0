@@ -17,7 +17,20 @@ namespace WebMarco.Backend.App.Common {
     public abstract class BaseAppDelegate 
 #endif    
     {
-        public object MainWindow { get; private set; }
+
+        private object mainWindow;
+        public object MainWindow {
+            get { return mainWindow; }
+            set {
+                if(mainWindow == null) {
+                    mainWindow = value;
+                } else { 
+#if DEBUG
+                    throw new MemberAccessException("MainWindow already set."); 
+#endif
+                }
+            }
+        }
 
         public static BaseAppDelegate Instance {
             get {

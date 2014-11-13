@@ -23,8 +23,6 @@ namespace WebMarco.Frontend.Common {
 
         #region Constructors and initialization
 
-
-
         #endregion
 
         #region Frontend/Backend call mechanics

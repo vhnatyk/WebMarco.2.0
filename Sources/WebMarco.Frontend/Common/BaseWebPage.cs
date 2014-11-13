@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using WebMarco.Backend.App.Common;
 using WebMarco.Backend.Bridge.Common;
 
-//[assembly: InternalsVisibleToAttribute("BridgeTry.Frontend")] //TODO: make it work via solution wide project import
+//[assembly: InternalsVisibleToAttribute("RideReady.Frontend")] //TODO: make it work via solution wide project import
 namespace WebMarco.Frontend.Common {
     public abstract class BaseWebPage {
 
@@ -24,7 +24,7 @@ namespace WebMarco.Frontend.Common {
         
         }
 
-        protected BaseWebPage(IBaseWebView parentWebView = null) {            
+        public BaseWebPage(IBaseWebView parentWebView = null) {            
             ParentWebView = parentWebView;
         }
 

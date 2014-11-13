@@ -559,12 +559,12 @@ p.webmarco-logo-note {
 /*---End-test-monials---*/
 
 /*Pricing table and price blocks*/
-.pricing-plans {
+.block1s {
     background: url(../img/pricing-bg.png) repeat-x;
     padding: 3em 0 2em 0;
 }
 
-.pricing-plans-head h3 {
+.block1s-head h3 {
     font-size: 2em;
     color: #232323;
     font-family: trebuchet ms,'open_sansregular';
@@ -573,7 +573,7 @@ p.webmarco-logo-note {
     margin-bottom: 0.8em;
 }
 
-.pricing-plans-head p {
+.block1s-head p {
     color: #838383;
     line-height: 1.5em;
     font-size: 1em;
@@ -2155,15 +2155,15 @@ img.mfp-img {
         padding: 1em 0 0.5em 0;
     }
 
-    .pricing-plans-head h3 {
+    .block1s-head h3 {
         font-size: 1.5em;
     }
 
-    .pricing-plans-head p {
+    .block1s-head p {
         font-size: 0.875em;
     }
 
-    .pricing-plans {
+    .block1s {
         background: url(../img/pricing-bg.png);
         padding: 1.6em 0 1em 0;
     }
@@ -2361,15 +2361,15 @@ img.mfp-img {
         padding: 1em 0 0.5em 0;
     }
 
-    .pricing-plans-head h3 {
+    .block1s-head h3 {
         font-size: 1.5em;
     }
 
-    .pricing-plans-head p {
+    .block1s-head p {
         font-size: 0.875em;
     }
 
-    .pricing-plans {
+    .block1s {
         background: url(../img/pricing-bg.png);
         padding: 1.6em 0 1em 0;
     }

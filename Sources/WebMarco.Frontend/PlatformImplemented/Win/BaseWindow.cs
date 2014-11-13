@@ -56,8 +56,9 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
 
         #region Constructors and initialization
 
-
-
+        public BaseWindow() : base() {
+         
+        }
         #endregion
 
         #region Frontend/Backend call mechanics
@@ -99,8 +100,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
         }
 
         #endregion
-
-
+        
         public BaseRectangle CurrentFrame {
             get { throw new NotImplementedException(); }
         }
