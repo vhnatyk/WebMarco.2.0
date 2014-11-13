@@ -149,11 +149,13 @@ function callBackendWithConfig(callConfig) {
             try {
                 callbackConfig = JSON.parse(responseData);
             } catch (e) { }
-            if (isEmpty(callbackConfig)) {
-                result = responseData;//doesn't contain callback config
+            if (isEmpty(callbackConfig)) { //response data is not json string
+                result = responseData;
+            } else if (isEmpty(callbackConfig.MethodName)) { //doesn't contain callback config
+                result = callbackConfig;
             } else {
                 console.log('backendCallResultHandler :' + callbackConfig.MethodName);
-                result = backendCallResultHandler(callbackConfig);//result, probably is unnecessary here, but can be used if it is
+                result = backendCallResultHandler(callbackConfig); //result, probably is unnecessary here, but can be used if it is
             }
         },
         error: function (request, status, err) {
