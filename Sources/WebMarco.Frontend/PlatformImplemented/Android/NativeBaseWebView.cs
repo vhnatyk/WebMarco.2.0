@@ -13,6 +13,7 @@ using Java.Lang;
 using Java.Interop;
 using WebMarco.Backend.Bridge.Common;
 using WebMarco.Backend.App.Common;
+using Android.OS;
 
 namespace WebMarco.Frontend.PlatformImplemented.Android {
 
@@ -97,6 +98,20 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
             : base((Context)window) {
             scriptInterface = new SynchronousFrontendScriptInterface();
             AddJavascriptInterface((Java.Lang.Object)scriptInterface, scriptInterface.Name);
+#if DEBUG
+            try {
+                bool isEmulator = Build.Hardware.Contains("goldfish") || Build.Hardware.Contains("vbox86");
+                if(!isEmulator) {
+                    bool isSupportedSdk = Build.VERSION.SdkInt >= BuildVersionCodes.Kitkat;
+                    if(isSupportedSdk) {
+                        //WebView.SetWebContentsDebuggingEnabled(true);
+                    }
+                }
+            } catch(System.Exception ex) {
+                DLogger.WriteLog(ex);
+                throw new NotSupportedException("Remote debugging can't be enabled. Please check SDK minimum supported version.", ex);
+            }
+#endif
         }
         #region Hide base properties
 
