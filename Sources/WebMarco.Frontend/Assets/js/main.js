@@ -34,8 +34,12 @@ writeLog = function (logText, ex, noFormat) {
 /* end of logging methods */
 
 //fast click
-var attachFastClick = Origami.fastclick;
-attachFastClick(document.body);
+//var attachFastClick = Origami.fastclick;
+//attachFastClick(document.body);
+
+window.addEventListener('load', function () {
+    FastClick.attach(document.body);
+}, false);
 
 function isEmpty(obj) {
     if (typeof obj == 'undefined' || obj === null || obj === '') return true;
