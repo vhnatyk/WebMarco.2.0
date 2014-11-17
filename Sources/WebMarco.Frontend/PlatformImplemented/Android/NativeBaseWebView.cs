@@ -104,7 +104,7 @@ namespace WebMarco.Frontend.PlatformImplemented.Android {
                 if(!isEmulator) {
                     bool isSupportedSdk = Build.VERSION.SdkInt >= BuildVersionCodes.Kitkat;
                     if(isSupportedSdk) {
-                        //WebView.SetWebContentsDebuggingEnabled(true);
+                        //WebView.SetWebContentsDebuggingEnabled(true);//TODO:throws anyway on emulator
                     }
                 }
             } catch(System.Exception ex) {
