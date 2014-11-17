@@ -33,6 +33,10 @@ writeLog = function (logText, ex, noFormat) {
 }
 /* end of logging methods */
 
+//fast click
+var attachFastClick = Origami.fastclick;
+attachFastClick(document.body);
+
 function isEmpty(obj) {
     if (typeof obj == 'undefined' || obj === null || obj === '') return true;
     if (typeof obj == 'number' && isNaN(obj)) return true;

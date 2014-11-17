@@ -133,6 +133,9 @@
     <Content Include="Assets\js\bootstrap.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\js\fastclick.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\js\HTMLImports.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
