@@ -76,8 +76,9 @@ namespace WebMarco.Frontend.PlatformImplemented.Win {
 
         public object CallFrontend(string script) {
             object result = null;
-            BaseAppDelegate.Instance.ExecuteOnMainThread(() => { 
-                result = base.EvaluateScript(script, new TimeSpan(0,20,0)); });//20 minutes timeout
+            BaseAppDelegate.Instance.ExecuteOnMainThread(() => {
+                result = base.EvaluateScript(script, new TimeSpan(0, 20, 0));//20 minutes timeout
+            });
             return (result != null) ? result.ToString() : result;
         }
 
