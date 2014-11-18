@@ -108,7 +108,7 @@
     <Content Include="Assets\js\jsapi">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\js\main.js">
+    <Content Include="Assets\js\webmarco.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\js\modernizr.custom.28468.js">

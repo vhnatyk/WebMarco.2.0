@@ -36,7 +36,7 @@ namespace WebMarco.Backend.Bridge.Common {
         }
         #endregion
 
-        //TODO: from config? for now !!!DON'T FORGET to set same values in main.js file!!!
+        //TODO: from config? for now !!!DON'T FORGET to set same values in webmarco.js file!!!
         private string serverInstanceUid = "898316fb-f8d6-41ea-8ccf-a58090745d9f";//TODO: from config file, some very random string
         private string serverInstancePort = "38701"; //some very random port number
         private string serverIP = "127.0.0.1";

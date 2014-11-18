@@ -118,7 +118,7 @@
     <Content Include="Assets\js\jquery-ui.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\js\main.js">
+    <Content Include="Assets\js\webmarco.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\js\modernizr.custom.28468.js">

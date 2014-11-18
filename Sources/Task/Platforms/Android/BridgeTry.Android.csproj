@@ -266,8 +266,8 @@
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\jquery-ui.min.js">
       <Link>Assets\js\jquery-ui.min.js</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\main.js">
-      <Link>Assets\js\main.js</Link>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\webmarco.js">
+      <Link>Assets\js\webmarco.js</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\js\modernizr.custom.28468.js">
       <Link>Assets\js\modernizr.custom.28468.js</Link>

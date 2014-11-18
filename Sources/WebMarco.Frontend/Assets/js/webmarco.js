@@ -38,7 +38,9 @@ writeLog = function (logText, ex, noFormat) {
 //attachFastClick(document.body);
 
 window.addEventListener('load', function () {
-    FastClick.attach(document.body);
+    try {
+        FastClick.attach(document.body);
+    } catch (ex) { }
 }, false);
 
 function isEmpty(obj) {

@@ -125,8 +125,10 @@ namespace WebMarco.Frontend.Common {
         }
 
         public void Back() {
-            LoadedPages.Pop();
-            LoadMarkup(LoadedPages.Pop());
+            try {
+                LoadedPages.Pop();
+                LoadMarkup(LoadedPages.Pop());
+            } catch { }
         }
 
         #endregion
