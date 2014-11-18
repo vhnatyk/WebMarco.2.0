@@ -81,7 +81,7 @@
     <Compile Include="Common\AppHelper.Data.cs" />
     <Compile Include="Common\AppHelper.Paths.cs" />
     <Compile Include="Common\BaseAppDelegate.cs" />
-    <Compile Include="Common\Settings.cs" />
+    <Compile Include="Common\BaseSettings.cs" />
     <Compile Include="PlatformImplemented\AppHelper.Data.Manager.Win.cs" />
     <Compile Include="PlatformImplemented\BaseAppDelegate.Win.cs" />
     <Compile Include="PlatformImplemented\BaseSettings.Win.cs" />
