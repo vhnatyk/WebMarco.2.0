@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using WebMarco.Utilities.Library;
 using WebMarco.Utilities.Logging;
-//using Newtonsoft.Json; //brakes crosplatform compatibility supposedly, at least on Mac
 
 
 namespace WebMarco.Backend.Bridge.Common {
@@ -12,8 +11,7 @@ namespace WebMarco.Backend.Bridge.Common {
     /// 
     /// </summary>
     public class CallConfig {
-
-        //[JsonProperty("id")] //brakes crosplatform compatibility supposedly, at least on Mac
+                
         public Guid UID { get; private set; }
         public string MethodName { get; private set; }
         public object Params { get; private set; }
@@ -35,11 +33,6 @@ namespace WebMarco.Backend.Bridge.Common {
         }
 
         public string ToJsonString() {
-            //var tempContainer = new Dictionary<string, object>();
-            //tempContainer.Add("id", UID.ToString());
-            //tempContainer.Add("name", MethodName);
-            //tempContainer.Add("arguments", Params);
-            //tempContainer.Add("async", IsAsync);
             return SerializationHelper.Instance.JsonSerialize(this);
         }
 
@@ -50,7 +43,9 @@ namespace WebMarco.Backend.Bridge.Common {
                     var tempObject = SerializationHelper.Instance.JsonDeserialize(jsonString);
                     try {
                         result.Params = ((Dictionary<string, object>)tempObject)["Params"];
-                    } catch { }
+                    } catch {
+                        //TODO: here we can supposedly try to cast to other collection types
+                    }
                 }
 
                 return result;
