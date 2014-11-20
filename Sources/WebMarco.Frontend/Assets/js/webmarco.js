@@ -57,6 +57,21 @@ function isVisible(elemLocator) {
     return false;
 }
 
+/*extending jQuery*/
+(function ($) {
+    $.fn.invisible = function () {
+        return this.each(function () {
+            $(this).css("visibility", "hidden");
+        });
+    };
+    $.fn.visible = function () {
+        return this.each(function () {
+            $(this).css("visibility", "visible");            
+        });
+    };
+}(jQuery));
+/*end of extending jQuery*/
+
 function htmlEncode(value) {
     //create an in-memory div, set it's inner text(which jQuery automatically encodes)
     //then grab the encoded contents back out.  The div never exists on the page.

@@ -38,8 +38,10 @@
     <Compile Include="Common\AppHelper.Data.cs" />
     <Compile Include="Common\AppHelper.Paths.cs" />
     <Compile Include="Common\BaseAppDelegate.cs" />
+    <Compile Include="Common\BaseSettings.cs" />
     <Compile Include="PlatformImplemented\AppHelper.Data.Manager.iOS.cs" />
     <Compile Include="PlatformImplemented\BaseAppDelegate.iOS.cs" />
+    <Compile Include="PlatformImplemented\BaseSettings.iOS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

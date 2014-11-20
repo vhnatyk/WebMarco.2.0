@@ -293,8 +293,8 @@
     <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\css\jquery-ui.css">
       <Link>Assets\css\jquery-ui.css</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\css\main.css">
-      <Link>Assets\css\main.css</Link>
+    <AndroidAsset Include="..\..\..\WebMarco.Frontend\Assets\css\webmarco.css">
+      <Link>Assets\css\webmarco.css</Link>
     </AndroidAsset>
     <AndroidAsset Include="..\..\Frontend\Assets\css\blue.css">
       <Link>Assets\css\blue.css</Link>

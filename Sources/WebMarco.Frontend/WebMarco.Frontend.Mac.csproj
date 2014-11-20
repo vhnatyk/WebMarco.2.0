@@ -96,7 +96,7 @@
     <Content Include="Assets\css\jquery-ui.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\css\main.css">
+    <Content Include="Assets\css\webmarco.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\js\jquery-ui.js">
